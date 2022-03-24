@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:ital@0;1&display=swap");
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #bfd7ea;
+  background: #094074 url("../images/about_bg.jpg") no-repeat center / cover
+    fixed;
+}
+
+.wrapper {
+  background: linear-gradient(
+    180deg,
+    rgba(9, 64, 116, 0.8) 0%,
+    rgba(4, 31, 57, 1) 100%
+  );
+}
+
+.content-wrap {
+  max-width: 800px;
+  width: 85%;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Lora", serif;
+}
+
+h1 {
+  font-size: 5rem;
+  line-height: 1;
+}
+
+h2 {
+  font: 2.5rem;
+}
+
+h3 {
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: #fcf6b1;
+  display: inline-block;
+}
+
+h3 a {
+  text-decoration: none;
+  color: #bfd7ea;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.job-item,
+.project-item {
+  border-bottom: 1px dashed #0a8754;
+  padding-bottom: 1rem;
+}
+
+.item-details h3 + p {
+  font-style: italic;
+}
+
+.item-details h3 ~ p {
+  margin: 0;
+}
