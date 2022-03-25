@@ -17,16 +17,12 @@ body {
   font-size: 1.2rem;
   line-height: 1.5;
   color: #bfd7ea;
-  background: #094074 url("../images/about_bg.jpg") no-repeat center / cover
-    fixed;
+  background: #094074 url("../public/images/about_bg.jpg") no-repeat center / cover fixed;
 }
 
 .wrapper {
-  background: linear-gradient(
-    180deg,
-    rgba(9, 64, 116, 0.8) 0%,
-    rgba(4, 31, 57, 1) 100%
-  );
+  background: linear-gradient(180deg, rgba(9, 64, 116, 0.8) 0%, rgba(4, 31, 57, 1) 100%);
+  min-height: 100vh;
 }
 
 .content-wrap {
