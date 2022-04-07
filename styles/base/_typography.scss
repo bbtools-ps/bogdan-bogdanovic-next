@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Roboto:ital@0;1&display=swap");
+
+h1,
+h2,
+h3 {
+  font-family: "Lora", serif;
+}
+
+h1 {
+  font-size: 5rem;
+  line-height: 1;
+}
+
+h2 {
+  font: 2.5rem;
+}
+
+h3 {
+  margin-bottom: 0.5rem;
+}
+
+.item-details h3 + p {
+  font-style: italic;
+}
+
+.item-details h3 ~ p {
+  margin: 0;
+}

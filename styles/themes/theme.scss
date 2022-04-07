@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: $color-primary-lightest;
+  background: $color-primary url("../../public/images/about_bg.jpg") no-repeat
+    center / cover fixed;
+}
+
+.wrapper {
+  background: linear-gradient(
+    180deg,
+    $color-primary-lighter 0%,
+    $color-primary-dark 100%
+  );
+  min-height: 100vh;
+}
+
+.content-wrap {
+  max-width: 800px;
+  width: 85%;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+
+a {
+  color: $color-secondary;
+  display: inline-block;
+}
+
+h3 a {
+  text-decoration: none;
+  color: $color-primary-lightest;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.job-item,
+.project-item {
+  border-bottom: 1px dashed #0a8754;
+  padding-bottom: 1rem;
+}
