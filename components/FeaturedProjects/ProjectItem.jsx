@@ -3,7 +3,7 @@ import Button from "../UI/Buttons/Button";
 import UnorderedList from "../UI/Lists/UnorderedList";
 import ProjectImage from "./ProjectImage";
 
-const FeaturedProjectItem = ({
+const ProjectItem = ({
   title,
   urls,
   imageSrc,
@@ -32,4 +32,4 @@ const FeaturedProjectItem = ({
   );
 };
 
-export default FeaturedProjectItem;
+export default ProjectItem;

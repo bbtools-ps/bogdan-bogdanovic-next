@@ -1,9 +1,9 @@
 import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
 
-const MainContent = () => {
+const MainContent = ({ featuredProjects }) => {
   return (
     <main>
-      <FeaturedProjects />
+      <FeaturedProjects projects={featuredProjects} />
     </main>
   );
 };

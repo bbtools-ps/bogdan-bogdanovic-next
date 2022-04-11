@@ -1,8 +1,7 @@
-import { Projects } from "../../common/data";
 import ExternalLink from "../ExternalLink";
-import Project from "./Project";
+import ProjectItem from "./ProjectItem";
 
-const FeaturedProjects = () => {
+const FeaturedProjects = ({ projects }) => {
   return (
     <section className="projects">
       <div className="content-wrap">
@@ -17,17 +16,21 @@ const FeaturedProjects = () => {
           />{" "}
           for more projects.
         </p>
-        {Projects.map((project) => (
-          <Project
-            key={project.id}
-            title={project.title}
-            urls={project.urls}
-            imageSrc={project.imageSrc}
-            descriptionText={project.descriptionText}
-            technologiesUsed={project.technologiesUsed}
-            buttonTypes={project.buttonTypes}
-          />
-        ))}
+        {projects.length ? (
+          projects.map((project) => (
+            <ProjectItem
+              key={project.id}
+              title={project.title}
+              urls={project.urls}
+              imageSrc={project.imageSrc}
+              descriptionText={project.descriptionText}
+              technologiesUsed={project.technologiesUsed}
+              buttonTypes={project.buttonTypes}
+            />
+          ))
+        ) : (
+          <p>No projects to display.</p>
+        )}
       </div>
     </section>
   );
