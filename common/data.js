@@ -7,7 +7,6 @@ export const Data = {
   },
   Projects: [
     {
-      id: "p1",
       title: "FoodHeaven - Food Ordering App",
       urls: {
         main: "https://bogdan-bogdanovic.com/food-ordering-app/",

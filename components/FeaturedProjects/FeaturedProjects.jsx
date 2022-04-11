@@ -17,9 +17,9 @@ const FeaturedProjects = ({ projects }) => {
           for more projects.
         </p>
         {projects.length ? (
-          projects.map((project) => (
+          projects.map((project, projectIndex) => (
             <ProjectItem
-              key={project.id}
+              key={projectIndex}
               title={project.title}
               urls={project.urls}
               imageSrc={project.imageSrc}
