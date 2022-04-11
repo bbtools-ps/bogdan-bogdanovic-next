@@ -1,6 +1,7 @@
-import Image from "next/image";
 import ExternalLink from "../ExternalLink";
 import Button from "../UI/Buttons/Button";
+import UnorderedList from "../UI/Lists/UnorderedList";
+import ProjectImage from "./ProjectImage";
 
 const FeaturedProjectItem = ({
   title,
@@ -12,35 +13,18 @@ const FeaturedProjectItem = ({
 }) => {
   return (
     <section className="project-item">
-      <h3>
-        <ExternalLink url={urls.main} text={title} />
-      </h3>
-      <Image
-        src={imageSrc}
-        alt={title}
-        layout="responsive"
-        width={700}
-        height={548}
-      />
+      <h3>{urls.main && <ExternalLink url={urls.main} text={title} />}</h3>
+      <ProjectImage url={urls.main} src={imageSrc} alt={title} />
       <div className="project-description">
         <p>{descriptionText}</p>
-        {technologiesUsed.length && (
-          <>
-            <p>Technologies used:</p>
-            <ul>
-              {technologiesUsed.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </>
-        )}
+        <UnorderedList list={technologiesUsed} />
         {urls.source && buttonTypes.source && (
           <Button url={urls.source} type="source" />
         )}
-        {buttonTypes.live && !buttonTypes.info && (
+        {urls.main && buttonTypes.live && (
           <Button url={urls.main} type="live" />
         )}
-        {buttonTypes.info && !buttonTypes.live && (
+        {urls.main && buttonTypes.info && (
           <Button url={urls.main} type="info" />
         )}
       </div>
