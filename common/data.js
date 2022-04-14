@@ -15,8 +15,7 @@ export const Data = {
       imageSrc: "/images/food-heaven-700w.jpg",
       descriptionText: `Small web application for ordering food. Some of the features: add meal to the Cart (including amount), add/Remove meals from Cart, add additional item for each meal in the Cart.`,
       technologiesUsed: ["React.js", "CSS"],
-      buttonTypes: {
-        source: true,
+      buttonVariants: {
         live: true,
         info: false,
       },

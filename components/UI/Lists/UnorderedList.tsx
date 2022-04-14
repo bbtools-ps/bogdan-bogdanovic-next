@@ -1,9 +1,19 @@
-const UnorderedList = ({ name = "Technologies used:", list }) => {
+import React from "react";
+
+interface UnorderedListProps {
+  label?: string;
+  list: string[];
+}
+
+const UnorderedList: React.FC<UnorderedListProps> = ({
+  label = "Technologies used:",
+  list,
+}) => {
   return (
     <>
       {list.length && (
         <>
-          <p>{name}</p>
+          <p>{label}</p>
           <ul>
             {list.map((item) => (
               <li key={item}>{item}</li>

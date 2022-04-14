@@ -1,7 +1,12 @@
+import Project from "../../models/project";
 import ExternalLink from "../ExternalLink";
 import ProjectItem from "./ProjectItem";
 
-const FeaturedProjects = ({ projects }) => {
+interface FeaturedProjectsProps {
+  projects: Project[];
+}
+
+const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
   return (
     <section className="projects">
       <div className="content-wrap">
@@ -17,7 +22,7 @@ const FeaturedProjects = ({ projects }) => {
           for more projects.
         </p>
         {projects.length ? (
-          projects.map((project, projectIndex) => (
+          projects.map((project: Project, projectIndex: number) => (
             <ProjectItem
               key={projectIndex}
               title={project.title}
@@ -25,7 +30,7 @@ const FeaturedProjects = ({ projects }) => {
               imageSrc={project.imageSrc}
               descriptionText={project.descriptionText}
               technologiesUsed={project.technologiesUsed}
-              buttonTypes={project.buttonTypes}
+              buttonVariants={project.buttonVariants}
             />
           ))
         ) : (

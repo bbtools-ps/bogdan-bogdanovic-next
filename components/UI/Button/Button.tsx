@@ -1,9 +1,15 @@
 import { faCode, faEye, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import styles from "./Button.module.css";
 
-const Button = ({ url, type }) => {
-  const handleBtnIcon = (icon) => {
+interface ButtonProps {
+  url: string;
+  variant: "info" | "source" | "live";
+}
+
+const Button: React.FC<ButtonProps> = ({ url, variant = "info" }) => {
+  const handleBtnIcon = (icon: string) => {
     switch (icon) {
       case "source":
         return (
@@ -28,7 +34,7 @@ const Button = ({ url, type }) => {
 
   return (
     <a href={url} target="_blank" className={styles.btn} rel="noreferrer">
-      {handleBtnIcon(type)}
+      {handleBtnIcon(variant)}
     </a>
   );
 };

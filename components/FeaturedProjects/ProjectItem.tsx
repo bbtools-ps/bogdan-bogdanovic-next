@@ -1,15 +1,17 @@
+import React from "react";
+import Project from "../../models/project";
 import ExternalLink from "../ExternalLink";
-import Button from "../UI/Buttons/Button";
+import Button from "../UI/Button/Button";
 import UnorderedList from "../UI/Lists/UnorderedList";
 import ProjectImage from "./ProjectImage";
 
-const ProjectItem = ({
+const ProjectItem: React.FC<Project> = ({
   title,
   urls,
   imageSrc,
   descriptionText,
   technologiesUsed,
-  buttonTypes,
+  buttonVariants,
 }) => {
   return (
     <section className="project-item">
@@ -18,14 +20,12 @@ const ProjectItem = ({
       <div className="project-description">
         <p>{descriptionText}</p>
         <UnorderedList list={technologiesUsed} />
-        {urls.source && buttonTypes.source && (
-          <Button url={urls.source} type="source" />
+        {urls.source && <Button url={urls.source} variant="source" />}
+        {urls.main && buttonVariants.live && (
+          <Button url={urls.main} variant="live" />
         )}
-        {urls.main && buttonTypes.live && (
-          <Button url={urls.main} type="live" />
-        )}
-        {urls.main && buttonTypes.info && (
-          <Button url={urls.main} type="info" />
+        {urls.main && buttonVariants.info && (
+          <Button url={urls.main} variant="info" />
         )}
       </div>
     </section>
