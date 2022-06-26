@@ -1,4 +1,4 @@
-import Project from "../../models/project";
+import Project from "../../common/models/project";
 import ExternalLink from "../ExternalLink";
 import ProjectItem from "./ProjectItem";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Project from "../../models/project";
+import Project from "../../common/models/project";
 import ExternalLink from "../ExternalLink";
 import Button from "../UI/Button/Button";
 import UnorderedList from "../UI/Lists/UnorderedList";

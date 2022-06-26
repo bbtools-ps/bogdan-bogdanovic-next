@@ -1,3 +1,4 @@
+import { Link } from "@nextui-org/react";
 import React from "react";
 
 interface ExternalLinkProps {
@@ -8,9 +9,9 @@ interface ExternalLinkProps {
 
 const ExternalLink: React.FC<ExternalLinkProps> = ({ url, text, children }) => {
   return (
-    <a href={url} target="_blank" rel="noreferrer">
+    <Link href={url} target="_blank" rel="noreferrer">
       {text ? text : children}
-    </a>
+    </Link>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import Project from "../models/project";
+import Project from "../common/models/project";
 import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
 
 interface MainContentProps {
