@@ -1,21 +1,74 @@
-const Footer = () => {
+import {
+  faBehance,
+  faGithub,
+  faLinkedin,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "@nextui-org/react";
+import React from "react";
+
+interface FooterProps {
+  title: string;
+}
+
+const Footer: React.FC<FooterProps> = ({ title }) => {
   return (
     <footer>
-      {/* <div class="content-wrap">
-      <h2>Contact / Social Media</h2>
-      <a href="mailto:bogdi.mail@gmail.com" target="_top"><i
-              class="fa-solid fa-envelope"></i>bogdi.mail@gmail.com</a>
-      <ul>
-          <li><a href="https://www.behance.net/bogdanbogdanovic" target="_blank"><i
-                      class="fa-brands fa-behance-square"></i>Behance</a></li>
-          <li><a href="https://www.linkedin.com/in/bogdanbogdanovic" target="_blank"><i
-                      class="fa-brands fa-linkedin"></i>Linkedin</a></li>
-          <li><a href="https://www.youtube.com/user/bogdimail" target="_blank"><i
-                      class="fa-brands fa-youtube-square"></i>Youtube</a></li>
-          <li><a href="https://github.com/bbtools-ps/" target="_blank"><i
-                      class="fa-brands fa-github-square"></i>Github</a></li>
-      </ul>
-  </div> */}
+      <div className="content-wrap">
+        <h2>{title}</h2>
+        <Link
+          href="mailto:bogdi.mail@gmail.com"
+          target="_top"
+          rel="noopener noreferrer"
+        >
+          <FontAwesomeIcon icon={faEnvelope} />
+          bogdi.mail@gmail.com
+        </Link>
+        <ul>
+          <li>
+            <Link
+              href="https://github.com/bbtools-ps/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+              Github
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://www.behance.net/bogdanbogdanovic"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faBehance} />
+              Behance
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://www.linkedin.com/in/bogdanbogdanovic"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+              Linkedin
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="https://www.youtube.com/user/bogdimail"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={faYoutube} />
+              Youtube
+            </Link>
+          </li>
+        </ul>
+      </div>
     </footer>
   );
 };

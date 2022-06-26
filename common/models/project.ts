@@ -1,8 +1,9 @@
 export interface Project {
   title: string;
-  urls: { main: string; source: string };
-  imageSrc: string;
-  descriptionText: string;
-  technologiesUsed: string[];
-  buttonVariants: { live: boolean; info: boolean };
+  description: string;
+  technologies?: { stringValue: string }[];
+  equipment?: { stringValue: string }[];
+  infoLink?: string;
+  liveLink?: string;
+  sourceLink?: string;
 }

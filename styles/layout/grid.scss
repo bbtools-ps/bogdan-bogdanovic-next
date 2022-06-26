@@ -22,6 +22,12 @@
   }
 }
 
+footer {
+  a {
+    gap: 0.5rem;
+  }
+}
+
 /* Responsive
 ------------------------------------*/
 
@@ -29,6 +35,12 @@
   header,
   footer {
     text-align: center;
+    ul {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      gap: 1rem;
+    }
   }
   p {
     text-align: left;
@@ -43,11 +55,6 @@
   .job-item a {
     margin-left: 1.2rem;
   }
-  footer ul {
-    display: flex;
-    justify-content: center;
-    padding: 0;
-  }
 }
 
 @media screen and (max-width: 759px) {
@@ -57,12 +64,17 @@
   .content-wrap {
     padding: 1.2rem 0;
   }
-  footer a {
-    padding: 0.2rem;
+  footer {
+    a {
+      padding: 0.2rem;
+    }
+    ul {
+      margin-left: 0;
+    }
   }
   .project-item {
     display: grid;
-    gap: 1.5rem;
+    gap: 0.5rem;
   }
 }
 

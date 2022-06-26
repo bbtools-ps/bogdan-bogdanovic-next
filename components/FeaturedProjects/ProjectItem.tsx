@@ -2,44 +2,67 @@ import { Link } from "@nextui-org/react";
 import React from "react";
 import { Project } from "../../common/models/Project";
 import Button from "../UI/Button/Button";
-import UnorderedList from "../UI/Lists/UnorderedList";
 import ProjectImage from "./ProjectImage";
 import styles from "./ProjectItem.module.css";
 
-const ProjectItem: React.FC<Project> = ({
+interface ProjectItemProps extends Project {
+  imageSrc: string;
+}
+
+const ProjectItem: React.FC<ProjectItemProps> = ({
   title,
-  urls,
+  description,
   imageSrc,
-  descriptionText,
-  technologiesUsed,
-  buttonVariants,
+  equipment,
+  infoLink,
+  liveLink,
+  sourceLink,
+  technologies,
 }) => {
   return (
     <section className="project-item">
       <h3>
-        {urls.main && (
-          <Link href={urls.main} target="_blank" rel="noopener noreferrer">
+        {infoLink ? (
+          <Link href={infoLink} target="_blank" rel="noopener noreferrer">
+            {title}
+          </Link>
+        ) : (
+          <Link href={liveLink} target="_blank" rel="noopener noreferrer">
             {title}
           </Link>
         )}
       </h3>
-      <ProjectImage url={urls.main} src={imageSrc} alt={title} />
+      <ProjectImage
+        url={infoLink ? infoLink : liveLink}
+        src={imageSrc}
+        alt={title}
+      />
       <div className="project-description">
-        <p>{descriptionText}</p>
-        <UnorderedList list={technologiesUsed} />
+        <p>{description}</p>
+        <p>{technologies ? "Technologies used:" : "Equipment used:"}</p>
+        <ul style={{ listStyleType: "disc" }}>
+          {technologies &&
+            technologies.map((item) => (
+              <li key={item.stringValue}>{item.stringValue}</li>
+            ))}
+          {equipment &&
+            equipment.map((item) => (
+              <li key={item.stringValue}>{item.stringValue}</li>
+            ))}
+        </ul>
         <div className={styles["external-buttons"]}>
-          {urls.source && (
-            <Button url={urls.source} type="source">
+          {sourceLink && (
+            <Button url={sourceLink} type="source">
               Source
             </Button>
           )}
-          {urls.main && buttonVariants.live && (
-            <Button url={urls.main} type="live">
+          {liveLink && (
+            <Button url={liveLink} type="live">
               Live
             </Button>
           )}
-          {urls.main && buttonVariants.info && (
-            <Button url={urls.main} type="info">
+          {infoLink && (
+            <Button url={infoLink} type="info">
               Info
             </Button>
           )}

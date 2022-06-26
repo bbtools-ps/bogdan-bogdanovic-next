@@ -2,15 +2,15 @@ import { useTheme } from "@nextui-org/react";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects";
+import Footer from "../components/Footer/Footer";
 
-import { Data } from "../common/models/data";
 // import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home"])),
+      ...(await serverSideTranslations(locale, ["home", "common"])),
     },
   };
 }
@@ -35,12 +35,12 @@ const Home = () => {
       />
       <main>
         <FeaturedProjects
-          projects={Data.Projects}
           title={t("home:FeaturedProjectsTitle_Label")}
           description={t("home:FeaturedProjectsDescription_Label")}
         />
       </main>
       {/* <Footer /> */}
+      <Footer title={t("common:FooterTitle_Label")} />
     </div>
   );
 };

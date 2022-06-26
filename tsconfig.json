@@ -19,7 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "common/hooks/use-fetch.js"
+    "common/hooks/use-fetch.ts",
+    "common/functions/imageLoader.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,11 +1,9 @@
 import { Link, Loading } from "@nextui-org/react";
 import { Trans } from "next-i18next";
 import useFetch from "../../common/hooks/use-fetch";
-import { Project } from "../../common/models/Project";
 import ProjectItem from "./ProjectItem";
 
 interface FeaturedProjectsProps {
-  projects: Project[];
   title: string;
   description: string;
 }
@@ -13,9 +11,15 @@ interface FeaturedProjectsProps {
 const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
   title,
   description,
-  projects,
 }) => {
-  const { data, loading, error } = useFetch("https://localhost:4000");
+  const {
+    data: projects,
+    loading,
+    error,
+  } = useFetch(
+    "https://firestore.googleapis.com/v1/projects/bogdan-bogdanovic/databases/(default)/documents/projects"
+  );
+  if (projects) console.log(projects.documents);
   return (
     <section className="projects">
       <div className="content-wrap">
@@ -53,19 +57,23 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
         )}
         {/* State: succeeded */}
         {!loading &&
-          projects.length &&
-          projects.map((project: Project, projectIndex: number) => (
+          projects &&
+          projects.documents.map((project) => (
             <ProjectItem
-              key={projectIndex}
-              title={project.title}
-              urls={project.urls}
-              imageSrc={project.imageSrc}
-              descriptionText={project.descriptionText}
-              technologiesUsed={project.technologiesUsed}
-              buttonVariants={project.buttonVariants}
+              key={project.name}
+              title={project.fields.title.stringValue}
+              imageSrc={project.fields.imageName.stringValue}
+              description={project.fields.description.stringValue}
+              technologies={project.fields.technologies?.arrayValue.values}
+              equipment={project.fields.equipment?.arrayValue.values}
+              infoLink={project.fields.infoLink?.stringValue}
+              sourceLink={project.fields.sourceLink?.stringValue}
+              liveLink={project.fields.liveLink?.stringValue}
             />
           ))}
-        {!loading && !projects.length && <p>No projects.</p>}
+        {!loading && projects && !projects.documents.length && (
+          <p>No projects.</p>
+        )}
         {/* State: failed */}
         {error && <p>Error loading projects.</p>}
       </div>
