@@ -1,36 +1,59 @@
-import { Link } from "@nextui-org/react";
+import { Link, Loading } from "@nextui-org/react";
+import { Trans } from "next-i18next";
+import useFetch from "../../common/hooks/use-fetch";
 import { Project } from "../../common/models/Project";
 import ProjectItem from "./ProjectItem";
 
 interface FeaturedProjectsProps {
   projects: Project[];
+  title: string;
+  description: string;
 }
 
-const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
+const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
+  title,
+  description,
+  projects,
+}) => {
+  const { data, loading, error } = useFetch("https://localhost:4000");
   return (
     <section className="projects">
       <div className="content-wrap">
-        <h2>Featured Projects</h2>
+        <h2>{title}</h2>
         <p>
-          Check out my{" "}
-          <Link
-            href="https://github.com/bbtools-ps/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Github
-          </Link>{" "}
-          and
-          <Link
-            href="https://www.behance.net/bogdanbogdanovic"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Behance
-          </Link>
-          for more projects.
+          <Trans
+            i18nKey={description}
+            components={{
+              link1: (
+                <Link
+                  href={"https://github.com/bbtools-ps/"}
+                  title="Github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  block
+                />
+              ),
+              link2: (
+                <Link
+                  href={"https://www.behance.net/bogdanbogdanovic"}
+                  title="Behance"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  block
+                />
+              ),
+            }}
+          />
         </p>
-        {projects.length ? (
+        {/* State: pending */}
+        {loading && (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Loading />
+          </div>
+        )}
+        {/* State: succeeded */}
+        {!loading &&
+          projects.length &&
           projects.map((project: Project, projectIndex: number) => (
             <ProjectItem
               key={projectIndex}
@@ -41,10 +64,10 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
               technologiesUsed={project.technologiesUsed}
               buttonVariants={project.buttonVariants}
             />
-          ))
-        ) : (
-          <p>No projects to display.</p>
-        )}
+          ))}
+        {!loading && !projects.length && <p>No projects.</p>}
+        {/* State: failed */}
+        {error && <p>Error loading projects.</p>}
       </div>
     </section>
   );

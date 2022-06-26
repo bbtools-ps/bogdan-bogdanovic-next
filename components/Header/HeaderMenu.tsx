@@ -12,7 +12,7 @@ import styles from "./HeaderMenu.module.css";
 
 const HeaderMenu = () => {
   const { setTheme } = useNextTheme();
-  const { isDark, type } = useTheme();
+  const { isDark } = useTheme();
   const dispatch = useDispatch();
   const selectedLanguage = useSelector<RootState, Iterable<string> | undefined>(
     (state) => state.settings.selectedLanguage
@@ -48,8 +48,8 @@ const HeaderMenu = () => {
       <Switch
         checked={isDark}
         onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-        iconOn={<FontAwesomeIcon icon={faMoon} />}
-        iconOff={<FontAwesomeIcon icon={faSun} />}
+        iconOn={<FontAwesomeIcon icon={faSun} />}
+        iconOff={<FontAwesomeIcon icon={faMoon} />}
       />
     </div>
   );
