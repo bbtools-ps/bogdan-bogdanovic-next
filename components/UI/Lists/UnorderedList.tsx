@@ -14,7 +14,7 @@ const UnorderedList: React.FC<UnorderedListProps> = ({
       {list.length && (
         <>
           <p>{label}</p>
-          <ul>
+          <ul style={{ listStyleType: "disc" }}>
             {list.map((item) => (
               <li key={item}>{item}</li>
             ))}
