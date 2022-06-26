@@ -24,8 +24,8 @@ const Home = () => {
       className="wrapper"
       style={
         isDark
-          ? { backgroundColor: "rgba(9, 64, 116, 0.8)" }
-          : { backgroundColor: "rgba(255, 255, 255, 0.87)" }
+          ? { backgroundColor: "hsla(210, 50%, 15%, 0.8)" }
+          : { backgroundColor: "hsla(210, 5%, 100%, 0.82)" }
       }
     >
       <Header

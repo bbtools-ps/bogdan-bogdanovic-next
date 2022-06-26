@@ -37,20 +37,16 @@ a:hover {
 
 .job-item,
 .project-item {
-  border-bottom: 1px dashed #0a8754;
+  border-bottom: 1px dashed #889096;
   padding-bottom: 1rem;
 }
 
 .project-item h3 + a {
-  border: 4px solid #0a8754;
+  box-shadow: 0 2px 8px 1px rgb(104 112 118 / 0.07),
+    0 1px 1px -1px rgb(104 112 118 / 0.04);
   line-height: 0;
   max-width: 358px;
   max-height: 282px;
-}
-
-.project-item h3 + a:hover {
-  border: 4px solid #10d183;
-  transition: 0.3s;
 }
 
 span a {
