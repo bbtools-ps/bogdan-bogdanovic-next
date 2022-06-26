@@ -1,0 +1,7 @@
+.header-menu {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+}

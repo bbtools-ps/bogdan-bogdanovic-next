@@ -1,4 +1,4 @@
-interface Project {
+export interface Project {
   title: string;
   urls: { main: string; source: string };
   imageSrc: string;
@@ -6,5 +6,3 @@ interface Project {
   technologiesUsed: string[];
   buttonVariants: { live: boolean; info: boolean };
 }
-
-export default Project;

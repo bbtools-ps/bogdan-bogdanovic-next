@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Languages } from "../../common/constants/constants";
 
 interface SettingsState {
   selectedLanguage: Iterable<string> | undefined;
 }
 
 const initialState: SettingsState = {
-  selectedLanguage: new Set(["en"]),
+  selectedLanguage: new Set([Languages[0].id]),
 };
 
 export const settingsSlice = createSlice({
