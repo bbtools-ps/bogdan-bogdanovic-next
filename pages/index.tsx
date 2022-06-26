@@ -1,9 +1,9 @@
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Data } from "../common/models/data";
-import Footer from "../components/Footer/Footer";
+// import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
-import MainContent from "../components/MainContent";
+import MainContent from "../components/MainContent/MainContent";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -23,7 +23,7 @@ const Home = () => {
         description={t("home:AuthorAbout_Label")}
       />
       <MainContent featuredProjects={Data.Projects} />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

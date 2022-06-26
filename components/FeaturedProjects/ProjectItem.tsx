@@ -1,9 +1,10 @@
+import { Link } from "@nextui-org/react";
 import React from "react";
 import { Project } from "../../common/models/Project";
-import ExternalLink from "../ExternalLink";
 import Button from "../UI/Button/Button";
 import UnorderedList from "../UI/Lists/UnorderedList";
 import ProjectImage from "./ProjectImage";
+import styles from "./ProjectItem.module.css";
 
 const ProjectItem: React.FC<Project> = ({
   title,
@@ -15,18 +16,34 @@ const ProjectItem: React.FC<Project> = ({
 }) => {
   return (
     <section className="project-item">
-      <h3>{urls.main && <ExternalLink url={urls.main} text={title} />}</h3>
+      <h3>
+        {urls.main && (
+          <Link href={urls.main} target="_blank" rel="noopener noreferrer">
+            {title}
+          </Link>
+        )}
+      </h3>
       <ProjectImage url={urls.main} src={imageSrc} alt={title} />
       <div className="project-description">
         <p>{descriptionText}</p>
         <UnorderedList list={technologiesUsed} />
-        {urls.source && <Button url={urls.source} variant="source" />}
-        {urls.main && buttonVariants.live && (
-          <Button url={urls.main} variant="live" />
-        )}
-        {urls.main && buttonVariants.info && (
-          <Button url={urls.main} variant="info" />
-        )}
+        <div className={styles["external-buttons"]}>
+          {urls.source && (
+            <Button url={urls.source} type="source">
+              Source
+            </Button>
+          )}
+          {urls.main && buttonVariants.live && (
+            <Button url={urls.main} type="live">
+              Live
+            </Button>
+          )}
+          {urls.main && buttonVariants.info && (
+            <Button url={urls.main} type="info">
+              Info
+            </Button>
+          )}
+        </div>
       </div>
     </section>
   );

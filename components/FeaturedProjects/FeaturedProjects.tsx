@@ -1,5 +1,5 @@
+import { Link } from "@nextui-org/react";
 import { Project } from "../../common/models/Project";
-import ExternalLink from "../ExternalLink";
 import ProjectItem from "./ProjectItem";
 
 interface FeaturedProjectsProps {
@@ -13,12 +13,21 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ projects }) => {
         <h2>Featured Projects</h2>
         <p>
           Check out my{" "}
-          <ExternalLink url="https://github.com/bbtools-ps/" text="Github" />{" "}
-          and{" "}
-          <ExternalLink
-            url="https://www.behance.net/bogdanbogdanovic"
-            text="Behance"
-          />{" "}
+          <Link
+            href="https://github.com/bbtools-ps/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </Link>{" "}
+          and
+          <Link
+            href="https://www.behance.net/bogdanbogdanovic"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Behance
+          </Link>
           for more projects.
         </p>
         {projects.length ? (

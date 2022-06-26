@@ -1,6 +1,6 @@
 import React from "react";
-import { Project } from "../common/models/Project";
-import FeaturedProjects from "./FeaturedProjects/FeaturedProjects";
+import { Project } from "../../common/models/Project";
+import FeaturedProjects from "../FeaturedProjects/FeaturedProjects";
 
 interface MainContentProps {
   featuredProjects: Project[];
