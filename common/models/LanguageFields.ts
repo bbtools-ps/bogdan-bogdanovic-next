@@ -1,4 +1,4 @@
-import { StringValue } from "./StringValue";
+import { StringValue } from "./FirebaseValues";
 
 export interface LanguageFields {
   FIELD_TYPE: "LANGUAGE";
