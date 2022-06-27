@@ -1,4 +1,5 @@
 import { Link } from "@nextui-org/react";
+import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import React from "react";
 import { Locales } from "../../common/constants/constants";
@@ -22,7 +23,7 @@ const JobItem: React.FC<JobItemProps> = ({
   endDate,
 }) => {
   const { locale } = useRouter();
-
+  const { t } = useTranslation();
   // @ts-ignore
   const theLocale = locale ? Locales[locale] : "en-US";
 
@@ -51,7 +52,7 @@ const JobItem: React.FC<JobItemProps> = ({
                 year: "numeric",
                 month: "short",
               })
-            : "Present"}
+            : t("home:WorkExperiencePresent_Label")}
         </p>
       </div>
       <div className="job-summary">
