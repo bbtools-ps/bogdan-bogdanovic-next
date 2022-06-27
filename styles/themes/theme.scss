@@ -1,12 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  color: $color-primary-lightest;
-  background: $color-primary url("../../public/images/about_bg.jpg") no-repeat
-    center / cover fixed;
+  background: url("../../public/images/about_bg.jpg") no-repeat center / cover
+    fixed;
 }
 
 .wrapper {
@@ -21,26 +17,13 @@ body {
   padding: 3rem 0;
 }
 
-a {
-  color: $color-secondary;
-  display: inline-block;
-}
-
-h3 a {
-  text-decoration: none;
-  color: $color-primary-lightest;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
 .job-item,
 .project-item {
-  border-bottom: 1px dashed #889096;
+  border-bottom: 1px dashed $color-neutral;
   padding: 1rem 0;
 }
 
+// Link that wraps for the project image
 .project-item h3 + a {
   box-shadow: 0 2px 8px 1px rgb(104 112 118 / 0.07),
     0 1px 1px -1px rgb(104 112 118 / 0.04);
@@ -49,6 +32,12 @@ a:hover {
   max-height: 282px;
 }
 
+// Fix for language menu items
 span a {
+  display: inline-block;
   width: 100% !important;
+}
+
+.job-summary a {
+  padding: 1rem;
 }

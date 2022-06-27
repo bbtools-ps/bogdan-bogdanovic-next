@@ -6,6 +6,7 @@ import Footer from "../components/Footer/Footer";
 
 // import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
+import WorkExperience from "../components/WorkExperience/WorkExperience";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -38,8 +39,8 @@ const Home = () => {
           title={t("home:FeaturedProjectsTitle_Label")}
           description={t("home:FeaturedProjectsDescription_Label")}
         />
+        <WorkExperience />
       </main>
-      {/* <Footer /> */}
       <Footer title={t("common:FooterTitle_Label")} />
     </div>
   );
