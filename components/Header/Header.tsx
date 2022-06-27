@@ -1,20 +1,15 @@
-import React from "react";
+import { useTranslation } from "next-i18next";
 import HeaderMenu from "./HeaderMenu";
 
-interface HeaderProps {
-  title: string;
-  subtitle: string;
-  description: string;
-}
-
-const Header: React.FC<HeaderProps> = ({ title, subtitle, description }) => {
+const Header = () => {
+  const { t } = useTranslation();
   return (
     <header>
       <HeaderMenu />
       <div className="content-wrap">
-        <h1>{title}</h1>
-        <h2>{subtitle}</h2>
-        <p>{description}</p>
+        <h1>{t("home:AuthorName_Label")}</h1>
+        <h2>{t("home:AuthorHeadline_Label")}</h2>
+        <p>{t("home:AuthorAbout_Label")}</p>
       </div>
     </header>
   );

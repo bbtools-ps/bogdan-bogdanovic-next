@@ -7,17 +7,16 @@ import {
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@nextui-org/react";
+import { useTranslation } from "next-i18next";
 import React from "react";
 
-interface FooterProps {
-  title: string;
-}
+const Footer: React.FC = () => {
+  const { t } = useTranslation();
 
-const Footer: React.FC<FooterProps> = ({ title }) => {
   return (
     <footer>
       <div className="content-wrap">
-        <h2>{title}</h2>
+        <h2>{t("common:FooterTitle_Label")}</h2>
         <Link
           href="mailto:bogdi.mail@gmail.com"
           target="_top"

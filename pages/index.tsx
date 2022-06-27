@@ -1,10 +1,7 @@
 import { useTheme } from "@nextui-org/react";
-import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects";
 import Footer from "../components/Footer/Footer";
-
-// import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import WorkExperience from "../components/WorkExperience/WorkExperience";
 
@@ -17,7 +14,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
 }
 
 const Home = () => {
-  const { t } = useTranslation();
   const { isDark } = useTheme();
 
   return (
@@ -29,19 +25,12 @@ const Home = () => {
           : { backgroundColor: "hsla(210, 5%, 100%, 0.82)" }
       }
     >
-      <Header
-        title={t("home:AuthorName_Label")}
-        subtitle={t("home:AuthorHeadline_Label")}
-        description={t("home:AuthorAbout_Label")}
-      />
+      <Header />
       <main>
-        <FeaturedProjects
-          title={t("home:FeaturedProjectsTitle_Label")}
-          description={t("home:FeaturedProjectsDescription_Label")}
-        />
+        <FeaturedProjects />
         <WorkExperience />
       </main>
-      <Footer title={t("common:FooterTitle_Label")} />
+      <Footer />
     </div>
   );
 };

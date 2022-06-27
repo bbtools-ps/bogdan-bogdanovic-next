@@ -1,32 +1,34 @@
 import { Link, Loading } from "@nextui-org/react";
-import { Trans } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
+import { useSelector } from "react-redux";
+import { DATABASE_PATH } from "../../common/constants/constants";
 import useFetch from "../../common/hooks/use-fetch";
+import { RootState } from "../../redux/store";
 import ProjectItem from "./ProjectItem";
 
-interface FeaturedProjectsProps {
-  title: string;
-  description: string;
-}
-
-const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
-  title,
-  description,
-}) => {
+const FeaturedProjects = () => {
+  const selectedLanguage = useSelector<RootState, string[]>(
+    (state) => state.settings.selectedLanguage
+  );
+  const { t } = useTranslation();
   const {
     data: projects,
     loading,
     error,
   } = useFetch(
-    "https://firestore.googleapis.com/v1/projects/bogdan-bogdanovic/databases/(default)/documents/projects"
+    `${
+      selectedLanguage[0] === "sr"
+        ? `${DATABASE_PATH}/projects-sr`
+        : `${DATABASE_PATH}/projects`
+    }`
   );
-  if (projects) console.log(projects.documents);
   return (
     <section className="projects">
       <div className="content-wrap">
-        <h2>{title}</h2>
+        <h2>{t("home:FeaturedProjectsTitle_Label")}</h2>
         <p>
           <Trans
-            i18nKey={description}
+            i18nKey={t("home:FeaturedProjectsDescription_Label")}
             components={{
               link1: (
                 <Link
@@ -57,25 +59,37 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
         )}
         {/* State: succeeded */}
         {!loading &&
-          projects &&
-          projects.documents.map((project) => (
-            <ProjectItem
-              key={project.name}
-              title={project.fields.title.stringValue}
-              imageSrc={project.fields.imageName.stringValue}
-              description={project.fields.description.stringValue}
-              technologies={project.fields.technologies?.arrayValue.values}
-              equipment={project.fields.equipment?.arrayValue.values}
-              infoLink={project.fields.infoLink?.stringValue}
-              sourceLink={project.fields.sourceLink?.stringValue}
-              liveLink={project.fields.liveLink?.stringValue}
-            />
-          ))}
-        {!loading && projects && !projects.documents.length && (
-          <p>No projects.</p>
+          projects?.documents?.length &&
+          projects.documents
+            .sort(
+              (a, b) =>
+                new Date(b.createTime).getTime() -
+                new Date(a.createTime).getTime()
+            )
+            .map((item) => {
+              // Set the field type for every item because of the Typescript and better auto-complete
+              item.fields.FIELD_TYPE = "PROJECT";
+              if (item.fields.FIELD_TYPE === "PROJECT") {
+                return (
+                  <ProjectItem
+                    key={item.name}
+                    title={item.fields.title.stringValue}
+                    imageSrc={item.fields.imageName.stringValue}
+                    description={item.fields.description.stringValue}
+                    technologies={item.fields.technologies?.arrayValue.values}
+                    equipment={item.fields.equipment?.arrayValue.values}
+                    infoLink={item.fields.infoLink?.stringValue}
+                    sourceLink={item.fields.sourceLink?.stringValue}
+                    liveLink={item.fields.liveLink?.stringValue}
+                  />
+                );
+              }
+            })}
+        {!loading && !projects?.documents?.length && (
+          <p>{t("home:FeaturedProjectsNone_Label")}</p>
         )}
         {/* State: failed */}
-        {error && <p>Error loading projects.</p>}
+        {error && <p>{t("home:FeaturedProjectsError_Label")}</p>}
       </div>
     </section>
   );

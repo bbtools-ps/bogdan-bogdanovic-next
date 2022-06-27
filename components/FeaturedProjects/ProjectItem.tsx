@@ -1,15 +1,11 @@
 import { Link } from "@nextui-org/react";
 import React from "react";
-import { Project } from "../../common/models/Project";
+import { ProjectItem as Project } from "../../common/models/ProjectItem";
 import Button from "../UI/Button/Button";
 import ProjectImage from "./ProjectImage";
 import styles from "./ProjectItem.module.css";
 
-interface ProjectItemProps extends Project {
-  imageSrc: string;
-}
-
-const ProjectItem: React.FC<ProjectItemProps> = ({
+const ProjectItem: React.FC<Project> = ({
   title,
   description,
   imageSrc,
