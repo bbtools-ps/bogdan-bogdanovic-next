@@ -1,27 +1,16 @@
 import { Link, Loading } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
-import { useSelector } from "react-redux";
 import { DATABASE_PATH } from "../../common/constants/constants";
 import useFetch from "../../common/hooks/use-fetch";
-import { RootState } from "../../redux/store";
 import ProjectItem from "./ProjectItem";
 
 const FeaturedProjects = () => {
-  const selectedLanguage = useSelector<RootState, string[]>(
-    (state) => state.settings.selectedLanguage
-  );
   const { t } = useTranslation();
   const {
     data: projects,
     loading,
     error,
-  } = useFetch(
-    `${
-      selectedLanguage[0] === "sr"
-        ? `${DATABASE_PATH}/projects-sr`
-        : `${DATABASE_PATH}/projects`
-    }`
-  );
+  } = useFetch(`${DATABASE_PATH}/projects`);
   return (
     <section className="projects">
       <div className="content-wrap">
@@ -85,6 +74,7 @@ const FeaturedProjects = () => {
                 );
               }
             })}
+        {/* State: none */}
         {!loading && !projects?.documents?.length && (
           <p>{t("home:FeaturedProjectsNone_Label")}</p>
         )}

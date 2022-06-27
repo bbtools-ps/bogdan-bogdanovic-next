@@ -1,11 +1,12 @@
 import { StringValue } from "./StringValue";
+import { TimestampValue } from "./TimestampValue";
 
 export interface WorkExperienceFields {
   FIELD_TYPE: "WORK_EXPERIENCE";
-  companyLoaction: StringValue;
   companyName: StringValue;
+  companyLink?: StringValue;
   description: { arrayValue: { values: StringValue[] } };
   jobTitle: StringValue;
-  startDate: StringValue;
-  endDate?: StringValue;
+  startDate: TimestampValue;
+  endDate?: TimestampValue;
 }

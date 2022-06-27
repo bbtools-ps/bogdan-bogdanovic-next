@@ -23,6 +23,10 @@ body {
   padding: 1rem 0;
 }
 
+.job-item a {
+  font-size: 1.5rem;
+}
+
 // Link that wraps for the project image
 .project-item h3 + a {
   box-shadow: 0 2px 8px 1px rgb(104 112 118 / 0.07),

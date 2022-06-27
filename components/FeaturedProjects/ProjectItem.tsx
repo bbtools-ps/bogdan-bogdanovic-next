@@ -1,11 +1,22 @@
 import { Link } from "@nextui-org/react";
 import React from "react";
-import { ProjectItem as Project } from "../../common/models/ProjectItem";
+import { StringValue } from "../../common/models/StringValue";
 import Button from "../UI/Button/Button";
 import ProjectImage from "./ProjectImage";
 import styles from "./ProjectItem.module.css";
 
-const ProjectItem: React.FC<Project> = ({
+interface ProjectItemProps {
+  title: string;
+  description: string;
+  technologies?: StringValue[];
+  equipment?: StringValue[];
+  infoLink?: string;
+  liveLink?: string;
+  sourceLink?: string;
+  imageSrc: string;
+}
+
+const ProjectItem: React.FC<ProjectItemProps> = ({
   title,
   description,
   imageSrc,
