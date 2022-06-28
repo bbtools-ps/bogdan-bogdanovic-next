@@ -1,6 +1,7 @@
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "../redux/store";
 import "../styles/main.scss";
@@ -16,20 +17,25 @@ const darkTheme = createTheme({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider store={store}>
-      <NextThemesProvider
-        defaultTheme="system"
-        attribute="class"
-        value={{
-          light: lightTheme.className,
-          dark: darkTheme.className,
-        }}
-      >
-        <NextUIProvider>
-          <Component {...pageProps} />
-        </NextUIProvider>
-      </NextThemesProvider>
-    </Provider>
+    <>
+      <Head>
+        <link rel="shortcut icon" type="image/svg+xml" href="./favicon.svg" />
+      </Head>
+      <Provider store={store}>
+        <NextThemesProvider
+          defaultTheme="system"
+          attribute="class"
+          value={{
+            light: lightTheme.className,
+            dark: darkTheme.className,
+          }}
+        >
+          <NextUIProvider>
+            <Component {...pageProps} />
+          </NextUIProvider>
+        </NextThemesProvider>
+      </Provider>
+    </>
   );
 }
 
