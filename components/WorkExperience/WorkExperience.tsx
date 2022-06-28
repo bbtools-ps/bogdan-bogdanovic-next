@@ -2,7 +2,7 @@ import { Link, Loading } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
 import { DATABASE_PATH } from "../../common/constants/constants";
 import useFetch from "../../common/hooks/use-fetch";
-import { WorkExperienceData } from "../../common/models/Dataa";
+import { WorkExperienceData } from "../../common/models/Data";
 import JobItem from "./JobItem";
 
 const WorkExperience = () => {
