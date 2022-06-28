@@ -5,6 +5,21 @@ body {
     fixed;
 }
 
+// Fix for language dropdown menu items
+span a {
+  display: inline-block;
+  width: 100% !important;
+}
+
+footer svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+footer a {
+  align-items: center !important;
+}
+
 .wrapper {
   width: 100%;
   min-height: 100vh;
@@ -23,6 +38,11 @@ body {
   padding: 1rem 0;
 }
 
+.project-item ul,
+.languages ul {
+  list-style: disc !important;
+}
+
 .job-item a {
   font-size: 1.5rem;
 }
@@ -34,12 +54,6 @@ body {
   line-height: 0;
   max-width: 358px;
   max-height: 282px;
-}
-
-// Fix for language menu items
-span a {
-  display: inline-block;
-  width: 100% !important;
 }
 
 .job-summary a {

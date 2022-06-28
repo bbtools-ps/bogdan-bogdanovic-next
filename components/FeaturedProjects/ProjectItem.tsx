@@ -1,10 +1,10 @@
-import { Link } from '@nextui-org/react';
-import { useTranslation } from 'next-i18next';
-import React from 'react';
-import { StringValue } from '../../common/models/FirebaseValues';
-import Button from '../UI/Button/Button';
-import ProjectImage from './ProjectImage';
-import styles from './ProjectItem.module.css';
+import { Link } from "@nextui-org/react";
+import { useTranslation } from "next-i18next";
+import React from "react";
+import { StringValue } from "../../common/models/FirebaseValues";
+import Button from "../UI/Button/Button";
+import ProjectImage from "./ProjectImage";
+import styles from "./ProjectItem.module.css";
 
 interface ProjectItemProps {
   title: string;
@@ -41,15 +41,29 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           </Link>
         )}
       </h3>
-      <ProjectImage url={infoLink ? infoLink : liveLink} src={imageSrc} alt={title} />
+      <ProjectImage
+        url={infoLink ? infoLink : liveLink}
+        src={imageSrc}
+        alt={title}
+      />
       <div className="project-description">
         <p>{description}</p>
-        <p>{technologies ? t('home:ProjectTechnologiesUsed_Label') : t('home:ProjectEquipmentUsed_Label')}</p>
-        <ul style={{ listStyleType: 'disc' }}>
-          {technologies && technologies.map((item) => <li key={item.stringValue}>{item.stringValue}</li>)}
-          {equipment && equipment.map((item) => <li key={item.stringValue}>{item.stringValue}</li>)}
+        <p>
+          {technologies
+            ? t("home:ProjectTechnologiesUsed_Label")
+            : t("home:ProjectEquipmentUsed_Label")}
+        </p>
+        <ul>
+          {technologies &&
+            technologies.map((item) => (
+              <li key={item.stringValue}>{item.stringValue}</li>
+            ))}
+          {equipment &&
+            equipment.map((item) => (
+              <li key={item.stringValue}>{item.stringValue}</li>
+            ))}
         </ul>
-        <div className={styles['external-buttons']}>
+        <div className={styles["external-buttons"]}>
           {sourceLink && (
             <Button url={sourceLink} type="source">
               Source
