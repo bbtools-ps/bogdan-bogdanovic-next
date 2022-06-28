@@ -57,8 +57,8 @@ const HeaderMenu = () => {
       <Switch
         checked={isDark}
         onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-        iconOn={<FontAwesomeIcon icon={faSun} />}
-        iconOff={<FontAwesomeIcon icon={faMoon} />}
+        iconOn={<FontAwesomeIcon icon={faMoon} />}
+        iconOff={<FontAwesomeIcon icon={faSun} />}
       />
     </div>
   );
