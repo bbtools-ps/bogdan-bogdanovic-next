@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import axios from "axios";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const useFetch = <T>(url: string, initialData: T) => {
   const [data, setData] = useState(initialData);
@@ -12,7 +12,9 @@ const useFetch = <T>(url: string, initialData: T) => {
     (async function () {
       try {
         setLoading(true);
-        const response = await axios.get(`${url}${locale !== 'en' ? '-sr' : ''}`);
+        const response = await axios.get(
+          `${url}${locale === "en" ? "" : "-" + locale}`
+        );
         setData(response.data);
       } catch (err) {
         // @ts-ignore
