@@ -27,7 +27,7 @@ const HeaderMenu = () => {
 
   return (
     <div className={styles['header-menu']}>
-      <Dropdown disableAnimation>
+      <Dropdown>
         <Dropdown.Button color="default" light>
           {selectedLanguage}
         </Dropdown.Button>
