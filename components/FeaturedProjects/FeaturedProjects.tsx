@@ -1,17 +1,29 @@
 import { Link, Loading } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
-import { DATABASE_PATH } from "../../common/constants/constants";
-import useFetch from "../../common/hooks/use-fetch";
-import { ProjectData } from "../../common/models/Data";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ProjectsState } from "../../common/models/ReduxSliceState";
+import { fetchProjects } from "../../redux/reducers/featuredProjectsSlice";
+import { AppDispatch, RootState } from "../../redux/store";
 import ProjectItem from "./ProjectItem";
 
 const FeaturedProjects = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch<AppDispatch>();
   const {
     data: projects,
-    loading,
+    isLoading: loading,
     error,
-  } = useFetch<ProjectData | null>(`${DATABASE_PATH}/projects`, null);
+  } = useSelector<RootState, ProjectsState>((state) => state.featuredProjects);
+  const { locale } = useRouter();
+
+  useEffect(() => {
+    if (locale) {
+      dispatch(fetchProjects(locale));
+    }
+  }, [dispatch, locale]);
+
   return (
     <section className="projects">
       <div className="content-wrap">
@@ -49,28 +61,22 @@ const FeaturedProjects = () => {
         )}
         {/* State: succeeded */}
         {!loading &&
-          projects?.documents?.length &&
-          projects.documents
-            .sort(
-              (a, b) =>
-                new Date(b.createTime).getTime() -
-                new Date(a.createTime).getTime()
-            )
-            .map((item) => (
-              <ProjectItem
-                key={item.name}
-                title={item.fields.title.stringValue}
-                imageSrc={item.fields.imageName.stringValue}
-                description={item.fields.description.stringValue}
-                technologies={item.fields.technologies?.arrayValue.values}
-                equipment={item.fields.equipment?.arrayValue.values}
-                infoLink={item.fields.infoLink?.stringValue}
-                sourceLink={item.fields.sourceLink?.stringValue}
-                liveLink={item.fields.liveLink?.stringValue}
-              />
-            ))}
+          !error &&
+          projects?.map((item) => (
+            <ProjectItem
+              key={item.name}
+              title={item.fields.title.stringValue}
+              imageSrc={item.fields.imageName.stringValue}
+              description={item.fields.description.stringValue}
+              technologies={item.fields.technologies?.arrayValue.values}
+              equipment={item.fields.equipment?.arrayValue.values}
+              infoLink={item.fields.infoLink?.stringValue}
+              sourceLink={item.fields.sourceLink?.stringValue}
+              liveLink={item.fields.liveLink?.stringValue}
+            />
+          ))}
         {/* State: none */}
-        {!loading && !projects?.documents?.length && (
+        {!loading && !error && !projects?.length && (
           <p>{t("home:FeaturedProjectsNone_Label")}</p>
         )}
         {/* State: failed */}

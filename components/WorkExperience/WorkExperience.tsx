@@ -1,20 +1,30 @@
 import { Link, Loading } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
-import { DATABASE_PATH } from "../../common/constants/constants";
-import useFetch from "../../common/hooks/use-fetch";
-import { WorkExperienceData } from "../../common/models/Data";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { WorkExperienceState } from "../../common/models/ReduxSliceState";
+import { fetchWorkExperience } from "../../redux/reducers/workExperienceSlice";
+import { AppDispatch, RootState } from "../../redux/store";
 import JobItem from "./JobItem";
 
 const WorkExperience = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch<AppDispatch>();
   const {
     data: jobs,
-    loading,
+    isLoading: loading,
     error,
-  } = useFetch<WorkExperienceData | null>(
-    `${DATABASE_PATH}/work-experience`,
-    null
+  } = useSelector<RootState, WorkExperienceState>(
+    (state) => state.workExperience
   );
+  const { locale } = useRouter();
+
+  useEffect(() => {
+    if (locale) {
+      dispatch(fetchWorkExperience(locale));
+    }
+  }, [dispatch, locale]);
 
   return (
     <section className="work-experience">
@@ -44,26 +54,20 @@ const WorkExperience = () => {
         )}
         {/* State: succeeded */}
         {!loading &&
-          jobs?.documents?.length &&
-          jobs.documents
-            .sort(
-              (a, b) =>
-                new Date(b.createTime).getTime() -
-                new Date(a.createTime).getTime()
-            )
-            .map((item) => (
-              <JobItem
-                key={item.name}
-                companyName={item.fields.companyName.stringValue}
-                companyLink={item.fields.companyLink?.stringValue}
-                description={item.fields.description.arrayValue.values}
-                jobTitle={item.fields.jobTitle.stringValue}
-                startDate={item.fields.startDate.timestampValue}
-                endDate={item.fields.endDate?.timestampValue}
-              />
-            ))}
+          !error &&
+          jobs?.map((item) => (
+            <JobItem
+              key={item.name}
+              companyName={item.fields.companyName.stringValue}
+              companyLink={item.fields.companyLink?.stringValue}
+              description={item.fields.description.arrayValue.values}
+              jobTitle={item.fields.jobTitle.stringValue}
+              startDate={item.fields.startDate.timestampValue}
+              endDate={item.fields.endDate?.timestampValue}
+            />
+          ))}
         {/* State: none */}
-        {!loading && !jobs?.documents?.length && (
+        {!loading && !error && !jobs?.length && (
           <p>{t("home:WorkExperienceNone_Label")}</p>
         )}
         {/* State: failed */}

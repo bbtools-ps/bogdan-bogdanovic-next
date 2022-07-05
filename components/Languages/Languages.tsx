@@ -1,16 +1,28 @@
 import { Loading } from "@nextui-org/react";
 import { useTranslation } from "next-i18next";
-import { DATABASE_PATH } from "../../common/constants/constants";
-import useFetch from "../../common/hooks/use-fetch";
-import { LanguageData } from "../../common/models/Data";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { LanguageState } from "../../common/models/ReduxSliceState";
+import { fetchLanguages } from "../../redux/reducers/languagesSlice";
+import { AppDispatch, RootState } from "../../redux/store";
 
 const Languages = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch<AppDispatch>();
   const {
     data: languages,
-    loading,
+    isLoading: loading,
     error,
-  } = useFetch<LanguageData | null>(`${DATABASE_PATH}/languages`, null);
+  } = useSelector<RootState, LanguageState>((state) => state.languages);
+  const { locale } = useRouter();
+
+  useEffect(() => {
+    if (locale) {
+      dispatch(fetchLanguages(locale));
+    }
+  }, [dispatch, locale]);
+
   return (
     <section className="languages">
       <div className="content-wrap item-details">
@@ -24,22 +36,16 @@ const Languages = () => {
         {/* State: succeeded */}
         <ul>
           {!loading &&
-            languages?.documents?.length &&
-            languages.documents
-              .sort(
-                (a, b) =>
-                  new Date(a.createTime).getTime() -
-                  new Date(b.createTime).getTime()
-              )
-              .map((item) => (
-                <li key={item.name}>
-                  {item.fields.language.stringValue} (
-                  {item.fields.level.stringValue})
-                </li>
-              ))}
+            !error &&
+            languages?.map((item) => (
+              <li key={item.name}>
+                {item.fields.language.stringValue} (
+                {item.fields.level.stringValue})
+              </li>
+            ))}
         </ul>
         {/* State: none */}
-        {!loading && !languages?.documents?.length && (
+        {!loading && !error && !languages?.length && (
           <p>{t("home:EducationNone_Label")}</p>
         )}
         {/* State: failed */}

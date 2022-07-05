@@ -1,17 +1,28 @@
 import { Link, Loading } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
-import { DATABASE_PATH } from "../../common/constants/constants";
-import useFetch from "../../common/hooks/use-fetch";
-import { EducationData } from "../../common/models/Data";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { EducationState } from "../../common/models/ReduxSliceState";
+import { fetchEducation } from "../../redux/reducers/educationSlice";
+import { AppDispatch, RootState } from "../../redux/store";
 import EducationItem from "./EducationItem";
 
 const Education = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch<AppDispatch>();
   const {
     data: education,
-    loading,
+    isLoading: loading,
     error,
-  } = useFetch<EducationData | null>(`${DATABASE_PATH}/education`, null);
+  } = useSelector<RootState, EducationState>((state) => state.education);
+  const { locale } = useRouter();
+
+  useEffect(() => {
+    if (locale) {
+      dispatch(fetchEducation(locale));
+    }
+  }, [dispatch, locale]);
 
   return (
     <section className="education">
@@ -41,23 +52,17 @@ const Education = () => {
         )}
         {/* State: succeeded */}
         {!loading &&
-          education?.documents?.length &&
-          education.documents
-            .sort(
-              (a, b) =>
-                new Date(a.createTime).getTime() -
-                new Date(b.createTime).getTime()
-            )
-            .map((item) => (
-              <EducationItem
-                key={item.name}
-                certificate={item.fields.certificate.stringValue}
-                institution={item.fields.institution.stringValue}
-                location={item.fields.location.stringValue}
-              />
-            ))}
+          !error &&
+          education?.map((item) => (
+            <EducationItem
+              key={item.name}
+              certificate={item.fields.certificate.stringValue}
+              institution={item.fields.institution.stringValue}
+              location={item.fields.location.stringValue}
+            />
+          ))}
         {/* State: none */}
-        {!loading && !education?.documents?.length && (
+        {!loading && !error && !education?.length && (
           <p>{t("home:EducationNone_Label")}</p>
         )}
         {/* State: failed */}
