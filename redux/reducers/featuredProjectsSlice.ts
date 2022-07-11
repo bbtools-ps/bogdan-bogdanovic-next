@@ -1,21 +1,13 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { DATABASE_PATH } from "../../common/constants/constants";
-import { ProjectData } from "../../common/models/Data";
-import { ProjectsState } from "../../common/models/ReduxSliceState";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { DATABASE_PATH } from '../../common/constants/constants';
+import { ProjectData } from '../../common/models/Data';
+import { ProjectsState } from '../../common/models/ReduxSliceState';
 
-export const fetchProjects = createAsyncThunk(
-  "featuredProjects/getFeaturedProjects",
-  async (locale: string) => {
-    const response = await axios.get<ProjectData>(
-      `${DATABASE_PATH}/projects${locale === "en" ? "" : "-" + locale}`
-    );
-    return response.data.documents.sort(
-      (a, b) =>
-        new Date(b.createTime).getTime() - new Date(a.createTime).getTime()
-    );
-  }
-);
+export const fetchProjects = createAsyncThunk('featuredProjects/getFeaturedProjects', async (locale: string) => {
+  const response = await axios.get<ProjectData>(`${DATABASE_PATH}/projects${locale === 'en' ? '' : '-' + locale}`);
+  return response.data.documents.sort((a, b) => new Date(b.createTime).getTime() - new Date(a.createTime).getTime());
+});
 
 const initialState: ProjectsState = {
   data: null,
@@ -24,13 +16,14 @@ const initialState: ProjectsState = {
 };
 
 export const featuredProjectsSlice = createSlice({
-  name: "featuredProjects",
+  name: 'featuredProjects',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchProjects.pending, (state, action) => {
         state.isLoading = true;
+        state.error = undefined;
       })
       .addCase(fetchProjects.fulfilled, (state, action) => {
         state.isLoading = false;
