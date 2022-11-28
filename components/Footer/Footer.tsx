@@ -67,6 +67,20 @@ const Footer: React.FC = () => {
             </Link>
           </li>
         </ul>
+        <p style={{ textAlign: "center" }}>
+          This website is also made with &hearts; using React, Typescript,
+          Redux, etc.
+        </p>
+        <p style={{ textAlign: "center" }}>
+          You can check out the source code{" "}
+          <Link
+            href="https://github.com/bbtools-ps/bogdan-bogdanovic-website"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Here
+          </Link>
+        </p>
       </div>
     </footer>
   );
