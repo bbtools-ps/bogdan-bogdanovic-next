@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { LanguageState } from "../../common/models/ReduxSlices";
+import { LanguageSlice } from "../../common/models/ReduxSlices";
 import { fetchLanguages } from "../../redux/reducers/languagesSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 
@@ -14,7 +14,7 @@ const Languages = () => {
     data: languages,
     isLoading: loading,
     error,
-  } = useSelector<RootState, LanguageState>((state) => state.languages);
+  } = useSelector<RootState, LanguageSlice>((state) => state.languages);
   const { locale } = useRouter();
 
   useEffect(() => {

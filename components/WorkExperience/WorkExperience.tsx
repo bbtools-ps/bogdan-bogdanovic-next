@@ -3,7 +3,7 @@ import { Trans, useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { WorkExperienceState } from "../../common/models/ReduxSlices";
+import { WorkExperienceSlice } from "../../common/models/ReduxSlices";
 import { fetchWorkExperience } from "../../redux/reducers/workExperienceSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 import JobItem from "./JobItem";
@@ -15,7 +15,7 @@ const WorkExperience = () => {
     data: jobs,
     isLoading: loading,
     error,
-  } = useSelector<RootState, WorkExperienceState>(
+  } = useSelector<RootState, WorkExperienceSlice>(
     (state) => state.workExperience
   );
   const { locale } = useRouter();

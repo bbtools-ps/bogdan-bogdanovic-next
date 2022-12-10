@@ -3,7 +3,7 @@ import { Trans, useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ProjectsState } from "../../common/models/ReduxSlices";
+import { ProjectsSlice } from "../../common/models/ReduxSlices";
 import { fetchProjects } from "../../redux/reducers/featuredProjectsSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 import ProjectItem from "./ProjectItem";
@@ -15,7 +15,7 @@ const FeaturedProjects = () => {
     data: projects,
     isLoading: loading,
     error,
-  } = useSelector<RootState, ProjectsState>((state) => state.featuredProjects);
+  } = useSelector<RootState, ProjectsSlice>((state) => state.featuredProjects);
   const { locale } = useRouter();
 
   useEffect(() => {
