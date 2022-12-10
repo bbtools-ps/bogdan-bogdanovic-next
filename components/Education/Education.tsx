@@ -3,7 +3,7 @@ import { Trans, useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { EducationState } from "../../common/models/ReduxSliceState";
+import { EducationState } from "../../common/models/ReduxSlices";
 import { fetchEducation } from "../../redux/reducers/educationSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 import EducationItem from "./EducationItem";

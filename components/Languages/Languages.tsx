@@ -3,7 +3,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { LanguageState } from "../../common/models/ReduxSliceState";
+import { LanguageState } from "../../common/models/ReduxSlices";
 import { fetchLanguages } from "../../redux/reducers/languagesSlice";
 import { AppDispatch, RootState } from "../../redux/store";
 

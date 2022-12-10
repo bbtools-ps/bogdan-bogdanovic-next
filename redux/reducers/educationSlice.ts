@@ -1,22 +1,30 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { DATABASE_PATH } from '../../common/constants/constants';
-import { EducationData } from '../../common/models/Data';
-import { EducationState } from '../../common/models/ReduxSliceState';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { DATABASE_PATH } from "../../common/constants/constants";
+import { EducationData } from "../../common/models/Data";
+import { EducationSlice } from "../../common/models/ReduxSlices";
 
-export const fetchEducation = createAsyncThunk('education/getEducation', async (locale: string) => {
-  const response = await axios.get<EducationData>(`${DATABASE_PATH}/education${locale === 'en' ? '' : '-' + locale}`);
-  return response.data.documents.sort((a, b) => new Date(a.createTime).getTime() - new Date(b.createTime).getTime());
-});
+export const fetchEducation = createAsyncThunk(
+  "education/getEducation",
+  async (locale: string) => {
+    const response = await axios.get<EducationData>(
+      `${DATABASE_PATH}/education${locale === "en" ? "" : "-" + locale}`
+    );
+    return response.data.documents.sort(
+      (a, b) =>
+        new Date(a.createTime).getTime() - new Date(b.createTime).getTime()
+    );
+  }
+);
 
-const initialState: EducationState = {
+const initialState: EducationSlice = {
   data: null,
   isLoading: true,
   error: undefined,
 };
 
 export const educationSlice = createSlice({
-  name: 'education',
+  name: "education",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

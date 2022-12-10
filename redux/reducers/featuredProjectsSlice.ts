@@ -1,22 +1,30 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { DATABASE_PATH } from '../../common/constants/constants';
-import { ProjectData } from '../../common/models/Data';
-import { ProjectsState } from '../../common/models/ReduxSliceState';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { DATABASE_PATH } from "../../common/constants/constants";
+import { ProjectData } from "../../common/models/Data";
+import { ProjectsSlice } from "../../common/models/ReduxSlices";
 
-export const fetchProjects = createAsyncThunk('featuredProjects/getFeaturedProjects', async (locale: string) => {
-  const response = await axios.get<ProjectData>(`${DATABASE_PATH}/projects${locale === 'en' ? '' : '-' + locale}`);
-  return response.data.documents.sort((a, b) => new Date(b.createTime).getTime() - new Date(a.createTime).getTime());
-});
+export const fetchProjects = createAsyncThunk(
+  "featuredProjects/getFeaturedProjects",
+  async (locale: string) => {
+    const response = await axios.get<ProjectData>(
+      `${DATABASE_PATH}/projects${locale === "en" ? "" : "-" + locale}`
+    );
+    return response.data.documents.sort(
+      (a, b) =>
+        new Date(b.createTime).getTime() - new Date(a.createTime).getTime()
+    );
+  }
+);
 
-const initialState: ProjectsState = {
+const initialState: ProjectsSlice = {
   data: null,
   isLoading: true,
   error: undefined,
 };
 
 export const featuredProjectsSlice = createSlice({
-  name: 'featuredProjects',
+  name: "featuredProjects",
   initialState,
   reducers: {},
   extraReducers: (builder) => {

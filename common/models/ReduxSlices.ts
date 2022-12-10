@@ -5,23 +5,27 @@ import {
   WorkExperienceData,
 } from "./Data";
 
-interface ReduxSliceState {
+interface ReduxAsyncThunk {
   isLoading: boolean;
   error: string | undefined;
 }
 
-export interface WorkExperienceState extends ReduxSliceState {
+export interface WorkExperienceSlice extends ReduxAsyncThunk {
   data: WorkExperienceData["documents"] | null;
 }
 
-export interface ProjectsState extends ReduxSliceState {
+export interface ProjectsSlice extends ReduxAsyncThunk {
   data: ProjectData["documents"] | null;
 }
 
-export interface EducationState extends ReduxSliceState {
+export interface EducationSlice extends ReduxAsyncThunk {
   data: EducationData["documents"] | null;
 }
 
-export interface LanguageState extends ReduxSliceState {
+export interface LanguageSlice extends ReduxAsyncThunk {
   data: LanguageData["documents"] | null;
+}
+
+export interface SettingsSlice {
+  selectedLanguage: string[];
 }
