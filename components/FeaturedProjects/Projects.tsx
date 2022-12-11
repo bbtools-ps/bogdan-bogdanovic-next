@@ -53,14 +53,18 @@ const Projects: React.FC<ProjectsProps> = ({
             liveLink={item.fields.liveLink?.stringValue}
           />
         ))}
-      <Spacer />
-      <Row justify="center" align="center">
-        <Pagination
-          total={total}
-          initialPage={initialPage}
-          onChange={setCurrentPage}
-        />
-      </Row>
+      {total > 1 && (
+        <div>
+          <Spacer />
+          <Row justify="center" align="center">
+            <Pagination
+              total={total}
+              initialPage={initialPage}
+              onChange={setCurrentPage}
+            />
+          </Row>
+        </div>
+      )}
     </>
   );
 };
