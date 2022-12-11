@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProjectsSlice } from "../../common/models/ReduxSlices";
 import { fetchProjects } from "../../redux/reducers/featuredProjectsSlice";
 import { AppDispatch, RootState } from "../../redux/store";
-import ProjectItem from "./ProjectItem";
+import Projects from "./Projects";
 
 const FeaturedProjects = () => {
   const { t } = useTranslation();
@@ -60,21 +60,7 @@ const FeaturedProjects = () => {
           </div>
         )}
         {/* State: succeeded */}
-        {!loading &&
-          !error &&
-          projects?.map((item) => (
-            <ProjectItem
-              key={item.name}
-              title={item.fields.title.stringValue}
-              imageSrc={item.fields.imageName.stringValue}
-              description={item.fields.description.stringValue}
-              technologies={item.fields.technologies?.arrayValue.values}
-              equipment={item.fields.equipment?.arrayValue.values}
-              infoLink={item.fields.infoLink?.stringValue}
-              sourceLink={item.fields.sourceLink?.stringValue}
-              liveLink={item.fields.liveLink?.stringValue}
-            />
-          ))}
+        {!loading && !error && <Projects projects={projects} />}
         {/* State: none */}
         {!loading && !error && !projects?.length && (
           <p>{t("home:FeaturedProjectsNone_Label")}</p>
