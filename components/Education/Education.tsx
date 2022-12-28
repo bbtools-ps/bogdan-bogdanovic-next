@@ -1,4 +1,4 @@
-import { Link, Loading } from "@nextui-org/react";
+import { Loading } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { EducationSlice } from "../../common/models/ReduxSlices";
 import { fetchEducation } from "../../redux/reducers/educationSlice";
 import { AppDispatch, RootState } from "../../redux/store";
+import LinkText from "../UI/Button/LinkText";
 import EducationItem from "./EducationItem";
 
 const Education = () => {
@@ -33,13 +34,9 @@ const Education = () => {
             i18nKey={t("home:EducationDescription_Label")}
             components={{
               link1: (
-                <Link
-                  href="https://www.linkedin.com/in/bogdanbogdanovic"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Linkedin"
-                  block
-                />
+                <LinkText href="https://www.linkedin.com/in/bogdanbogdanovic">
+                  Linkedin
+                </LinkText>
               ),
             }}
           />

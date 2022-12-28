@@ -1,4 +1,4 @@
-import { Link, Loading } from "@nextui-org/react";
+import { Loading } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProjectsSlice } from "../../common/models/ReduxSlices";
 import { fetchProjects } from "../../redux/reducers/featuredProjectsSlice";
 import { AppDispatch, RootState } from "../../redux/store";
+import LinkText from "../UI/Button/LinkText";
 import Projects from "./Projects";
 
 const FeaturedProjects = () => {
@@ -33,22 +34,14 @@ const FeaturedProjects = () => {
             i18nKey={t("home:FeaturedProjectsDescription_Label")}
             components={{
               link1: (
-                <Link
-                  href={"https://github.com/bbtools-ps/"}
-                  title="Github"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  block
-                />
+                <LinkText href="https://github.com/bbtools-ps/">
+                  Github
+                </LinkText>
               ),
               link2: (
-                <Link
-                  href={"https://www.behance.net/bogdanbogdanovic"}
-                  title="Behance"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  block
-                />
+                <LinkText href={"https://www.behance.net/bogdanbogdanovic"}>
+                  Behance
+                </LinkText>
               ),
             }}
           />

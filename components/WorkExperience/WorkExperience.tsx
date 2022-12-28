@@ -1,4 +1,4 @@
-import { Link, Loading } from "@nextui-org/react";
+import { Loading } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { WorkExperienceSlice } from "../../common/models/ReduxSlices";
 import { fetchWorkExperience } from "../../redux/reducers/workExperienceSlice";
 import { AppDispatch, RootState } from "../../redux/store";
+import LinkText from "../UI/Button/LinkText";
 import JobItem from "./JobItem";
 
 const WorkExperience = () => {
@@ -35,13 +36,9 @@ const WorkExperience = () => {
             i18nKey={t("home:WorkExperienceDescription_Label")}
             components={{
               link1: (
-                <Link
-                  href="https://www.linkedin.com/in/bogdanbogdanovic"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Linkedin"
-                  block
-                />
+                <LinkText href="https://www.linkedin.com/in/bogdanbogdanovic">
+                  Linkedin
+                </LinkText>
               ),
             }}
           />
