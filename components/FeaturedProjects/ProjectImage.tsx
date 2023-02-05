@@ -19,6 +19,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ url, src, alt }) => {
         objectFit="contain"
         width={700}
         height={548}
+        priority={true}
       />
     </a>
   );
