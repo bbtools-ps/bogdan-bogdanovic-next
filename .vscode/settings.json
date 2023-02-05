@@ -3,5 +3,7 @@
     "source.fixAll": true,
     "source.organizeImports": true,
     "source.sortMembers": true
-  }
+  },
+  "prettier.printWidth": 80,
+  "prettier.singleQuote": false
 }
