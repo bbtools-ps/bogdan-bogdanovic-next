@@ -7,7 +7,7 @@ import {
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@nextui-org/react";
-import { useTranslation } from "next-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import React from "react";
 
 const Footer: React.FC = () => {
@@ -68,18 +68,21 @@ const Footer: React.FC = () => {
           </li>
         </ul>
         <p style={{ textAlign: "center" }}>
-          This website is also made with &hearts; using React, Typescript,
-          Redux, etc.
+          {t("common:FooterDescription1_Label")}
         </p>
         <p style={{ textAlign: "center" }}>
-          You can check out the source code{" "}
-          <Link
-            href="https://github.com/bbtools-ps/bogdan-bogdanovic-website"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Here
-          </Link>
+          <Trans
+            i18nKey={t("common:FooterDescription2_Label")}
+            components={{
+              link1: (
+                <Link
+                  href="https://github.com/bbtools-ps/bogdan-bogdanovic-website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                />
+              ),
+            }}
+          />
         </p>
       </div>
     </footer>
