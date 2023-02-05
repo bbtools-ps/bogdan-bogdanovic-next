@@ -6,9 +6,15 @@ interface ProjectImageProps {
   url?: string;
   src: string;
   alt: string;
+  index: number;
 }
 
-const ProjectImage: React.FC<ProjectImageProps> = ({ url, src, alt }) => {
+const ProjectImage: React.FC<ProjectImageProps> = ({
+  url,
+  src,
+  alt,
+  index,
+}) => {
   return (
     <a href={url ? url : "#"} target="_blank" rel="noopener noreferrer">
       <Image
@@ -19,7 +25,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ url, src, alt }) => {
         objectFit="contain"
         width={700}
         height={548}
-        priority={true}
+        priority={index === 0 ? true : false}
       />
     </a>
   );

@@ -40,7 +40,7 @@ const Projects: React.FC<ProjectsProps> = ({
   return (
     <>
       {currentProjectsData &&
-        currentProjectsData.map((item) => (
+        currentProjectsData.map((item, index) => (
           <ProjectItem
             key={item.name}
             title={item.fields.title.stringValue}
@@ -51,6 +51,7 @@ const Projects: React.FC<ProjectsProps> = ({
             infoLink={item.fields.infoLink?.stringValue}
             sourceLink={item.fields.sourceLink?.stringValue}
             liveLink={item.fields.liveLink?.stringValue}
+            index={index}
           />
         ))}
       {total > 1 && (

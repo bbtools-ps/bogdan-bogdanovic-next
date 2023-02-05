@@ -15,6 +15,7 @@ interface ProjectItemProps {
   liveLink?: string;
   sourceLink?: string;
   imageSrc: string;
+  index: number;
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = ({
@@ -26,6 +27,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   liveLink,
   sourceLink,
   technologies,
+  index,
 }) => {
   const { t } = useTranslation();
   return (
@@ -45,6 +47,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         url={infoLink ? infoLink : liveLink}
         src={imageSrc}
         alt={title}
+        index={index}
       />
       <div className="project-description">
         <p>{description}</p>
