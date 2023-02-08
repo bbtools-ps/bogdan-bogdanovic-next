@@ -1,8 +1,7 @@
 {
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
-    "source.organizeImports": true,
-    "source.sortMembers": true
+    "source.organizeImports": true
   },
   "prettier.printWidth": 80,
   "prettier.singleQuote": false
