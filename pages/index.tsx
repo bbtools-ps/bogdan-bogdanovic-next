@@ -1,30 +1,11 @@
-import { Loading, useTheme } from "@nextui-org/react";
+import { useTheme } from "@nextui-org/react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import dynamic from "next/dynamic";
-const Education = dynamic(() => import("../components/Education/Education"), {
-  loading: () => <Loading />
-});
-const FeaturedProjects = dynamic(
-  () => import("../components/FeaturedProjects/FeaturedProjects"),
-  {
-    loading: () => <Loading />
-  }
-);
-const Footer = dynamic(() => import("../components/Footer/Footer"), {
-  loading: () => <Loading />
-});
-const Header = dynamic(() => import("../components/Header/Header"), {
-  loading: () => <Loading />
-});
-const Languages = dynamic(() => import("../components/Languages/Languages"), {
-  loading: () => <Loading />
-});
-const WorkExperience = dynamic(
-  () => import("../components/WorkExperience/WorkExperience"),
-  {
-    loading: () => <Loading />
-  }
-);
+import Education from "../components/Education/Education";
+import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import Languages from "../components/Languages/Languages";
+import WorkExperience from "../components/WorkExperience/WorkExperience";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
