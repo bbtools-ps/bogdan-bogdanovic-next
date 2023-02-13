@@ -44,7 +44,8 @@ const Projects: React.FC<ProjectsProps> = ({
           <ProjectItem
             key={item.name}
             title={item.fields.title.stringValue}
-            imageSrc={item.fields.imageName.stringValue}
+            imageSrc={item.fields.imageSrc.stringValue}
+            imageFallbackSrc={item.fields.imageFallbackSrc.stringValue}
             description={item.fields.description.stringValue}
             technologies={item.fields.technologies?.arrayValue.values}
             equipment={item.fields.equipment?.arrayValue.values}

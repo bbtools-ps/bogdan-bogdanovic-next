@@ -15,6 +15,7 @@ interface ProjectItemProps {
   liveLink?: string;
   sourceLink?: string;
   imageSrc: string;
+  imageFallbackSrc: string;
   index: number;
 }
 
@@ -22,6 +23,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   title,
   description,
   imageSrc,
+  imageFallbackSrc,
   equipment,
   infoLink,
   liveLink,
@@ -46,6 +48,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
       <ProjectImage
         url={infoLink ? infoLink : liveLink}
         src={imageSrc}
+        fallbackSrc={imageFallbackSrc}
         alt={title}
         index={index}
       />

@@ -1,4 +1,4 @@
-import { ArrayValue, StringValue, TimestampValue } from './FirebaseValues';
+import { ArrayValue, StringValue, TimestampValue } from "./FirebaseValues";
 
 export interface EducationFields {
   certificate: StringValue;
@@ -14,7 +14,8 @@ export interface LanguageFields {
 export interface ProjectFields {
   title: StringValue;
   description: StringValue;
-  imageName: StringValue;
+  imageSrc: StringValue;
+  imageFallbackSrc: StringValue;
   equipment?: ArrayValue;
   technologies?: ArrayValue;
   infoLink?: StringValue;
