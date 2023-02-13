@@ -30,7 +30,7 @@ const HeaderMenu = () => {
   return (
     <div className={styles["header-menu"]}>
       <Dropdown>
-        <Dropdown.Button color="default" light>
+        <Dropdown.Button color="default" id="lang" light>
           {selectedLanguage}
         </Dropdown.Button>
         <Dropdown.Menu
