@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProjectsSlice } from "../../common/models/ReduxSlices";
 import { fetchProjects } from "../../redux/reducers/featuredProjectsSlice";
 import { AppDispatch, RootState } from "../../redux/store";
-import LinkText from "../UI/Button/LinkText";
+import LinkText from "../UI/LinkText";
 import Projects from "./Projects";
 
 const FeaturedProjects = () => {

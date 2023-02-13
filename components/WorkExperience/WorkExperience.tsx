@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { WorkExperienceSlice } from "../../common/models/ReduxSlices";
 import { fetchWorkExperience } from "../../redux/reducers/workExperienceSlice";
 import { AppDispatch, RootState } from "../../redux/store";
-import LinkText from "../UI/Button/LinkText";
+import LinkText from "../UI/LinkText";
 import JobItem from "./JobItem";
 
 const WorkExperience = () => {

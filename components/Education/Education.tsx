@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { EducationSlice } from "../../common/models/ReduxSlices";
 import { fetchEducation } from "../../redux/reducers/educationSlice";
 import { AppDispatch, RootState } from "../../redux/store";
-import LinkText from "../UI/Button/LinkText";
+import LinkText from "../UI/LinkText";
 import EducationItem from "./EducationItem";
 
 const Education = () => {
