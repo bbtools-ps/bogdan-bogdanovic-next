@@ -1,16 +1,11 @@
 import { useTheme } from "@nextui-org/react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { lazy, Suspense } from "react";
-const Education = lazy(() => import("../components/Education/Education"));
-const FeaturedProjects = lazy(
-  () => import("../components/FeaturedProjects/FeaturedProjects")
-);
-const Footer = lazy(() => import("../components/Footer/Footer"));
-const Header = lazy(() => import("../components/Header/Header"));
-const Languages = lazy(() => import("../components/Languages/Languages"));
-const WorkExperience = lazy(
-  () => import("../components/WorkExperience/WorkExperience")
-);
+import Education from "../components/Education/Education";
+import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import Languages from "../components/Languages/Languages";
+import WorkExperience from "../components/WorkExperience/WorkExperience";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   return {
@@ -32,16 +27,14 @@ const Home = () => {
           : { backgroundColor: "hsla(210, 5%, 100%, 0.82)" }
       }
     >
-      <Suspense fallback={<div>Loading...</div>}>
-        <Header />
-        <main>
-          <FeaturedProjects />
-          <WorkExperience />
-          <Education />
-          <Languages />
-        </main>
-        <Footer />
-      </Suspense>
+      <Header />
+      <main>
+        <FeaturedProjects />
+        <WorkExperience />
+        <Education />
+        <Languages />
+      </main>
+      <Footer />
     </div>
   );
 };
