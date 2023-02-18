@@ -2,9 +2,9 @@ import { useTheme } from "@nextui-org/react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Education from "../components/Education/Education";
 import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects";
-import Footer from "../components/Footer/Footer";
-import Header from "../components/Header/Header";
 import Languages from "../components/Languages/Languages";
+import Footer from "../components/Layout/Footer/Footer";
+import Header from "../components/Layout/Header/Header";
 import WorkExperience from "../components/WorkExperience/WorkExperience";
 
 export async function getStaticProps({ locale }: { locale: string }) {

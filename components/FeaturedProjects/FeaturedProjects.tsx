@@ -1,4 +1,3 @@
-import { Loading } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -6,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ProjectsSlice } from "../../common/models/ReduxSlices";
 import { fetchProjects } from "../../redux/reducers/featuredProjectsSlice";
 import { AppDispatch, RootState } from "../../redux/store";
+import SectionContent from "../Layout/Section/SectionContent";
 import LinkText from "../UI/LinkText";
 import Projects from "./Projects";
 
@@ -15,7 +15,7 @@ const FeaturedProjects = () => {
   const {
     data: projects,
     isLoading: loading,
-    error,
+    error
   } = useSelector<RootState, ProjectsSlice>((state) => state.featuredProjects);
   const { locale } = useRouter();
 
@@ -42,24 +42,19 @@ const FeaturedProjects = () => {
                 <LinkText href={"https://www.behance.net/bogdanbogdanovic"}>
                   Behance
                 </LinkText>
-              ),
+              )
             }}
           />
         </p>
-        {/* State: pending */}
-        {loading && (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Loading />
-          </div>
-        )}
-        {/* State: succeeded */}
-        {!loading && !error && <Projects projects={projects} />}
-        {/* State: none */}
-        {!loading && !error && !projects?.length && (
-          <p>{t("home:FeaturedProjectsNone_Label")}</p>
-        )}
-        {/* State: failed */}
-        {error && <p>{t("home:FeaturedProjectsError_Label")}</p>}
+        <SectionContent
+          loading={loading}
+          error={error}
+          data={projects}
+          errorMessage={t("home:FeaturedProjectsError_Label")}
+          noResultsMessage={t("home:FeaturedProjectsNone_Label")}
+        >
+          <Projects projects={projects} />
+        </SectionContent>
       </div>
     </section>
   );
