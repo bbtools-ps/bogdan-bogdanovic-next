@@ -34,12 +34,14 @@ const Languages = () => {
           errorMessage={t("home:LanguagesNone_Label")}
           noResultsMessage={t("home:EducationNone_Label")}
         >
-          {languages?.map((item) => (
-            <li key={item.name}>
-              {item.fields.language.stringValue} (
-              {item.fields.level.stringValue})
-            </li>
-          ))}
+          <ul>
+            {languages?.map((item) => (
+              <li key={item.name}>
+                {item.fields.language.stringValue} (
+                {item.fields.level.stringValue})
+              </li>
+            ))}
+          </ul>
         </SectionContent>
       </div>
     </section>
