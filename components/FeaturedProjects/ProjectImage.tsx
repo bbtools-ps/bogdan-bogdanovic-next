@@ -15,7 +15,7 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
   src,
   fallbackSrc,
   alt,
-  index,
+  index
 }) => {
   const [imgSrc, setImgSrc] = useState(src);
 
@@ -25,8 +25,6 @@ const ProjectImage: React.FC<ProjectImageProps> = ({
         loader={imageLoader}
         src={imgSrc}
         alt={alt}
-        layout="responsive"
-        objectFit="contain"
         width={700}
         height={548}
         priority={index === 0 ? true : false}
