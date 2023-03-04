@@ -1,6 +1,6 @@
 import { Link } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
-import HeaderMenu from "./HeaderMenu";
+import HeaderMenu from "./HeaderMenu/HeaderMenu";
 
 const Header = () => {
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ const Header = () => {
                   target="_top"
                   rel="noopener noreferrer"
                 />
-              ),
+              )
             }}
           />
         </p>

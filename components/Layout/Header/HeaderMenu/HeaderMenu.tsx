@@ -1,31 +1,25 @@
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Dropdown, Switch, useTheme } from "@nextui-org/react";
-import { useTheme as useNextTheme } from "next-themes";
+import { Dropdown } from "@nextui-org/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Languages } from "../../../common/constants/constants";
-import { updateSelectedLanguage } from "../../../redux/reducers/settingsSlice";
-import { RootState } from "../../../redux/store";
+import { Languages } from "../../../../common/constants/constants";
+import { updateSelectedLanguage } from "../../../../redux/reducers/settingsSlice";
+import { RootState } from "../../../../redux/store";
 import styles from "./HeaderMenu.module.css";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const HeaderMenu = () => {
-  const { setTheme } = useNextTheme();
-  const { isDark } = useTheme();
   const dispatch = useDispatch();
   const selectedLanguage = useSelector<RootState, string[]>(
     (state) => state.settings.selectedLanguage
   );
-  const router = useRouter();
+  const { locale, pathname } = useRouter();
 
   // Change the language on the dropdown if the user entered the page from url
   useEffect(() => {
-    if (router.locale) {
-      dispatch(updateSelectedLanguage([router.locale]));
-    }
-  }, [dispatch, router.locale]);
+    dispatch(updateSelectedLanguage([locale]));
+  }, [dispatch, locale]);
 
   return (
     <div className={styles["header-menu"]}>
@@ -47,20 +41,14 @@ const HeaderMenu = () => {
         >
           {Languages.map((item) => (
             <Dropdown.Item key={item.id} textValue={item.name}>
-              <Link href={router.pathname} locale={item.id}>
+              <Link href={pathname} locale={item.id}>
                 {item.name}
               </Link>
             </Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>
-      <Switch
-        checked={isDark}
-        onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
-        iconOn={<FontAwesomeIcon icon={faMoon} />}
-        iconOff={<FontAwesomeIcon icon={faSun} />}
-        aria-label="switch"
-      />
+      <ThemeSwitcher />
     </div>
   );
 };
