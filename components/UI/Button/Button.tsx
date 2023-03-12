@@ -32,12 +32,7 @@ const Button: React.FC<ButtonProps> = ({ url, type, children }) => {
   }
 
   return (
-    <NextUIButton
-      onPress={() => openInNewTab(url)}
-      className={styles.button}
-      ghost
-      auto
-    >
+    <NextUIButton onPress={() => openInNewTab(url)} className={styles.button} ghost auto>
       {btnIcon}
       {children}
     </NextUIButton>

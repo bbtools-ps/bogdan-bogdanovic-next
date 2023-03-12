@@ -8,11 +8,11 @@ import "../styles/main.scss";
 
 // 2. Call `createTheme` and pass your custom values
 const lightTheme = createTheme({
-  type: "light",
+  type: "light"
 });
 
 const darkTheme = createTheme({
-  type: "dark",
+  type: "dark"
 });
 
 function MyApp({ Component, pageProps }) {
@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
           attribute="class"
           value={{
             light: lightTheme.className,
-            dark: darkTheme.className,
+            dark: darkTheme.className
           }}
         >
           <NextUIProvider>

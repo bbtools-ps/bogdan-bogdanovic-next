@@ -20,17 +20,12 @@ const Education: React.FC<EducationProps> = ({ data: education }) => {
             i18nKey={t("home:EducationDescription_Label")}
             components={{
               link1: (
-                <LinkText href="https://www.linkedin.com/in/bogdanbogdanovic">
-                  Linkedin
-                </LinkText>
+                <LinkText href="https://www.linkedin.com/in/bogdanbogdanovic">Linkedin</LinkText>
               )
             }}
           />
         </p>
-        <SectionContent
-          data={education}
-          noResultsMessage={t("home:EducationNone_Label")}
-        >
+        <SectionContent data={education} noResultsMessage={t("home:EducationNone_Label")}>
           {education?.map((item) => (
             <EducationItem
               key={item.name}

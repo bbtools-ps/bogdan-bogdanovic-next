@@ -20,17 +20,12 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({ data: jobs }) => {
             i18nKey={t("home:WorkExperienceDescription_Label")}
             components={{
               link1: (
-                <LinkText href="https://www.linkedin.com/in/bogdanbogdanovic">
-                  Linkedin
-                </LinkText>
+                <LinkText href="https://www.linkedin.com/in/bogdanbogdanovic">Linkedin</LinkText>
               )
             }}
           />
         </p>
-        <SectionContent
-          data={jobs}
-          noResultsMessage={t("home:WorkExperienceNone_Label")}
-        >
+        <SectionContent data={jobs} noResultsMessage={t("home:WorkExperienceNone_Label")}>
           {jobs?.map((item) => (
             <JobItem
               key={item.name}

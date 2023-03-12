@@ -4,11 +4,7 @@ interface SectionContentProps {
   children: React.ReactNode;
 }
 
-const SectionContent: React.FC<SectionContentProps> = ({
-  data,
-  noResultsMessage,
-  children
-}) => {
+const SectionContent: React.FC<SectionContentProps> = ({ data, noResultsMessage, children }) => {
   return (
     <>
       {/* State: succeeded */}

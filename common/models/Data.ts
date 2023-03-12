@@ -1,4 +1,4 @@
-import { EducationFields, LanguageFields, ProjectFields, WorkExperienceFields } from './Fields';
+import { EducationFields, LanguageFields, ProjectFields, WorkExperienceFields } from "./Fields";
 
 export interface ProjectData {
   documents: {

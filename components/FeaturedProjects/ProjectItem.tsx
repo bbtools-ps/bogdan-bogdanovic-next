@@ -43,11 +43,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           </Link>
         )}
       </h3>
-      <ProjectImage
-        url={infoLink ? infoLink : liveLink}
-        src={imageSrc}
-        alt={title}
-      />
+      <ProjectImage url={infoLink ? infoLink : liveLink} src={imageSrc} alt={title} />
       <div className="project-description">
         <p>{description}</p>
         <p>
@@ -57,13 +53,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </p>
         <ul>
           {technologies &&
-            technologies.map((item) => (
-              <li key={item.stringValue}>{item.stringValue}</li>
-            ))}
-          {equipment &&
-            equipment.map((item) => (
-              <li key={item.stringValue}>{item.stringValue}</li>
-            ))}
+            technologies.map((item) => <li key={item.stringValue}>{item.stringValue}</li>)}
+          {equipment && equipment.map((item) => <li key={item.stringValue}>{item.stringValue}</li>)}
         </ul>
         <div className={styles["external-buttons"]}>
           {sourceLink && (

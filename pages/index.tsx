@@ -48,21 +48,14 @@ interface HomeProps {
   languages: LanguageData["documents"];
 }
 
-const Home: React.FC<HomeProps> = ({
-  projects,
-  workExperience,
-  education,
-  languages
-}) => {
+const Home: React.FC<HomeProps> = ({ projects, workExperience, education, languages }) => {
   const { isDark } = useTheme();
 
   return (
     <div
       className="wrapper"
       style={{
-        backgroundColor: isDark
-          ? "hsla(210, 50%, 15%, 0.8)"
-          : "hsla(210, 5%, 100%, 0.82)"
+        backgroundColor: isDark ? "hsla(210, 50%, 15%, 0.8)" : "hsla(210, 5%, 100%, 0.82)"
       }}
     >
       <Header />

@@ -1,9 +1,4 @@
-import {
-  faBehance,
-  faGithub,
-  faLinkedin,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+import { faBehance, faGithub, faLinkedin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@nextui-org/react";
@@ -17,21 +12,13 @@ const Footer: React.FC = () => {
     <footer>
       <div className="content-wrap">
         <h2>{t("common:FooterTitle_Label")}</h2>
-        <Link
-          href="mailto:bogdi.mail@gmail.com"
-          target="_top"
-          rel="noopener noreferrer"
-        >
+        <Link href="mailto:bogdi.mail@gmail.com" target="_top" rel="noopener noreferrer">
           <FontAwesomeIcon icon={faEnvelope} />
           bogdi.mail@gmail.com
         </Link>
         <ul>
           <li>
-            <Link
-              href="https://github.com/bbtools-ps/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="https://github.com/bbtools-ps/" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faGithub} />
               Github
             </Link>
@@ -67,9 +54,7 @@ const Footer: React.FC = () => {
             </Link>
           </li>
         </ul>
-        <p style={{ textAlign: "center" }}>
-          {t("common:FooterDescription1_Label")}
-        </p>
+        <p style={{ textAlign: "center" }}>{t("common:FooterDescription1_Label")}</p>
         <p style={{ textAlign: "center" }}>
           <Trans
             i18nKey={t("common:FooterDescription2_Label")}
@@ -80,7 +65,7 @@ const Footer: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 />
-              ),
+              )
             }}
           />
         </p>

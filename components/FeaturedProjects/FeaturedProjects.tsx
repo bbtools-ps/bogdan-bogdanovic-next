@@ -8,9 +8,7 @@ interface FeaturedProjectsProps {
   data: ProjectData["documents"];
 }
 
-const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
-  data: projects
-}) => {
+const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ data: projects }) => {
   const { t } = useTranslation();
 
   return (
@@ -21,23 +19,12 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
           <Trans
             i18nKey={t("home:FeaturedProjectsDescription_Label")}
             components={{
-              link1: (
-                <LinkText href="https://github.com/bbtools-ps/">
-                  Github
-                </LinkText>
-              ),
-              link2: (
-                <LinkText href={"https://www.behance.net/bogdanbogdanovic"}>
-                  Behance
-                </LinkText>
-              )
+              link1: <LinkText href="https://github.com/bbtools-ps/">Github</LinkText>,
+              link2: <LinkText href={"https://www.behance.net/bogdanbogdanovic"}>Behance</LinkText>
             }}
           />
         </p>
-        <SectionContent
-          data={projects}
-          noResultsMessage={t("home:FeaturedProjectsNone_Label")}
-        >
+        <SectionContent data={projects} noResultsMessage={t("home:FeaturedProjectsNone_Label")}>
           <Projects projects={projects} />
         </SectionContent>
       </div>

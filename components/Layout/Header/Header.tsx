@@ -15,11 +15,7 @@ const Header = () => {
             i18nKey={t("home:AuthorAbout_Label")}
             components={{
               link1: (
-                <Link
-                  href="mailto:bogdi.mail@gmail.com"
-                  target="_top"
-                  rel="noopener noreferrer"
-                />
+                <Link href="mailto:bogdi.mail@gmail.com" target="_top" rel="noopener noreferrer" />
               )
             }}
           />
