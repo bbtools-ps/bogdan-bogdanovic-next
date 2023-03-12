@@ -9,3 +9,9 @@ export const sortData = <T extends { createTime: string }>(
       ? new Date(b.createTime).getTime() - new Date(a.createTime).getTime()
       : new Date(a.createTime).getTime() - new Date(b.createTime).getTime()
   );
+
+export const convertDate = (date: string, locale: string | undefined = "en-US") =>
+  new Date(date).toLocaleDateString(locale, {
+    year: "numeric",
+    month: "short"
+  });

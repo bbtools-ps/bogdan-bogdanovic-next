@@ -3,6 +3,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import React from "react";
 import { Locales } from "../../common/constants/constants";
+import { convertDate } from "../../common/functions/utils";
 import { StringValue } from "../../common/models/FirebaseValues";
 
 interface JobItemProps {
@@ -24,7 +25,6 @@ const JobItem: React.FC<JobItemProps> = ({
 }) => {
   const { locale } = useRouter();
   const { t } = useTranslation();
-  const theLocale = locale ? Locales[locale] : "en-US";
 
   return (
     <section className="job-item">
@@ -36,17 +36,8 @@ const JobItem: React.FC<JobItemProps> = ({
           </Link>
         </p>
         <p>
-          {new Date(startDate).toLocaleDateString(theLocale, {
-            year: "numeric",
-            month: "short"
-          })}{" "}
-          -{" "}
-          {endDate
-            ? new Date(endDate).toLocaleDateString(theLocale, {
-                year: "numeric",
-                month: "short"
-              })
-            : t("home:WorkExperiencePresent_Label")}
+          {convertDate(startDate, Locales[locale])} -{" "}
+          {endDate ? convertDate(endDate, Locales[locale]) : t("home:WorkExperiencePresent_Label")}
         </p>
       </div>
       <div className="job-summary">
