@@ -1,10 +1,11 @@
 import { Link } from "@nextui-org/react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { Suspense } from "react";
 import { Locales } from "../../common/constants/constants";
-import { convertDate } from "../../common/functions/utils";
+import { formatDate } from "../../common/functions/utils";
 import { StringValue } from "../../common/models/FirebaseValues";
+import classes from "./JobItem.module.scss";
 
 interface JobItemProps {
   jobTitle: string;
@@ -35,9 +36,11 @@ const JobItem: React.FC<JobItemProps> = ({
             {companyName}
           </Link>
         </p>
-        <p>
-          {convertDate(startDate, Locales[locale])} -{" "}
-          {endDate ? convertDate(endDate, Locales[locale]) : t("home:WorkExperiencePresent_Label")}
+        <p className={classes.date}>
+          <Suspense fallback={null}>
+            {formatDate(startDate, Locales[locale])} -{" "}
+            {endDate ? formatDate(endDate, Locales[locale]) : t("home:WorkExperiencePresent_Label")}
+          </Suspense>
         </p>
       </div>
       <div className="job-summary">

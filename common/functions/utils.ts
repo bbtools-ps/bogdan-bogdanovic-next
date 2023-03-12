@@ -10,7 +10,7 @@ export const sortData = <T extends { createTime: string }>(
       : new Date(a.createTime).getTime() - new Date(b.createTime).getTime()
   );
 
-export const convertDate = (date: string, locale: string | undefined = "en-US") =>
+export const formatDate = (date: string, locale: string | undefined = "en-US") =>
   new Date(date).toLocaleDateString(locale, {
     year: "numeric",
     month: "short"
