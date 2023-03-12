@@ -1,37 +1,20 @@
 import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { LanguageSlice } from "../../common/models/ReduxSlices";
-import { fetchLanguages } from "../../redux/reducers/languagesSlice";
-import { AppDispatch, RootState } from "../../redux/store";
+import { LanguageData } from "../../common/models/Data";
 import SectionContent from "../Layout/Section/SectionContent";
 
-const Languages = () => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch<AppDispatch>();
-  const {
-    data: languages,
-    isLoading: loading,
-    error
-  } = useSelector<RootState, LanguageSlice>((state) => state.languages);
-  const { locale } = useRouter();
+interface LanguagesProps {
+  data: LanguageData["documents"];
+}
 
-  useEffect(() => {
-    if (locale) {
-      dispatch(fetchLanguages(locale));
-    }
-  }, [dispatch, locale]);
+const Languages: React.FC<LanguagesProps> = ({ data: languages }) => {
+  const { t } = useTranslation();
 
   return (
     <section className="languages">
       <div className="content-wrap item-details">
         <h2>{t("home:LanguagesTitle_Label")}</h2>
         <SectionContent
-          loading={loading}
-          error={error}
           data={languages}
-          errorMessage={t("home:LanguagesNone_Label")}
           noResultsMessage={t("home:EducationNone_Label")}
         >
           <ul>

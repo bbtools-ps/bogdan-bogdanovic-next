@@ -1,29 +1,15 @@
 import { Trans, useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { EducationSlice } from "../../common/models/ReduxSlices";
-import { fetchEducation } from "../../redux/reducers/educationSlice";
-import { AppDispatch, RootState } from "../../redux/store";
+import { EducationData } from "../../common/models/Data";
 import SectionContent from "../Layout/Section/SectionContent";
 import LinkText from "../UI/LinkText";
 import EducationItem from "./EducationItem";
 
-const Education = () => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch<AppDispatch>();
-  const {
-    data: education,
-    isLoading: loading,
-    error
-  } = useSelector<RootState, EducationSlice>((state) => state.education);
-  const { locale } = useRouter();
+interface EducationProps {
+  data: EducationData["documents"];
+}
 
-  useEffect(() => {
-    if (locale) {
-      dispatch(fetchEducation(locale));
-    }
-  }, [dispatch, locale]);
+const Education: React.FC<EducationProps> = ({ data: education }) => {
+  const { t } = useTranslation();
 
   return (
     <section className="education">
@@ -42,10 +28,7 @@ const Education = () => {
           />
         </p>
         <SectionContent
-          loading={loading}
-          error={error}
           data={education}
-          errorMessage={t("home:EducationError_Label")}
           noResultsMessage={t("home:EducationNone_Label")}
         >
           {education?.map((item) => (

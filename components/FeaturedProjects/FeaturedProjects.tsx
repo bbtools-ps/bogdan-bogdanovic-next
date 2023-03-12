@@ -1,29 +1,17 @@
 import { Trans, useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ProjectsSlice } from "../../common/models/ReduxSlices";
-import { fetchProjects } from "../../redux/reducers/featuredProjectsSlice";
-import { AppDispatch, RootState } from "../../redux/store";
+import { ProjectData } from "../../common/models/Data";
 import SectionContent from "../Layout/Section/SectionContent";
 import LinkText from "../UI/LinkText";
 import Projects from "./Projects";
 
-const FeaturedProjects = () => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch<AppDispatch>();
-  const {
-    data: projects,
-    isLoading: loading,
-    error
-  } = useSelector<RootState, ProjectsSlice>((state) => state.featuredProjects);
-  const { locale } = useRouter();
+interface FeaturedProjectsProps {
+  data: ProjectData["documents"];
+}
 
-  useEffect(() => {
-    if (locale) {
-      dispatch(fetchProjects(locale));
-    }
-  }, [dispatch, locale]);
+const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({
+  data: projects
+}) => {
+  const { t } = useTranslation();
 
   return (
     <section className="projects">
@@ -47,10 +35,7 @@ const FeaturedProjects = () => {
           />
         </p>
         <SectionContent
-          loading={loading}
-          error={error}
           data={projects}
-          errorMessage={t("home:FeaturedProjectsError_Label")}
           noResultsMessage={t("home:FeaturedProjectsNone_Label")}
         >
           <Projects projects={projects} />

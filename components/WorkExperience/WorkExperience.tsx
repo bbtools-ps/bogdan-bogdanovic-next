@@ -1,31 +1,15 @@
 import { Trans, useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { WorkExperienceSlice } from "../../common/models/ReduxSlices";
-import { fetchWorkExperience } from "../../redux/reducers/workExperienceSlice";
-import { AppDispatch, RootState } from "../../redux/store";
+import { WorkExperienceData } from "../../common/models/Data";
 import SectionContent from "../Layout/Section/SectionContent";
 import LinkText from "../UI/LinkText";
 import JobItem from "./JobItem";
 
-const WorkExperience = () => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch<AppDispatch>();
-  const {
-    data: jobs,
-    isLoading: loading,
-    error
-  } = useSelector<RootState, WorkExperienceSlice>(
-    (state) => state.workExperience
-  );
-  const { locale } = useRouter();
+interface WorkExperienceProps {
+  data: WorkExperienceData["documents"];
+}
 
-  useEffect(() => {
-    if (locale) {
-      dispatch(fetchWorkExperience(locale));
-    }
-  }, [dispatch, locale]);
+const WorkExperience: React.FC<WorkExperienceProps> = ({ data: jobs }) => {
+  const { t } = useTranslation();
 
   return (
     <section className="work-experience">
@@ -44,10 +28,7 @@ const WorkExperience = () => {
           />
         </p>
         <SectionContent
-          loading={loading}
-          error={error}
           data={jobs}
-          errorMessage={t("home:WorkExperienceError_Label")}
           noResultsMessage={t("home:WorkExperienceNone_Label")}
         >
           {jobs?.map((item) => (
