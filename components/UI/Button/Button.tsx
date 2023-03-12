@@ -11,7 +11,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ url, type, children }) => {
-  let btnIcon;
+  let btnIcon = null;
 
   const openInNewTab = (url: string) => {
     window.open(url, "_blank", "noopener noreferrer");
@@ -26,6 +26,8 @@ const Button: React.FC<ButtonProps> = ({ url, type, children }) => {
       break;
     case "info":
       btnIcon = <FontAwesomeIcon icon={faInfoCircle} />;
+      break;
+    default:
       break;
   }
 

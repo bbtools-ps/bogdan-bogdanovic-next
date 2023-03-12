@@ -13,6 +13,8 @@ const ThemeSwitcher = () => {
       onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
       iconOn={<FontAwesomeIcon icon={faMoon} />}
       iconOff={<FontAwesomeIcon icon={faSun} />}
+      aria-label="Theme switch"
+      name="Theme switch"
     />
   );
 };
