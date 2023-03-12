@@ -15,7 +15,6 @@ export interface ProjectFields {
   title: StringValue;
   description: StringValue;
   imageSrc: StringValue;
-  imageFallbackSrc: StringValue;
   equipment?: ArrayValue;
   technologies?: ArrayValue;
   infoLink?: StringValue;

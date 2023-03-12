@@ -15,7 +15,6 @@ interface ProjectItemProps {
   liveLink?: string;
   sourceLink?: string;
   imageSrc: string;
-  imageFallbackSrc: string;
   index: number;
 }
 
@@ -23,13 +22,12 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   title,
   description,
   imageSrc,
-  imageFallbackSrc,
   equipment,
   infoLink,
   liveLink,
   sourceLink,
   technologies,
-  index,
+  index
 }) => {
   const { t } = useTranslation();
   return (
@@ -48,9 +46,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
       <ProjectImage
         url={infoLink ? infoLink : liveLink}
         src={imageSrc}
-        fallbackSrc={imageFallbackSrc}
         alt={title}
-        index={index}
       />
       <div className="project-description">
         <p>{description}</p>

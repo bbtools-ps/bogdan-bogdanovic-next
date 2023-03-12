@@ -1,34 +1,20 @@
 import Image from "next/image";
-import React, { useState } from "react";
-import { imageLoader } from "../../common/functions/utils";
+import React from "react";
 
 interface ProjectImageProps {
   url?: string;
   src: string;
-  fallbackSrc: string;
   alt: string;
-  index: number;
 }
 
-const ProjectImage: React.FC<ProjectImageProps> = ({
-  url,
-  src,
-  fallbackSrc,
-  alt,
-  index
-}) => {
-  const [imgSrc, setImgSrc] = useState(src);
-
+const ProjectImage: React.FC<ProjectImageProps> = ({ url, src, alt }) => {
   return (
     <a href={url ? url : "#"} target="_blank" rel="noopener noreferrer">
       <Image
-        loader={imageLoader}
-        src={imgSrc}
+        src={`https://firebasestorage.googleapis.com/v0/b/bogdan-bogdanovic.appspot.com/o/${src}`}
         alt={alt}
-        width={700}
-        height={548}
-        priority={index === 0 ? true : false}
-        onError={() => setImgSrc(fallbackSrc)}
+        width={350}
+        height={274}
       />
     </a>
   );

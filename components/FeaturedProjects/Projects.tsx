@@ -19,7 +19,7 @@ interface ProjectsProps {
 const Projects: React.FC<ProjectsProps> = ({
   projects,
   pageSize = 5,
-  initialPage = 1,
+  initialPage = 1
 }) => {
   const [currentPage, setCurrentPage] = useState(initialPage);
   const total = useMemo(
@@ -45,7 +45,6 @@ const Projects: React.FC<ProjectsProps> = ({
             key={item.name}
             title={item.fields.title.stringValue}
             imageSrc={item.fields.imageSrc.stringValue}
-            imageFallbackSrc={item.fields.imageFallbackSrc.stringValue}
             description={item.fields.description.stringValue}
             technologies={item.fields.technologies?.arrayValue.values}
             equipment={item.fields.equipment?.arrayValue.values}
