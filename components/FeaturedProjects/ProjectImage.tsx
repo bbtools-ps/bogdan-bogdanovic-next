@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import { imageLoader } from "../../common/functions/imageLoader";
+import { imageLoader } from "../../common/functions/utils";
 
 interface ProjectImageProps {
   url?: string;
