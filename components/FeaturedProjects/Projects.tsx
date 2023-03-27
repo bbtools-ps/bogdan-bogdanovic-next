@@ -4,7 +4,7 @@ import { ProjectFields } from "../../common/models/Fields";
 import ProjectItem from "./ProjectItem";
 
 interface ProjectsProps {
-  projects:
+  data:
     | {
         createTime: string;
         updateTime: string;
@@ -16,22 +16,22 @@ interface ProjectsProps {
   initialPage?: number;
 }
 
-const Projects: React.FC<ProjectsProps> = ({ projects, pageSize = 5, initialPage = 1 }) => {
+const Projects: React.FC<ProjectsProps> = ({ data, pageSize = 5, initialPage = 1 }) => {
   const [currentPage, setCurrentPage] = useState(initialPage);
   const total = useMemo(
-    () => (projects && projects.length ? Math.ceil(projects.length / pageSize) : 0),
-    [pageSize, projects]
+    () => (data && data.length ? Math.ceil(data.length / pageSize) : 0),
+    [pageSize, data]
   );
   const currentProjectsData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * pageSize;
     const lastPageIndex = firstPageIndex + pageSize;
-    return projects && projects.length && projects.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, pageSize, projects]);
+    return data && data.length && data.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, pageSize, data]);
 
   return (
     <>
       {currentProjectsData &&
-        currentProjectsData.map((item, index) => (
+        currentProjectsData.map((item) => (
           <ProjectItem
             key={item.name}
             title={item.fields.title.stringValue}
@@ -42,14 +42,18 @@ const Projects: React.FC<ProjectsProps> = ({ projects, pageSize = 5, initialPage
             infoLink={item.fields.infoLink?.stringValue}
             sourceLink={item.fields.sourceLink?.stringValue}
             liveLink={item.fields.liveLink?.stringValue}
-            index={index}
           />
         ))}
       {total > 1 && (
         <div>
           <Spacer />
           <Row justify="center" align="center">
-            <Pagination total={total} initialPage={initialPage} onChange={setCurrentPage} />
+            <Pagination
+              total={total}
+              initialPage={initialPage}
+              onChange={setCurrentPage}
+              aria-label="pagination"
+            />
           </Row>
         </div>
       )}

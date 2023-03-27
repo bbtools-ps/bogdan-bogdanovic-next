@@ -1,3 +1,4 @@
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { faCode, faEye, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button as NextUIButton } from "@nextui-org/react";
@@ -11,29 +12,29 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ url, type, children }) => {
-  let btnIcon = null;
-
-  const openInNewTab = (url: string) => {
-    window.open(url, "_blank", "noopener noreferrer");
-  };
+  let icon: IconProp;
 
   switch (type) {
     case "source":
-      btnIcon = <FontAwesomeIcon icon={faCode} />;
+      icon = faCode;
       break;
     case "live":
-      btnIcon = <FontAwesomeIcon icon={faEye} />;
+      icon = faEye;
       break;
     case "info":
-      btnIcon = <FontAwesomeIcon icon={faInfoCircle} />;
+      icon = faInfoCircle;
       break;
     default:
       break;
   }
 
+  const openInNewTab = (url: string) => {
+    window.open(url, "_blank", "noopener noreferrer");
+  };
+
   return (
     <NextUIButton onPress={() => openInNewTab(url)} className={styles.button} ghost auto>
-      {btnIcon}
+      {type && <FontAwesomeIcon icon={icon} data-testid={`${type}-icon`} />}
       {children}
     </NextUIButton>
   );

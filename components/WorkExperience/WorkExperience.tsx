@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from "next-i18next";
 import { WorkExperienceData } from "../../common/models/Data";
 import SectionContent from "../Layout/Section/SectionContent";
-import LinkText from "../UI/LinkText";
+import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import JobItem from "./JobItem";
 
 interface WorkExperienceProps {
@@ -20,7 +20,9 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({ data: jobs }) => {
             i18nKey={t("home:WorkExperienceDescription_Label")}
             components={{
               link1: (
-                <LinkText href="https://www.linkedin.com/in/bogdanbogdanovic">Linkedin</LinkText>
+                <ExternalLink href="https://www.linkedin.com/in/bogdanbogdanovic">
+                  Linkedin
+                </ExternalLink>
               )
             }}
           />

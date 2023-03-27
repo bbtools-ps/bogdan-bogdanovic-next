@@ -1,9 +1,10 @@
-import { faBehance, faGithub, faLinkedin, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
 import React from "react";
+import ExternalLink from "../../UI/ExternalLink/ExternalLink";
+import SocialLink from "../../UI/SocialLink/SocialLink";
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
@@ -18,40 +19,24 @@ const Footer: React.FC = () => {
         </Link>
         <ul>
           <li>
-            <Link href="https://github.com/bbtools-ps/" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faGithub} />
+            <SocialLink type="github" href="https://github.com/bbtools-ps/">
               Github
-            </Link>
+            </SocialLink>
           </li>
           <li>
-            <Link
-              href="https://www.behance.net/bogdanbogdanovic"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faBehance} />
+            <SocialLink type="behance" href="https://www.behance.net/bogdanbogdanovic">
               Behance
-            </Link>
+            </SocialLink>
           </li>
           <li>
-            <Link
-              href="https://www.linkedin.com/in/bogdanbogdanovic"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faLinkedin} />
+            <SocialLink type="linkedin" href="https://www.linkedin.com/in/bogdanbogdanovic">
               Linkedin
-            </Link>
+            </SocialLink>
           </li>
           <li>
-            <Link
-              href="https://www.youtube.com/user/bogdimail"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon icon={faYoutube} />
+            <SocialLink type="youtube" href="https://www.youtube.com/user/bogdimail">
               Youtube
-            </Link>
+            </SocialLink>
           </li>
         </ul>
         <p style={{ textAlign: "center" }}>{t("common:FooterDescription1_Label")}</p>
@@ -59,13 +44,7 @@ const Footer: React.FC = () => {
           <Trans
             i18nKey={t("common:FooterDescription2_Label")}
             components={{
-              link1: (
-                <Link
-                  href="https://github.com/bbtools-ps/bogdan-bogdanovic-website"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                />
-              )
+              link1: <ExternalLink href="https://github.com/bbtools-ps/bogdan-bogdanovic-website" />
             }}
           />
         </p>

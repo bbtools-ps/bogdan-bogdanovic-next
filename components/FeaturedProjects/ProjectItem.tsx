@@ -15,7 +15,6 @@ interface ProjectItemProps {
   liveLink?: string;
   sourceLink?: string;
   imageSrc: string;
-  index: number;
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = ({
@@ -26,12 +25,11 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   infoLink,
   liveLink,
   sourceLink,
-  technologies,
-  index
+  technologies
 }) => {
   const { t } = useTranslation();
   return (
-    <section className="project-item">
+    <section className="project-item" data-testid="project">
       <h3>
         {infoLink ? (
           <Link href={infoLink} target="_blank" rel="noopener noreferrer">

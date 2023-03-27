@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from "next-i18next";
 import { EducationData } from "../../common/models/Data";
 import SectionContent from "../Layout/Section/SectionContent";
-import LinkText from "../UI/LinkText";
+import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import EducationItem from "./EducationItem";
 
 interface EducationProps {
@@ -20,7 +20,9 @@ const Education: React.FC<EducationProps> = ({ data: education }) => {
             i18nKey={t("home:EducationDescription_Label")}
             components={{
               link1: (
-                <LinkText href="https://www.linkedin.com/in/bogdanbogdanovic">Linkedin</LinkText>
+                <ExternalLink href="https://www.linkedin.com/in/bogdanbogdanovic">
+                  Linkedin
+                </ExternalLink>
               )
             }}
           />

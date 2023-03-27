@@ -1,7 +1,7 @@
 import { Trans, useTranslation } from "next-i18next";
 import { ProjectData } from "../../common/models/Data";
 import SectionContent from "../Layout/Section/SectionContent";
-import LinkText from "../UI/LinkText";
+import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import Projects from "./Projects";
 
 interface FeaturedProjectsProps {
@@ -19,13 +19,17 @@ const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ data: projects }) =
           <Trans
             i18nKey={t("home:FeaturedProjectsDescription_Label")}
             components={{
-              link1: <LinkText href="https://github.com/bbtools-ps/">Github</LinkText>,
-              link2: <LinkText href={"https://www.behance.net/bogdanbogdanovic"}>Behance</LinkText>
+              link1: <ExternalLink href="https://github.com/bbtools-ps/">Github</ExternalLink>,
+              link2: (
+                <ExternalLink href={"https://www.behance.net/bogdanbogdanovic"}>
+                  Behance
+                </ExternalLink>
+              )
             }}
           />
         </p>
         <SectionContent data={projects} noResultsMessage={t("home:FeaturedProjectsNone_Label")}>
-          <Projects projects={projects} />
+          <Projects data={projects} />
         </SectionContent>
       </div>
     </section>
