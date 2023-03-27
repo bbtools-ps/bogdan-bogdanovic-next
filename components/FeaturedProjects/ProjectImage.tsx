@@ -1,3 +1,4 @@
+import { theme } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -16,6 +17,10 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ url, src, alt }) => {
         alt={alt}
         width={350}
         height={274}
+        style={{
+          border: `2px solid ${theme.colors.neutral}`,
+          borderRadius: "0.5rem"
+        }}
       />
     </Link>
   );
