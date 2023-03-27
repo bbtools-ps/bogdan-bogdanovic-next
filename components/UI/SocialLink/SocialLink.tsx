@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ExternalLink, { ExternalLinkProps } from "../ExternalLink/ExternalLink";
+import classes from "./SocailLink.module.scss";
 
 interface SocialLinkProps extends ExternalLinkProps {
   type: "behance" | "facebook" | "github" | "linkedin" | "youtube";
@@ -38,7 +39,11 @@ const SocialLink: React.FC<SocialLinkProps> = ({ children, href, type }) => {
   }
 
   return (
-    <ExternalLink href={href} aria-label={!children ? type : undefined}>
+    <ExternalLink
+      href={href}
+      aria-label={!children ? type : undefined}
+      className={classes["social-link"]}
+    >
       {icon && <FontAwesomeIcon icon={icon} data-testid={`${type}-icon`} />}
       {children}
     </ExternalLink>

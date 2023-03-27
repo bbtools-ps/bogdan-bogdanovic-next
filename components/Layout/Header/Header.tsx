@@ -1,5 +1,5 @@
-import { Link } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
+import EmailLink from "../../UI/EmailLink/EmailLink";
 import HeaderMenu from "./HeaderMenu/HeaderMenu";
 
 const Header = () => {
@@ -14,9 +14,7 @@ const Header = () => {
           <Trans
             i18nKey={t("home:AuthorAbout_Label")}
             components={{
-              link1: (
-                <Link href="mailto:bogdi.mail@gmail.com" target="_top" rel="noopener noreferrer" />
-              )
+              link1: <EmailLink email="bogdi.mail@gmail.com"></EmailLink>
             }}
           />
         </p>

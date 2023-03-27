@@ -1,10 +1,10 @@
-import { Link } from "@nextui-org/react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";
 import { Locales } from "../../common/constants/constants";
 import { formatDate } from "../../common/functions/utils";
 import { StringValue } from "../../common/models/FirebaseValues";
+import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import classes from "./JobItem.module.scss";
 
 interface JobItemProps {
@@ -32,9 +32,9 @@ const JobItem: React.FC<JobItemProps> = ({
       <div className="job-details">
         <h3>{jobTitle}</h3>
         <p>
-          <Link href={companyLink} target="_blank" rel="noopener noreferrer" color="secondary">
+          <ExternalLink href={companyLink} color="secondary">
             {companyName}
-          </Link>
+          </ExternalLink>
         </p>
         <p className={classes.date}>
           <Suspense fallback={null}>

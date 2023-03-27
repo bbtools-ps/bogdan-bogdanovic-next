@@ -10,14 +10,9 @@ span a {
   width: 100% !important;
 }
 
-footer svg,
 main svg {
   width: 1rem;
   height: 1rem;
-}
-
-footer a {
-  align-items: center !important;
 }
 
 .wrapper {
@@ -59,4 +54,13 @@ footer a {
 
 .job-summary a {
   padding: 1rem;
+}
+
+footer .content-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+p > a {
+  margin: 0 0.2rem;
 }

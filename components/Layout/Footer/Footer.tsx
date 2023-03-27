@@ -1,8 +1,6 @@
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "@nextui-org/react";
 import { Trans, useTranslation } from "next-i18next";
 import React from "react";
+import EmailLink from "../../UI/EmailLink/EmailLink";
 import ExternalLink from "../../UI/ExternalLink/ExternalLink";
 import SocialLink from "../../UI/SocialLink/SocialLink";
 
@@ -13,10 +11,9 @@ const Footer: React.FC = () => {
     <footer>
       <div className="content-wrap">
         <h2>{t("common:FooterTitle_Label")}</h2>
-        <Link href="mailto:bogdi.mail@gmail.com" target="_top" rel="noopener noreferrer">
-          <FontAwesomeIcon icon={faEnvelope} />
+        <EmailLink email="bogdi.mail@gmail.com" withIcon>
           bogdi.mail@gmail.com
-        </Link>
+        </EmailLink>
         <ul>
           <li>
             <SocialLink type="github" href="https://github.com/bbtools-ps/">

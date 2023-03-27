@@ -1,8 +1,8 @@
-import { Link } from "@nextui-org/react";
 import { useTranslation } from "next-i18next";
 import React from "react";
 import { StringValue } from "../../common/models/FirebaseValues";
 import Button from "../UI/Button/Button";
+import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import ProjectImage from "./ProjectImage";
 import styles from "./ProjectItem.module.css";
 
@@ -31,17 +31,9 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   return (
     <section className="project-item" data-testid="project">
       <h3>
-        {infoLink ? (
-          <Link href={infoLink} target="_blank" rel="noopener noreferrer">
-            {title}
-          </Link>
-        ) : (
-          <Link href={liveLink} target="_blank" rel="noopener noreferrer">
-            {title}
-          </Link>
-        )}
+        <ExternalLink href={infoLink || liveLink}>{title}</ExternalLink>
       </h3>
-      <ProjectImage url={infoLink ? infoLink : liveLink} src={imageSrc} alt={title} />
+      <ProjectImage url={infoLink || liveLink} src={imageSrc} alt={title} />
       <div className="project-description">
         <p>{description}</p>
         <p>

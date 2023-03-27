@@ -15,7 +15,8 @@ describe("<SocialLink/>", () => {
 
     const icon = screen.getByTestId("github-icon");
     expect(icon).toBeInTheDocument();
-    expect(screen.getByText("GitHub")).toBeInTheDocument();
+    expect(screen.getByText(/GitHub/i)).toBeInTheDocument();
+    expect(icon).toHaveClass("fa-github");
   });
 
   it("renders a different icon for a different type prop", () => {
@@ -23,6 +24,7 @@ describe("<SocialLink/>", () => {
 
     const icon = screen.getByTestId("linkedin-icon");
     expect(icon).toBeInTheDocument();
+    expect(icon).toHaveClass("fa-linkedin");
   });
 
   it("should open the link in a new tab", () => {
