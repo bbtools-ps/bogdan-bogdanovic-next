@@ -4,15 +4,19 @@ body {
   background: url("../../public/images/about_bg.webp") no-repeat center / cover fixed;
 }
 
+main svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+p > a {
+  margin: 0 0.2rem;
+}
+
 // Fix for language dropdown menu items
 span a {
   display: inline-block;
   width: 100% !important;
-}
-
-main svg {
-  width: 1rem;
-  height: 1rem;
 }
 
 .wrapper {
@@ -56,11 +60,13 @@ main svg {
   padding: 1rem;
 }
 
-footer .content-wrap {
-  display: flex;
-  flex-direction: column;
-}
-
-p > a {
-  margin: 0 0.2rem;
+footer {
+  .content-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+  p {
+    width: 100%;
+    text-align: center;
+  }
 }

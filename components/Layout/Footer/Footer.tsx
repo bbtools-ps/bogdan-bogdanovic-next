@@ -36,8 +36,8 @@ const Footer: React.FC = () => {
             </SocialLink>
           </li>
         </ul>
-        <p style={{ textAlign: "center" }}>{t("common:FooterDescription1_Label")}</p>
-        <p style={{ textAlign: "center" }}>
+        <p>{t("common:FooterDescription1_Label")}</p>
+        <p>
           <Trans
             i18nKey={t("common:FooterDescription2_Label")}
             components={{
