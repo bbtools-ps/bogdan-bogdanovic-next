@@ -14,7 +14,7 @@ interface SocialLinkProps extends ExternalLinkProps {
 }
 
 const SocialLink: React.FC<SocialLinkProps> = ({ children, href, type }) => {
-  let icon: IconProp;
+  let icon: IconProp | null = null;
 
   switch (type) {
     case "behance":
@@ -38,8 +38,8 @@ const SocialLink: React.FC<SocialLinkProps> = ({ children, href, type }) => {
   }
 
   return (
-    <ExternalLink href={href}>
-      <FontAwesomeIcon icon={icon} data-testid={`${type}-icon`} />
+    <ExternalLink href={href} aria-label={!children ? type : undefined}>
+      {icon && <FontAwesomeIcon icon={icon} data-testid={`${type}-icon`} />}
       {children}
     </ExternalLink>
   );

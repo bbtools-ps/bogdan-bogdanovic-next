@@ -31,4 +31,9 @@ describe("<SocialLink/>", () => {
     expect(linkElement).toHaveAttribute("target", "_blank");
     expect(linkElement).toHaveAttribute("rel", "noopener noreferrer");
   });
+
+  it("should be accessible when only icon is passed as a prop", () => {
+    render(<SocialLink href="https://www.linkedin.com/" type="linkedin" />);
+    expect(screen.getByRole("link", { name: /linkedin/i })).toBeInTheDocument();
+  });
 });
