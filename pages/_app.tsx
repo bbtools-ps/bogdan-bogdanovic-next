@@ -1,3 +1,5 @@
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
@@ -5,6 +7,7 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "../redux/store";
 import "../styles/main.scss";
+config.autoAddCss = false;
 
 // 2. Call `createTheme` and pass your custom values
 const lightTheme = createTheme({
