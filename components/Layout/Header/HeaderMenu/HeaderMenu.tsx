@@ -1,4 +1,4 @@
-import { Dropdown } from "@nextui-org/react";
+import { Container, Dropdown } from "@nextui-org/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -6,7 +6,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Languages } from "../../../../common/constants/constants";
 import { updateSelectedLanguage } from "../../../../redux/reducers/settingsSlice";
 import { RootState } from "../../../../redux/store";
-import styles from "./HeaderMenu.module.css";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 const HeaderMenu = () => {
@@ -22,7 +21,9 @@ const HeaderMenu = () => {
   }, [dispatch, locale]);
 
   return (
-    <div className={styles["header-menu"]}>
+    <Container
+      css={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "$5" }}
+    >
       <Dropdown>
         <Dropdown.Button color="default" id="lang" light>
           {selectedLanguage}
@@ -49,7 +50,7 @@ const HeaderMenu = () => {
         </Dropdown.Menu>
       </Dropdown>
       <ThemeSwitcher />
-    </div>
+    </Container>
   );
 };
 
