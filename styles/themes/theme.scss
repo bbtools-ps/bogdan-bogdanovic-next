@@ -3,16 +3,12 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-
-html {
   overflow: hidden;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  overflow: auto;
   background: url("../../public/images/about_bg.webp") no-repeat center / cover fixed;
 }
 
@@ -33,6 +29,7 @@ span a {
 
 .wrapper {
   flex: 1;
+  overflow: auto;
 }
 
 .content-wrap {
