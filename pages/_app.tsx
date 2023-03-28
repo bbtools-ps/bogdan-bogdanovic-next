@@ -23,7 +23,6 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <title>Bogdan Bogdanovic - portfolio</title>
-        <link rel="shortcut icon" type="image/svg+xml" href="./favicon.svg" />
         <meta
           name="description"
           content="Skilled web developer using: HTML, CSS, Javascript, React.js, Vue.js and Node.js. Strong arts and design professional."
