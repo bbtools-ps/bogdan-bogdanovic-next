@@ -14,7 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "module": "esnext",
-    "types": ["node", "vite/client", "vitest/globals"]
+    "types": ["node", "vite/client", "vitest/globals"],
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/redux/*": ["redux/*"],
+      "@/common/*": ["common/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

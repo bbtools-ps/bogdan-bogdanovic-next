@@ -1,5 +1,5 @@
+import EmailLink from "@/components/UI/EmailLink/EmailLink";
 import { Trans, useTranslation } from "next-i18next";
-import EmailLink from "../../UI/EmailLink/EmailLink";
 import HeaderMenu from "./HeaderMenu/HeaderMenu";
 
 const Header = () => {

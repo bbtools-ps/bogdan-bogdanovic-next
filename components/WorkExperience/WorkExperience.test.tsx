@@ -1,6 +1,6 @@
+import { formatDate } from "@/common/functions/utils";
 import { render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
-import { formatDate } from "../../common/functions/utils";
 import WorkExperience from "./WorkExperience";
 
 vi.mock("next/router", async () => {

@@ -1,8 +1,8 @@
+import { Locales } from "@/common/constants/constants";
+import { formatDate } from "@/common/functions/utils";
 import { render } from "@testing-library/react";
 import { useRouter } from "next/router";
 import { Suspense } from "react";
-import { Locales } from "../../common/constants/constants";
-import { formatDate } from "../../common/functions/utils";
 import JobItem from "./JobItem";
 
 vi.mock("next/router", async () => {

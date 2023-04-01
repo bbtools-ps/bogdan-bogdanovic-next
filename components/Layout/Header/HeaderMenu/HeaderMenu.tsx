@@ -1,11 +1,11 @@
+import { Languages } from "@/common/constants/constants";
+import { updateSelectedLanguage } from "@/redux/reducers/settingsSlice";
+import { RootState } from "@/redux/store";
 import { Container, Dropdown } from "@nextui-org/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Languages } from "../../../../common/constants/constants";
-import { updateSelectedLanguage } from "../../../../redux/reducers/settingsSlice";
-import { RootState } from "../../../../redux/store";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 const HeaderMenu = () => {

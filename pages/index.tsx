@@ -1,20 +1,15 @@
+import { DATABASE_PATH } from "@/common/constants/constants";
+import { sortData } from "@/common/functions/utils";
+import { EducationData, LanguageData, ProjectData, WorkExperienceData } from "@/common/models/Data";
+import Education from "@/components/Education/Education";
+import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
+import Languages from "@/components/Languages/Languages";
+import Footer from "@/components/Layout/Footer/Footer";
+import Header from "@/components/Layout/Header/Header";
+import WorkExperience from "@/components/WorkExperience/WorkExperience";
 import { useTheme } from "@nextui-org/react";
 import axios from "axios";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { DATABASE_PATH } from "../common/constants/constants";
-import { sortData } from "../common/functions/utils";
-import {
-  EducationData,
-  LanguageData,
-  ProjectData,
-  WorkExperienceData
-} from "../common/models/Data";
-import Education from "../components/Education/Education";
-import FeaturedProjects from "../components/FeaturedProjects/FeaturedProjects";
-import Languages from "../components/Languages/Languages";
-import Footer from "../components/Layout/Footer/Footer";
-import Header from "../components/Layout/Header/Header";
-import WorkExperience from "../components/WorkExperience/WorkExperience";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   const projectsData = await axios.get<ProjectData>(

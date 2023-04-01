@@ -1,6 +1,6 @@
+import { StringValue } from "@/common/models/FirebaseValues";
 import { useTranslation } from "next-i18next";
 import React from "react";
-import { StringValue } from "../../common/models/FirebaseValues";
 import Button from "../UI/Button/Button";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import ProjectImage from "./ProjectImage";

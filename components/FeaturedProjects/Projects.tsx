@@ -1,6 +1,6 @@
+import { ProjectFields } from "@/common/models/Fields";
 import { Pagination, Row, Spacer } from "@nextui-org/react";
 import { useMemo, useState } from "react";
-import { ProjectFields } from "../../common/models/Fields";
 import ProjectItem from "./ProjectItem";
 
 interface ProjectsProps {
