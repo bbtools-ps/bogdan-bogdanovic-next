@@ -1,6 +1,7 @@
 /// <reference types="vitest" />
 
 import react from "@vitejs/plugin-react";
+import { resolve } from "path";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
@@ -8,6 +9,14 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: "./test/setup.ts",
+    setupFiles: "./test/setup.ts"
   },
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "."),
+      "/components/*": resolve(__dirname, "components/*"),
+      "/redux/*": resolve(__dirname, "redux/*"),
+      "/common/*": resolve(__dirname, "common/*")
+    }
+  }
 });
