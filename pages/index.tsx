@@ -1,5 +1,5 @@
 import { DATABASE_PATH } from "@/common/constants/constants";
-import { sortData } from "@/common/functions/utils";
+import { sortDataCreateTime } from "@/common/functions/utils";
 import { EducationData, LanguageData, ProjectData, WorkExperienceData } from "@/common/models/Data";
 import Education from "@/components/Education/Education";
 import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
@@ -27,10 +27,10 @@ export async function getStaticProps({ locale }: { locale: string }) {
 
   return {
     props: {
-      projects: sortData(projectsData.data.documents),
-      workExperience: sortData(workExperienceData.data.documents),
-      education: sortData(educationData.data.documents),
-      languages: sortData(languagesData.data.documents, "ASC"),
+      projects: sortDataCreateTime(projectsData.data.documents),
+      workExperience: sortDataCreateTime(workExperienceData.data.documents),
+      education: sortDataCreateTime(educationData.data.documents),
+      languages: sortDataCreateTime(languagesData.data.documents, "ASC"),
       ...(await serverSideTranslations(locale, ["home", "common"]))
     }
   };
