@@ -16,7 +16,8 @@ export default defineConfig({
       "@": resolve(__dirname, "."),
       "/components/*": resolve(__dirname, "components/*"),
       "/redux/*": resolve(__dirname, "redux/*"),
-      "/common/*": resolve(__dirname, "common/*")
+      "/common/*": resolve(__dirname, "common/*"),
+      "/layout/*": resolve(__dirname, "layout/*")
     }
   }
 });

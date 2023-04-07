@@ -1,6 +1,6 @@
 import { WorkExperienceData } from "@/common/models/Data";
+import SectionContent from "@/layout/Section/SectionContent";
 import { Trans, useTranslation } from "next-i18next";
-import SectionContent from "../Layout/Section/SectionContent";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import JobItem from "./JobItem";
 

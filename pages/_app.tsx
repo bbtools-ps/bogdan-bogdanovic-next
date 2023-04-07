@@ -1,3 +1,4 @@
+import Layout from "@/layout/Layout";
 import store from "@/redux/store";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -39,7 +40,9 @@ function MyApp({ Component, pageProps }) {
           }}
         >
           <NextUIProvider>
-            <Component {...pageProps} />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
           </NextUIProvider>
         </NextThemesProvider>
       </Provider>
