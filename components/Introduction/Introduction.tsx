@@ -7,9 +7,9 @@ const Introduction = () => {
 
   return (
     <div className={`content-wrap ${classes.container}`}>
-      <h1>{t("home:AuthorName_Label")}</h1>
-      <h2>{t("home:AuthorHeadline_Label")}</h2>
-      <p style={{ whiteSpace: "pre-wrap" }}>
+      <h1 style={{ fontWeight: 700, lineHeight: 1.5 }}>{t("home:AuthorName_Label")}</h1>
+      <h2 style={{ fontWeight: 600, lineHeight: 1.5 }}>{t("home:AuthorHeadline_Label")}</h2>
+      <p style={{ whiteSpace: "pre-wrap", lineHeight: 1.75 }}>
         <Trans
           i18nKey={t("home:AuthorAbout_Label")}
           components={{
