@@ -8,9 +8,10 @@ vi.mock("next/router", async () => {
   return { ...mod, useRouter: vi.fn() };
 });
 // Mock the useTranslation hook to avoid issues with i18n.
-vi.mock("react-i18next", () => ({
-  useTranslation: () => ({ t: (key: string) => key })
-}));
+vi.mock("next-i18next", async () => {
+  const mod: any = await vi.importActual("next-i18next");
+  return { ...mod, useTranslation: () => ({ t: (key: string) => key }) };
+});
 
 const mockedUseRouter = vi.mocked(useRouter);
 

@@ -1,4 +1,4 @@
-import { Trans, useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "next-i18next";
 import EmailLink from "../UI/EmailLink/EmailLink";
 import classes from "./Introduction.module.scss";
 

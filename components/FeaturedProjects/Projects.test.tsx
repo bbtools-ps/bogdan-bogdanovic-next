@@ -2,8 +2,8 @@ import { render, screen } from "@testing-library/react";
 import Projects from "./Projects";
 
 // Mock the useTranslation hook to avoid issues with i18n.
-vi.mock("react-i18next", async () => {
-  const mod: any = await vi.importActual("react-i18next");
+vi.mock("next-i18next", async () => {
+  const mod: any = await vi.importActual("next-i18next");
   return { ...mod, useTranslation: () => ({ t: (key: string) => key }) };
 });
 
