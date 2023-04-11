@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import configureStore, { MockStoreEnhanced } from "redux-mock-store";
 import LanguageDropdown from "./LanguageDropdown";
 
-describe("LanguageDropdown", () => {
+describe("<LanguageDropdown/>", () => {
   const mockStore = configureStore([]);
   let store: MockStoreEnhanced<unknown, {}>;
 
