@@ -1,55 +1,14 @@
-import { Languages } from "@/common/constants/constants";
-import { updateSelectedLanguage } from "@/redux/reducers/settingsSlice";
-import { RootState } from "@/redux/store";
-import { Container, Dropdown } from "@nextui-org/react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Container } from "@nextui-org/react";
+import LanguageDropdown from "./LanguageDropdown";
 import ThemeSwitcher from "./ThemeSwitcher";
 
 const HeaderMenu = () => {
-  const dispatch = useDispatch();
-  const selectedLanguage = useSelector<RootState, string[]>(
-    (state) => state.settings.selectedLanguage
-  );
-  const { locale, pathname } = useRouter();
-
-  // Change the language on the dropdown if the user entered the page from url
-  useEffect(() => {
-    dispatch(updateSelectedLanguage([locale]));
-  }, [dispatch, locale]);
-
   return (
     <Container
       style={{ height: "40px" }}
       css={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "$5" }}
     >
-      <Dropdown>
-        <Dropdown.Button color="default" id="lang" light>
-          {selectedLanguage}
-        </Dropdown.Button>
-        <Dropdown.Menu
-          color="default"
-          variant="light"
-          aria-label="Languages"
-          disallowEmptySelection
-          selectionMode="single"
-          selectedKeys={selectedLanguage}
-          onSelectionChange={(selectedLanguage) =>
-            // @ts-ignore
-            dispatch(updateSelectedLanguage(Array.from(selectedLanguage)))
-          }
-        >
-          {Languages.map((item) => (
-            <Dropdown.Item key={item.id} textValue={item.name}>
-              <Link href={pathname} locale={item.id}>
-                {item.name}
-              </Link>
-            </Dropdown.Item>
-          ))}
-        </Dropdown.Menu>
-      </Dropdown>
+      <LanguageDropdown />
       <ThemeSwitcher />
     </Container>
   );
