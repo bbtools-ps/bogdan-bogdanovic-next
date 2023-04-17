@@ -4,7 +4,7 @@ import { StringValue } from "@/common/models/FirebaseValues";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";
-import ExternalLink from "../UI/ExternalLink/ExternalLink";
+import ExternalLink from "../ExternalLink/ExternalLink";
 import classes from "./JobItem.module.scss";
 
 interface JobItemProps {

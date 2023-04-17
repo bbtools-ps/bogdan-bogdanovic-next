@@ -1,7 +1,7 @@
 import { EducationData } from "@/common/models/Data";
 import SectionContent from "@/layout/Section/SectionContent";
 import { Trans, useTranslation } from "next-i18next";
-import ExternalLink from "../UI/ExternalLink/ExternalLink";
+import ExternalLink from "../ExternalLink/ExternalLink";
 import EducationItem from "./EducationItem";
 
 interface EducationProps {
