@@ -7,14 +7,7 @@ body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   background: url("../../public/images/about_bg.webp") no-repeat center / cover fixed;
-}
-
-#__next {
-  overflow: auto;
-  flex: 1;
 }
 
 header {
@@ -25,6 +18,12 @@ header {
 
 header .content-wrap {
   padding-top: 0;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 main svg {
@@ -43,8 +42,14 @@ span a {
 }
 
 .wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 }
 
 .content-wrap {
@@ -71,12 +76,6 @@ span a {
 
 .job-item a {
   font-size: 1.5rem;
-}
-
-// Link that wraps for the project image
-.project-item h3 + a {
-  box-shadow: 0 2px 8px 1px rgb(104 112 118 / 0.07), 0 1px 1px -1px rgb(104 112 118 / 0.04);
-  line-height: 0;
 }
 
 .job-summary a {

@@ -11,7 +11,7 @@ interface ProjectImageProps {
 
 const ProjectImage: React.FC<ProjectImageProps> = ({ url, src, alt }) => {
   return (
-    <Link href={url || "#"} target="_blank" rel="noopener noreferrer">
+    <Link href={url || "#"} target="_blank" rel="noopener noreferrer" style={{ width: "350px" }}>
       <Image
         src={`https://firebasestorage.googleapis.com/v0/b/bogdan-bogdanovic.appspot.com/o/${src}`}
         alt={alt}
