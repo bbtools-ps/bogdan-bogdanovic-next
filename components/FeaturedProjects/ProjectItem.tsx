@@ -28,6 +28,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
   technologies
 }) => {
   const { t } = useTranslation();
+
   return (
     <section className="project-item" data-testid="project">
       <h3>
@@ -48,17 +49,17 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
         </ul>
         <div className={styles["external-buttons"]}>
           {sourceLink && (
-            <Button url={sourceLink} type="source">
+            <Button url={sourceLink} icon="source">
               Source
             </Button>
           )}
           {liveLink && (
-            <Button url={liveLink} type="live">
+            <Button url={liveLink} icon="live">
               Live
             </Button>
           )}
           {infoLink && (
-            <Button url={infoLink} type="info">
+            <Button url={infoLink} icon="info">
               Info
             </Button>
           )}

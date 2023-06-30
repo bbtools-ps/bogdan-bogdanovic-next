@@ -16,22 +16,22 @@ const Footer: React.FC = () => {
         </EmailLink>
         <ul>
           <li>
-            <SocialLink type="github" href="https://github.com/bbtools-ps/">
+            <SocialLink icon="github" href="https://github.com/bbtools-ps/">
               Github
             </SocialLink>
           </li>
           <li>
-            <SocialLink type="behance" href="https://www.behance.net/bogdanbogdanovic">
+            <SocialLink icon="behance" href="https://www.behance.net/bogdanbogdanovic">
               Behance
             </SocialLink>
           </li>
           <li>
-            <SocialLink type="linkedin" href="https://www.linkedin.com/in/bogdanbogdanovic">
+            <SocialLink icon="linkedin" href="https://www.linkedin.com/in/bogdanbogdanovic">
               Linkedin
             </SocialLink>
           </li>
           <li>
-            <SocialLink type="youtube" href="https://www.youtube.com/user/bogdimail">
+            <SocialLink icon="youtube" href="https://www.youtube.com/user/bogdimail">
               Youtube
             </SocialLink>
           </li>

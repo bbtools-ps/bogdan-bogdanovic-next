@@ -4,7 +4,7 @@ import SocialLink from "./SocialLink";
 describe("<SocialLink/>", () => {
   it("renders with children and the correct icon", () => {
     render(
-      <SocialLink href="https://github.com/" type="github">
+      <SocialLink href="https://github.com/" icon="github">
         GitHub
       </SocialLink>
     );
@@ -20,7 +20,7 @@ describe("<SocialLink/>", () => {
   });
 
   it("renders a different icon for a different type prop", () => {
-    render(<SocialLink href="https://www.linkedin.com/" type="linkedin" />);
+    render(<SocialLink href="https://www.linkedin.com/" icon="linkedin" />);
 
     const icon = screen.getByTestId("linkedin-icon");
     expect(icon).toBeInTheDocument();
@@ -28,14 +28,14 @@ describe("<SocialLink/>", () => {
   });
 
   it("should open the link in a new tab", () => {
-    render(<SocialLink href="https://www.linkedin.com/" type="linkedin" />);
+    render(<SocialLink href="https://www.linkedin.com/" icon="linkedin" />);
     const linkElement = screen.getByRole("link");
     expect(linkElement).toHaveAttribute("target", "_blank");
     expect(linkElement).toHaveAttribute("rel", "noopener noreferrer");
   });
 
   it("should be accessible when only icon is passed as a prop", () => {
-    render(<SocialLink href="https://www.linkedin.com/" type="linkedin" />);
+    render(<SocialLink href="https://www.linkedin.com/" icon="linkedin" />);
     expect(screen.getByRole("link", { name: /linkedin/i })).toBeInTheDocument();
   });
 });

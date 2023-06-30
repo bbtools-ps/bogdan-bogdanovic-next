@@ -21,7 +21,7 @@ describe("<Button/>", () => {
 
   it('should display the source icon when type is "source"', () => {
     const { getByText, getByTestId } = render(
-      <Button url={testUrl} type="source">
+      <Button url={testUrl} icon="source">
         {testButtonText}
       </Button>
     );
@@ -31,7 +31,7 @@ describe("<Button/>", () => {
 
   it('should display the live icon when type is "live"', () => {
     const { getByText, getByTestId } = render(
-      <Button url={testUrl} type="live">
+      <Button url={testUrl} icon="live">
         {testButtonText}
       </Button>
     );
@@ -41,7 +41,7 @@ describe("<Button/>", () => {
 
   it('should display the info icon when type is "info"', () => {
     const { getByText, getByTestId } = render(
-      <Button url={testUrl} type="info">
+      <Button url={testUrl} icon="info">
         {testButtonText}
       </Button>
     );
