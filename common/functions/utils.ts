@@ -10,7 +10,7 @@ export const sortDataCreateTime = <T extends { createTime: string }>(
     try {
       const timestampA = Date.parse(a.createTime);
       const timestampB = Date.parse(b.createTime);
-      if (isNaN(timestampA) || isNaN(timestampB))
+      if (!Number.isFinite(timestampA) || !Number.isFinite(timestampB))
         throw new Error(`Invalid date format for objects ${a} and ${b}`);
       return orderBy === "DESC" ? timestampB - timestampA : timestampA - timestampB;
     } catch (err) {
@@ -24,7 +24,7 @@ export const sortDataCreateTime = <T extends { createTime: string }>(
 
 export const formatDate = (date: string, locale: string | undefined = "en-US") => {
   const timestamp = Date.parse(date);
-  if (isNaN(timestamp)) throw new Error("Invalid Date");
+  if (!Number.isFinite(timestamp)) throw new Error("Invalid Date");
   return new Date(timestamp).toLocaleDateString(locale, {
     year: "numeric",
     month: "short"
