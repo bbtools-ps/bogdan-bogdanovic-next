@@ -1,6 +1,6 @@
 import { Languages } from "@/common/constants";
 import { updateSelectedLanguage } from "@/redux/reducers/settingsSlice";
-import { RootState } from "@/redux/store";
+import { IRootState } from "@/redux/store";
 import { Dropdown, theme } from "@nextui-org/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 const LanguageDropdown = () => {
   const dispatch = useDispatch();
-  const selectedLanguage = useSelector<RootState, string[]>(
+  const selectedLanguage = useSelector<IRootState, string[]>(
     (state) => state.settings.selectedLanguage
   );
   const { locale, pathname } = useRouter();
