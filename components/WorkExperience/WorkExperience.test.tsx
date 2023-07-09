@@ -1,4 +1,4 @@
-import { formatDate } from "@/common/functions/utils";
+import { formatDate } from "@/common/utils";
 import { render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
 import WorkExperience from "./WorkExperience";

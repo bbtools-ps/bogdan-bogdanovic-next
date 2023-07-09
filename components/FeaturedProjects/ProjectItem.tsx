@@ -1,4 +1,4 @@
-import { IStringValue } from "@/common/models/FirebaseValues";
+import { IStringValue } from "@/common/models";
 import { useTranslation } from "next-i18next";
 import React from "react";
 import Button from "../Button/Button";

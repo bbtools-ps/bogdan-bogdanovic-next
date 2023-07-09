@@ -1,11 +1,6 @@
-import { DATABASE_PATH } from "@/common/constants/constants";
-import { sortDataCreateTime } from "@/common/functions/utils";
-import {
-  IEducationData,
-  ILanguageData,
-  IProjectData,
-  IWorkExperienceData
-} from "@/common/models/Data";
+import { DATABASE_PATH } from "@/common/constants";
+import { IEducationData, ILanguageData, IProjectData, IWorkExperienceData } from "@/common/models";
+import { sortDataCreateTime } from "@/common/utils";
 import Education from "@/components/Education/Education";
 import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
 import Introduction from "@/components/Introduction/Introduction";

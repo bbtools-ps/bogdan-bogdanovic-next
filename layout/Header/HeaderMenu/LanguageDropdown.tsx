@@ -1,4 +1,4 @@
-import { Languages } from "@/common/constants/constants";
+import { Languages } from "@/common/constants";
 import { updateSelectedLanguage } from "@/redux/reducers/settingsSlice";
 import { RootState } from "@/redux/store";
 import { Dropdown, theme } from "@nextui-org/react";

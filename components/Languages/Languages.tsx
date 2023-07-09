@@ -1,4 +1,4 @@
-import { ILanguageData } from "@/common/models/Data";
+import { ILanguageData } from "@/common/models";
 import SectionContent from "@/layout/Section/SectionContent";
 import { useTranslation } from "next-i18next";
 
