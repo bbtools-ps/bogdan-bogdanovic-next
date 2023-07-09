@@ -1,4 +1,4 @@
-import { formatDate, sortDataCreateTime } from ".";
+import { formatDate, sortDataCreateTime } from "./date";
 
 describe("formatDate()", () => {
   it("returns formatted date for default locale", () => {
