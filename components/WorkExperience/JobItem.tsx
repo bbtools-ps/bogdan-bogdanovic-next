@@ -1,22 +1,22 @@
 import { Locales } from "@/common/constants/constants";
 import { formatDate } from "@/common/functions/utils";
-import { StringValue } from "@/common/models/FirebaseValues";
+import { IStringValue } from "@/common/models/FirebaseValues";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";
 import ExternalLink from "../ExternalLink/ExternalLink";
 import classes from "./JobItem.module.scss";
 
-interface JobItemProps {
+interface IJobItemProps {
   jobTitle: string;
   companyName: string;
-  description: StringValue[];
+  description: IStringValue[];
   startDate: string;
   endDate?: string;
   companyLink?: string;
 }
 
-const JobItem: React.FC<JobItemProps> = ({
+const JobItem: React.FC<IJobItemProps> = ({
   jobTitle,
   companyName,
   companyLink,

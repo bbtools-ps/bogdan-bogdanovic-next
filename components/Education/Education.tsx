@@ -1,14 +1,14 @@
-import { EducationData } from "@/common/models/Data";
+import { IEducationData } from "@/common/models/Data";
 import SectionContent from "@/layout/Section/SectionContent";
 import { Trans, useTranslation } from "next-i18next";
 import ExternalLink from "../ExternalLink/ExternalLink";
 import EducationItem from "./EducationItem";
 
-interface EducationProps {
-  data: EducationData["documents"];
+interface IEducationProps {
+  data: IEducationData["documents"];
 }
 
-const Education: React.FC<EducationProps> = ({ data: education }) => {
+const Education: React.FC<IEducationProps> = ({ data: education }) => {
   const { t } = useTranslation();
 
   return (

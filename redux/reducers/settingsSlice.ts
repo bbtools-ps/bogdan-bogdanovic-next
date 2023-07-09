@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Languages } from "../../common/constants/constants";
-import { SettingsSlice } from "../../common/models/ReduxSlices";
+import { ISettingsSlice } from "../../common/models/ReduxSlices";
 
-const initialState: SettingsSlice = {
+const initialState: ISettingsSlice = {
   selectedLanguage: [Languages[0].id]
 };
 

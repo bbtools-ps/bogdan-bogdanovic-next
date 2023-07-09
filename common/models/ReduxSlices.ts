@@ -1,3 +1,3 @@
-export interface SettingsSlice {
+export interface ISettingsSlice {
   selectedLanguage: string[];
 }

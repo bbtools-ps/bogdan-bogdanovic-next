@@ -1,37 +1,37 @@
-import { EducationFields, LanguageFields, ProjectFields, WorkExperienceFields } from "./Fields";
+import { IEducationFields, ILanguageFields, IProjectFields, IWorkExperienceFields } from "./Fields";
 
-export interface ProjectData {
+export interface IProjectData {
   documents: {
     createTime: string;
     updateTime: string;
     name: string;
-    fields: ProjectFields;
+    fields: IProjectFields;
   }[];
 }
 
-export interface EducationData {
+export interface IEducationData {
   documents: {
     createTime: string;
     updateTime: string;
     name: string;
-    fields: EducationFields;
+    fields: IEducationFields;
   }[];
 }
 
-export interface WorkExperienceData {
+export interface IWorkExperienceData {
   documents: {
     createTime: string;
     updateTime: string;
     name: string;
-    fields: WorkExperienceFields;
+    fields: IWorkExperienceFields;
   }[];
 }
 
-export interface LanguageData {
+export interface ILanguageData {
   documents: {
     createTime: string;
     updateTime: string;
     name: string;
-    fields: LanguageFields;
+    fields: ILanguageFields;
   }[];
 }

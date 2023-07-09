@@ -3,13 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-interface ProjectImageProps {
+interface IProjectImageProps {
   url?: string;
   src: string;
   alt: string;
 }
 
-const ProjectImage: React.FC<ProjectImageProps> = ({ url, src, alt }) => {
+const ProjectImage: React.FC<IProjectImageProps> = ({ url, src, alt }) => {
   return (
     <Link href={url || "#"} target="_blank" rel="noopener noreferrer" style={{ maxWidth: "350px" }}>
       <Image

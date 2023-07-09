@@ -1,6 +1,11 @@
 import { DATABASE_PATH } from "@/common/constants/constants";
 import { sortDataCreateTime } from "@/common/functions/utils";
-import { EducationData, LanguageData, ProjectData, WorkExperienceData } from "@/common/models/Data";
+import {
+  IEducationData,
+  ILanguageData,
+  IProjectData,
+  IWorkExperienceData
+} from "@/common/models/Data";
 import Education from "@/components/Education/Education";
 import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
 import Introduction from "@/components/Introduction/Introduction";
@@ -10,16 +15,16 @@ import axios from "axios";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const projectsData = await axios.get<ProjectData>(
+  const projectsData = await axios.get<IProjectData>(
     `${DATABASE_PATH}/projects${locale === "en" ? "" : "-" + locale}`
   );
-  const workExperienceData = await axios.get<WorkExperienceData>(
+  const workExperienceData = await axios.get<IWorkExperienceData>(
     `${DATABASE_PATH}/work-experience${locale === "en" ? "" : "-" + locale}`
   );
-  const educationData = await axios.get<EducationData>(
+  const educationData = await axios.get<IEducationData>(
     `${DATABASE_PATH}/education${locale === "en" ? "" : "-" + locale}`
   );
-  const languagesData = await axios.get<LanguageData>(
+  const languagesData = await axios.get<ILanguageData>(
     `${DATABASE_PATH}/languages${locale === "en" ? "" : "-" + locale}`
   );
 
@@ -34,14 +39,14 @@ export async function getStaticProps({ locale }: { locale: string }) {
   };
 }
 
-interface HomeProps {
-  projects: ProjectData["documents"];
-  workExperience: WorkExperienceData["documents"];
-  education: EducationData["documents"];
-  languages: LanguageData["documents"];
+interface IHomeProps {
+  projects: IProjectData["documents"];
+  workExperience: IWorkExperienceData["documents"];
+  education: IEducationData["documents"];
+  languages: ILanguageData["documents"];
 }
 
-const Home: React.FC<HomeProps> = ({ projects, workExperience, education, languages }) => {
+const Home: React.FC<IHomeProps> = ({ projects, workExperience, education, languages }) => {
   return (
     <>
       <Introduction />

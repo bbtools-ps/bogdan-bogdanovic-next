@@ -1,12 +1,12 @@
 import React from "react";
 
-interface EducationItemProps {
+interface IEducationItemProps {
   location: string;
   institution: string;
   certificate: string;
 }
 
-const EducationItem: React.FC<EducationItemProps> = ({ location, institution, certificate }) => {
+const EducationItem: React.FC<IEducationItemProps> = ({ location, institution, certificate }) => {
   return (
     <section>
       <h3>

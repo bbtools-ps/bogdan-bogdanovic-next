@@ -1,12 +1,12 @@
-import { LanguageData } from "@/common/models/Data";
+import { ILanguageData } from "@/common/models/Data";
 import SectionContent from "@/layout/Section/SectionContent";
 import { useTranslation } from "next-i18next";
 
-interface LanguagesProps {
-  data: LanguageData["documents"];
+interface ILanguagesProps {
+  data: ILanguageData["documents"];
 }
 
-const Languages: React.FC<LanguagesProps> = ({ data: languages }) => {
+const Languages: React.FC<ILanguagesProps> = ({ data: languages }) => {
   const { t } = useTranslation();
 
   return (

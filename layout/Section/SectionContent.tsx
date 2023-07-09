@@ -1,10 +1,10 @@
-interface SectionContentProps {
+interface ISectionContentProps {
   data: null | any[];
   noResultsMessage: string;
   children: React.ReactNode;
 }
 
-const SectionContent: React.FC<SectionContentProps> = ({ data, noResultsMessage, children }) => {
+const SectionContent: React.FC<ISectionContentProps> = ({ data, noResultsMessage, children }) => {
   return (
     <>
       {/* State: succeeded */}

@@ -1,14 +1,14 @@
-import { WorkExperienceData } from "@/common/models/Data";
+import { IWorkExperienceData } from "@/common/models/Data";
 import SectionContent from "@/layout/Section/SectionContent";
 import { Trans, useTranslation } from "next-i18next";
 import ExternalLink from "../ExternalLink/ExternalLink";
 import JobItem from "./JobItem";
 
-interface WorkExperienceProps {
-  data: WorkExperienceData["documents"];
+interface IWorkExperienceProps {
+  data: IWorkExperienceData["documents"];
 }
 
-const WorkExperience: React.FC<WorkExperienceProps> = ({ data: jobs }) => {
+const WorkExperience: React.FC<IWorkExperienceProps> = ({ data: jobs }) => {
   const { t } = useTranslation();
 
   return (

@@ -7,14 +7,14 @@ import {
   faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ExternalLink, { ExternalLinkProps } from "../ExternalLink/ExternalLink";
+import ExternalLink, { IExternalLinkProps } from "../ExternalLink/ExternalLink";
 import classes from "./SocailLink.module.scss";
 
-interface SocialLinkProps extends ExternalLinkProps {
+interface ISocialLinkProps extends IExternalLinkProps {
   icon: "behance" | "facebook" | "github" | "linkedin" | "youtube";
 }
 
-const SocialLink: React.FC<SocialLinkProps> = ({ children, href, icon }) => {
+const SocialLink: React.FC<ISocialLinkProps> = ({ children, href, icon }) => {
   const linkIcon: { [key in typeof icon]: IconDefinition } = {
     behance: faBehance,
     facebook: faFacebook,

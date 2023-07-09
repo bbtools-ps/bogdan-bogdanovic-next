@@ -1,11 +1,11 @@
-export interface StringValue {
+export interface IStringValue {
   stringValue: string;
 }
 
-export interface TimestampValue {
+export interface ITimestampValue {
   timestampValue: string;
 }
 
-export interface ArrayValue {
-  arrayValue: { values: StringValue[] };
+export interface IArrayValue {
+  arrayValue: { values: IStringValue[] };
 }

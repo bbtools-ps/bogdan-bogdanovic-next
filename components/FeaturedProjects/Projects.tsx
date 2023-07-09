@@ -1,22 +1,22 @@
-import { ProjectFields } from "@/common/models/Fields";
+import { IProjectFields } from "@/common/models/Fields";
 import { Pagination, Row, Spacer } from "@nextui-org/react";
 import { useMemo, useState } from "react";
 import ProjectItem from "./ProjectItem";
 
-interface ProjectsProps {
+interface IProjectsProps {
   data:
     | {
         createTime: string;
         updateTime: string;
         name: string;
-        fields: ProjectFields;
+        fields: IProjectFields;
       }[]
     | null;
   pageSize?: number;
   initialPage?: number;
 }
 
-const Projects: React.FC<ProjectsProps> = ({ data, pageSize = 5, initialPage = 1 }) => {
+const Projects: React.FC<IProjectsProps> = ({ data, pageSize = 5, initialPage = 1 }) => {
   const [currentPage, setCurrentPage] = useState(initialPage);
   const total = useMemo(
     () => (data && data.length ? Math.ceil(data.length / pageSize) : 0),

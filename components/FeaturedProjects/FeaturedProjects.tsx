@@ -1,14 +1,14 @@
-import { ProjectData } from "@/common/models/Data";
+import { IProjectData } from "@/common/models/Data";
 import SectionContent from "@/layout/Section/SectionContent";
 import { Trans, useTranslation } from "next-i18next";
 import ExternalLink from "../ExternalLink/ExternalLink";
 import Projects from "./Projects";
 
-interface FeaturedProjectsProps {
-  data: ProjectData["documents"];
+interface IFeaturedProjectsProps {
+  data: IProjectData["documents"];
 }
 
-const FeaturedProjects: React.FC<FeaturedProjectsProps> = ({ data: projects }) => {
+const FeaturedProjects: React.FC<IFeaturedProjectsProps> = ({ data: projects }) => {
   const { t } = useTranslation();
 
   return (

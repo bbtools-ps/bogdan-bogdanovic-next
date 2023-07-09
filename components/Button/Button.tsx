@@ -4,13 +4,13 @@ import { Button as NextUIButton } from "@nextui-org/react";
 import React from "react";
 import styles from "./Button.module.css";
 
-interface ButtonProps {
+interface IButtonProps {
   url: string;
   icon?: "info" | "source" | "live";
   children: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ url, icon, children }) => {
+const Button: React.FC<IButtonProps> = ({ url, icon, children }) => {
   const buttonIcon = {
     source: faCode,
     live: faEye,
