@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ExternalLink, { IExternalLinkProps } from "../ExternalLink/ExternalLink";
-import classes from "./SocialLink.module.scss";
+import classes from "./SociallLink.module.scss";
 
 const linkIcons = {
   behance: faBehance,
