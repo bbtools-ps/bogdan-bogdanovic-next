@@ -1,4 +1,3 @@
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import {
   faBehance,
   faFacebook,
@@ -8,20 +7,22 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ExternalLink, { IExternalLinkProps } from "../ExternalLink/ExternalLink";
-import classes from "./SocailLink.module.scss";
+import classes from "./SocialLink.module.scss";
+
+const linkIcons = {
+  behance: faBehance,
+  facebook: faFacebook,
+  github: faGithub,
+  linkedin: faLinkedin,
+  youtube: faYoutube
+};
 
 interface ISocialLinkProps extends IExternalLinkProps {
-  icon: "behance" | "facebook" | "github" | "linkedin" | "youtube";
+  icon: keyof typeof linkIcons;
 }
 
 const SocialLink: React.FC<ISocialLinkProps> = ({ children, href, icon }) => {
-  const linkIcon: { [key in typeof icon]: IconDefinition } = {
-    behance: faBehance,
-    facebook: faFacebook,
-    github: faGithub,
-    linkedin: faLinkedin,
-    youtube: faYoutube
-  };
+  const linkIcon = linkIcons[icon];
 
   return (
     <ExternalLink
@@ -29,7 +30,7 @@ const SocialLink: React.FC<ISocialLinkProps> = ({ children, href, icon }) => {
       aria-label={!children ? icon : undefined}
       className={classes["social-link"]}
     >
-      {<FontAwesomeIcon icon={linkIcon[icon]} data-testid={`${icon}-icon`} />}
+      {<FontAwesomeIcon icon={linkIcon} data-testid={`${icon}-icon`} />}
       {children}
     </ExternalLink>
   );
