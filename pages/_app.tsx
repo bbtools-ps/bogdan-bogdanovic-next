@@ -23,11 +23,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Bogdan Bogdanovic - portfolio</title>
-        <meta
-          name="description"
-          content="Skilled web developer using: HTML, CSS, Javascript, React.js, Vue.js and Node.js. Strong arts and design professional."
-        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Provider store={store}>
