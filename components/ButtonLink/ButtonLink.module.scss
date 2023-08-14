@@ -1,0 +1,18 @@
+.button {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--nextui-colors-primary);
+  border-radius: 0.875rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  svg {
+    margin-right: 0.6rem;
+  }
+  &:hover,
+  &:active {
+    background-color: var(--nextui-colors-primary);
+    color: var(--nextui-colors-white);
+    transition: 0.25s ease 0s, box-shadow 0.25s ease 0s;
+    opacity: 1;
+  }
+}

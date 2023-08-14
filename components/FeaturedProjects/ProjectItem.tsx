@@ -1,7 +1,7 @@
 import { IStringValue } from "@/common/models";
 import { useTranslation } from "next-i18next";
 import React from "react";
-import Button from "../Button/Button";
+import ButtonLink from "../ButtonLink/ButtonLink";
 import ExternalLink from "../ExternalLink/ExternalLink";
 import ProjectImage from "./ProjectImage";
 import styles from "./ProjectItem.module.css";
@@ -49,19 +49,19 @@ const ProjectItem: React.FC<IProjectItemProps> = ({
         </ul>
         <div className={styles["external-buttons"]}>
           {sourceLink && (
-            <Button url={sourceLink} icon="source">
+            <ButtonLink url={sourceLink} icon="source">
               Source
-            </Button>
+            </ButtonLink>
           )}
           {liveLink && (
-            <Button url={liveLink} icon="live">
+            <ButtonLink url={liveLink} icon="live">
               Live
-            </Button>
+            </ButtonLink>
           )}
           {infoLink && (
-            <Button url={infoLink} icon="info">
+            <ButtonLink url={infoLink} icon="info">
               Info
-            </Button>
+            </ButtonLink>
           )}
         </div>
       </div>
