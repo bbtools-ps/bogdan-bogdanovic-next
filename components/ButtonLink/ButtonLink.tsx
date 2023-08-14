@@ -1,6 +1,6 @@
 import { faCode, faEye, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 import React from "react";
 import styles from "./ButtonLink.module.scss";
 
@@ -18,12 +18,20 @@ const ButtonLink: React.FC<IButtonLinkProps> = ({ url, icon, children }) => {
   };
 
   return (
-    <Link href={url} target="_blank" rel="noopener noreferrer" className={styles.button}>
+    <Button
+      className={styles.button}
+      ghost
+      auto
+      as={Link}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {icon && buttonIcon[icon] && (
         <FontAwesomeIcon icon={buttonIcon[icon]} data-testid={`${icon}-icon`} />
       )}
       {children}
-    </Link>
+    </Button>
   );
 };
 

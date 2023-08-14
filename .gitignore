@@ -34,6 +34,5 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-/.vs/bogdan-bogdanovic-website/FileContentIndex/fdcf645a-c78e-4d98-96ba-d54f70e85fe0.vsidx
-/.vs/bogdan-bogdanovic-website/FileContentIndex/read.lock
+
 /.vs
