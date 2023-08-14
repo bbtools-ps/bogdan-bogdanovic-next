@@ -50,17 +50,17 @@ const ProjectItem: React.FC<IProjectItemProps> = ({
         <div className={styles["external-buttons"]}>
           {sourceLink && (
             <ButtonLink url={sourceLink} icon="source">
-              Source
+              SOURCE
             </ButtonLink>
           )}
           {liveLink && (
             <ButtonLink url={liveLink} icon="live">
-              Live
+              LIVE
             </ButtonLink>
           )}
           {infoLink && (
             <ButtonLink url={infoLink} icon="info">
-              Info
+              INFO
             </ButtonLink>
           )}
         </div>
