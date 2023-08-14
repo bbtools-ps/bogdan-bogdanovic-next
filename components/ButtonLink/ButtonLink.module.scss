@@ -8,7 +8,8 @@
   svg {
     margin-right: 0.6rem;
   }
-  &:hover {
+  &:hover,
+  &:active {
     background-color: var(--nextui-colors-primary);
     color: var(--nextui-colors-white);
     transition: 0.25s ease 0s, box-shadow 0.25s ease 0s;
