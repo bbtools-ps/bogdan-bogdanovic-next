@@ -8,7 +8,6 @@ import Languages from "@/components/Languages/Languages";
 import WorkExperience from "@/components/WorkExperience/WorkExperience";
 import axios from "axios";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Head from "next/head";
 
 export async function getStaticProps({ locale }: { locale: string }) {
   const projectsData = await axios.get<IProjectData>(
@@ -45,13 +44,6 @@ interface IHomeProps {
 const Home: React.FC<IHomeProps> = ({ projects, workExperience, education, languages }) => {
   return (
     <>
-      <Head>
-        <title>Bogdan Bogdanovic - portfolio</title>
-        <meta
-          name="description"
-          content="Skilled web developer using: HTML, CSS, Javascript, React.js, Vue.js and Node.js. Strong arts and design professional."
-        />
-      </Head>
       <Introduction />
       <FeaturedProjects data={projects} />
       <WorkExperience data={workExperience} />
