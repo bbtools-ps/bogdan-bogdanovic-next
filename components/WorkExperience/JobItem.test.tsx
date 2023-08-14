@@ -1,6 +1,6 @@
 import { Locales } from "@/common/constants";
 import { formatDate } from "@/common/utils";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
 import { Suspense } from "react";
 import JobItem from "./JobItem";
@@ -53,7 +53,7 @@ describe("<JobItem/>", () => {
   });
 
   it("renders the job title", () => {
-    const { getByText } = render(
+    render(
       <JobItem
         jobTitle={testJobTitle}
         companyName={testCompanyName}
@@ -63,11 +63,12 @@ describe("<JobItem/>", () => {
         endDate={testEndDate}
       />
     );
-    expect(getByText(testJobTitle)).toBeInTheDocument();
+    const jobTitle = screen.getByText(testJobTitle);
+    expect(jobTitle).toBeInTheDocument();
   });
 
   it("renders the company name with a link to the company website", () => {
-    const { getByText } = render(
+    render(
       <JobItem
         jobTitle={testJobTitle}
         companyName={testCompanyName}
@@ -77,14 +78,14 @@ describe("<JobItem/>", () => {
         endDate={testEndDate}
       />
     );
-    const linkElement = getByText(testCompanyName) as HTMLAnchorElement;
+    const linkElement = screen.getByText(testCompanyName) as HTMLAnchorElement;
     expect(linkElement.href).toBe(testCompanyLink + "/");
     expect(linkElement.target).toBe("_blank");
     expect(linkElement.rel).toBe("noopener noreferrer");
   });
 
   it("renders the job description", () => {
-    const { getByText } = render(
+    render(
       <JobItem
         jobTitle={testJobTitle}
         companyName={testCompanyName}
@@ -94,11 +95,12 @@ describe("<JobItem/>", () => {
         endDate={testEndDate}
       />
     );
-    expect(getByText(testDescription[0].stringValue)).toBeInTheDocument();
+    const jobDescription = screen.getByText(testDescription[0].stringValue);
+    expect(jobDescription).toBeInTheDocument();
   });
 
   it("renders the job start and end dates formatted", () => {
-    const { getByText } = render(
+    render(
       <Suspense fallback={null}>
         <JobItem
           jobTitle={testJobTitle}
@@ -112,11 +114,12 @@ describe("<JobItem/>", () => {
     );
     const formattedStartDate = formatDate(testStartDate, Locales.en);
     const formattedEndDate = formatDate(testEndDate, Locales.en);
-    expect(getByText(`${formattedStartDate} - ${formattedEndDate}`)).toBeInTheDocument();
+    const formattedDates = screen.getByText(`${formattedStartDate} - ${formattedEndDate}`);
+    expect(formattedDates).toBeInTheDocument();
   });
 
   it("renders 'Present' instead of end date when end date is not provided", () => {
-    const { getByText } = render(
+    render(
       <Suspense fallback={null}>
         <JobItem
           jobTitle={testJobTitle}
@@ -127,6 +130,7 @@ describe("<JobItem/>", () => {
         />
       </Suspense>
     );
-    expect(getByText(/present/i)).toBeInTheDocument();
+    const presentDate = screen.getByText(/present/i);
+    expect(presentDate).toBeInTheDocument();
   });
 });

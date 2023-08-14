@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import ProjectImage from "./ProjectImage";
 
 // Mock the useTranslation hook to avoid issues with i18n.
@@ -15,16 +15,14 @@ describe("<ProjectImage/>", () => {
   };
 
   it("renders an image", () => {
-    const { getByAltText } = render(<ProjectImage {...mockProps} />);
-    const image = getByAltText("Test Image");
-
+    render(<ProjectImage {...mockProps} />);
+    const image = screen.getByAltText("Test Image");
     expect(image).toBeInTheDocument();
   });
 
   it("renders an anchor element with the correct href attribute when url is provided", () => {
-    const { getByRole } = render(<ProjectImage {...mockProps} />);
-    const anchor = getByRole("link");
-
+    render(<ProjectImage {...mockProps} />);
+    const anchor = screen.getByRole("link");
     expect(anchor).toBeInTheDocument();
     expect(anchor).toHaveAttribute("href", "https://example.com");
     expect(anchor).toHaveAttribute("target", "_blank");
@@ -32,9 +30,8 @@ describe("<ProjectImage/>", () => {
   });
 
   it("renders an anchor element with href attribute '#' when url is not provided", () => {
-    const { getByRole } = render(<ProjectImage src="test.jpg" alt="Test Image" />);
-    const anchor = getByRole("link");
-
+    render(<ProjectImage src="test.jpg" alt="Test Image" />);
+    const anchor = screen.getByRole("link");
     expect(anchor).toBeInTheDocument();
     expect(anchor).toHaveAttribute("href", "#");
     expect(anchor).toHaveAttribute("target", "_blank");

@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Languages from "./Languages";
 
 // Mock the useTranslation hook to avoid issues with i18n.
@@ -38,16 +38,18 @@ describe("<Languages/>", () => {
         }
       }
     ];
+    render(<Languages data={mockLanguages} />);
 
-    const { getByText } = render(<Languages data={mockLanguages} />);
+    const languageEnglish = screen.getByText("English (Fluent)");
+    const languageSpanish = screen.getByText("Spanish (Intermediate)");
 
-    expect(getByText("English (Fluent)")).toBeInTheDocument();
-    expect(getByText("Spanish (Intermediate)")).toBeInTheDocument();
+    expect(languageEnglish).toBeInTheDocument();
+    expect(languageSpanish).toBeInTheDocument();
   });
 
   it('should render a "no results" message when there are no languages', () => {
-    const { getByText } = render(<Languages data={[]} />);
-
-    expect(getByText("home:EducationNone_Label")).toBeInTheDocument();
+    render(<Languages data={[]} />);
+    const languageLabel = screen.getByText("home:EducationNone_Label");
+    expect(languageLabel).toBeInTheDocument();
   });
 });

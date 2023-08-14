@@ -1,5 +1,4 @@
-import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { render, screen } from "@testing-library/react";
 import ButtonLink from "./ButtonLink";
 
 window.open = vi.fn();
@@ -9,43 +8,51 @@ describe("<ButtonLink/>", () => {
   const testButtonText = "Button Text";
 
   it("should render without errors", () => {
-    const { getByText } = render(<ButtonLink url={testUrl}>{testButtonText}</ButtonLink>);
-    expect(getByText(testButtonText)).toBeInTheDocument();
+    render(<ButtonLink url={testUrl}>{testButtonText}</ButtonLink>);
+    const button = screen.getByRole("button", { name: testButtonText });
+    expect(button).toBeInTheDocument();
   });
 
-  it("should open a new tab with the provided URL when clicked", async () => {
-    const { getByText } = render(<ButtonLink url={testUrl}>{testButtonText}</ButtonLink>);
-    await userEvent.click(getByText(testButtonText));
-    expect(window.open).toHaveBeenCalledWith(testUrl, "_blank", "noopener noreferrer");
+  it("should open a new tab with the provided URL when clicked", () => {
+    render(<ButtonLink url={testUrl}>{testButtonText}</ButtonLink>);
+    const button = screen.getByRole("button", { name: testButtonText });
+    expect(button).toHaveAttribute("href", testUrl);
+    expect(button).toHaveAttribute("target", "_blank");
   });
 
   it('should display the source icon when type is "source"', () => {
-    const { getByText, getByTestId } = render(
+    render(
       <ButtonLink url={testUrl} icon="source">
         {testButtonText}
       </ButtonLink>
     );
-    expect(getByText(testButtonText)).toBeInTheDocument();
-    expect(getByTestId("source-icon")).toBeInTheDocument();
+    const button = screen.getByRole("button", { name: testButtonText });
+    const icon = screen.getByTestId("source-icon");
+    expect(button).toBeInTheDocument();
+    expect(icon).toBeInTheDocument();
   });
 
   it('should display the live icon when type is "live"', () => {
-    const { getByText, getByTestId } = render(
+    render(
       <ButtonLink url={testUrl} icon="live">
         {testButtonText}
       </ButtonLink>
     );
-    expect(getByText(testButtonText)).toBeInTheDocument();
-    expect(getByTestId("live-icon")).toBeInTheDocument();
+    const button = screen.getByRole("button", { name: testButtonText });
+    const icon = screen.getByTestId("live-icon");
+    expect(button).toBeInTheDocument();
+    expect(icon).toBeInTheDocument();
   });
 
   it('should display the info icon when type is "info"', () => {
-    const { getByText, getByTestId } = render(
+    render(
       <ButtonLink url={testUrl} icon="info">
         {testButtonText}
       </ButtonLink>
     );
-    expect(getByText(testButtonText)).toBeInTheDocument();
-    expect(getByTestId("info-icon")).toBeInTheDocument();
+    const button = screen.getByRole("button", { name: testButtonText });
+    const icon = screen.getByTestId("info-icon");
+    expect(button).toBeInTheDocument();
+    expect(icon).toBeInTheDocument();
   });
 });
