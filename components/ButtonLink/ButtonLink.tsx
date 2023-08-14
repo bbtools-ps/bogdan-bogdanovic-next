@@ -1,6 +1,7 @@
 import { faCode, faEye, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Link } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
+import Link from "next/link";
 import React from "react";
 import styles from "./ButtonLink.module.scss";
 
