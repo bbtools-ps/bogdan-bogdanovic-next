@@ -16,13 +16,13 @@ describe("<Footer/>", () => {
   it("renders the Github link", () => {
     render(<Footer />);
     expect(screen.getByTestId("github-icon")).toBeInTheDocument();
-    expect(screen.getByText(/Github/i)).toHaveAttribute("href", "https://github.com/bbtools-ps/");
+    expect(screen.getByText(/github/i)).toHaveAttribute("href", "https://github.com/bbtools-ps/");
   });
 
   it("renders the Behance link", () => {
     render(<Footer />);
     expect(screen.getByTestId("behance-icon")).toBeInTheDocument();
-    expect(screen.getByText(/Behance/i)).toHaveAttribute(
+    expect(screen.getByText(/behance/i)).toHaveAttribute(
       "href",
       "https://www.behance.net/bogdanbogdanovic"
     );
@@ -40,7 +40,7 @@ describe("<Footer/>", () => {
   it("renders the Youtube link", () => {
     render(<Footer />);
     expect(screen.getByTestId("youtube-icon")).toBeInTheDocument();
-    expect(screen.getByText(/Youtube/i)).toHaveAttribute(
+    expect(screen.getByText(/youtube/i)).toHaveAttribute(
       "href",
       "https://www.youtube.com/user/bogdimail"
     );
