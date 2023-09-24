@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
-    "test": "vitest --reporter verbose",
+    "test": "vitest --reporter=verbose",
     "format": "prettier --write \"./**/*.{ts,tsx}\""
   },
   "dependencies": {
