@@ -14,8 +14,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "module": "esnext",
-    "types": ["node", "vite/client", "vitest/globals"],
-    "baseUrl": ".",
+    "types": ["vite/client", "vitest/globals"],
     "paths": {
       "@/*": ["./*"]
     }
