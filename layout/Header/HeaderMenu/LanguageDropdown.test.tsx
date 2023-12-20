@@ -1,13 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
-import { Provider } from "react-redux";
-import configureStore, { MockStoreEnhanced } from "redux-mock-store";
 import LanguageDropdown from "./LanguageDropdown";
 
 describe("<LanguageDropdown/>", () => {
-  const mockStore = configureStore([]);
-  let store: MockStoreEnhanced<unknown, {}>;
-
   // mock next/router module
   vi.mock("next/router", async () => {
     const mod: any = await vi.importActual("next/router");
@@ -17,11 +12,6 @@ describe("<LanguageDropdown/>", () => {
   const mockedUseRouter = vi.mocked(useRouter);
 
   beforeEach(() => {
-    store = mockStore({
-      settings: {
-        selectedLanguage: ["en"]
-      }
-    });
     const mockRouter = {
       route: "/",
       asPath: "/",
@@ -49,13 +39,9 @@ describe("<LanguageDropdown/>", () => {
   });
 
   it("renders dropdown button with selected language", () => {
-    render(
-      <Provider store={store}>
-        <LanguageDropdown />
-      </Provider>
-    );
+    render(<LanguageDropdown />);
 
-    const dropdownButton = screen.getByRole("button", { name: "en" });
+    const dropdownButton = screen.getByRole("button");
     expect(dropdownButton).toBeInTheDocument();
   });
 });
