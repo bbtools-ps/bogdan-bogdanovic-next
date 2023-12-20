@@ -1,7 +1,7 @@
-export const Languages = [
-  { id: "en", name: "English" },
-  { id: "sr", name: "Srpski" }
-];
+export const Languages = {
+  en: "English",
+  sr: "Srpski"
+};
 
 export const Locales = {
   en: "en-US",

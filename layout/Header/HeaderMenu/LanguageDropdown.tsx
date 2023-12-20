@@ -1,23 +1,12 @@
 import { Languages } from "@/common/constants";
-import { updateSelectedLanguage } from "@/redux/reducers/settingsSlice";
-import { IRootState } from "@/redux/store";
 import { Dropdown, theme } from "@nextui-org/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
 const LanguageDropdown = () => {
-  const dispatch = useDispatch();
-  const selectedLanguage = useSelector<IRootState, string[]>(
-    (state) => state.settings.selectedLanguage
-  );
   const { locale, pathname } = useRouter();
-
-  // Change the language on the dropdown if the user entered the page directly from url
-  useEffect(() => {
-    dispatch(updateSelectedLanguage([locale]));
-  }, [dispatch, locale]);
+  const [selectedLanguage, setSelectedLanguage] = useState([locale]);
 
   return (
     <Dropdown>
@@ -33,13 +22,13 @@ const LanguageDropdown = () => {
         selectedKeys={selectedLanguage}
         onSelectionChange={(selectedLanguage) =>
           // @ts-ignore
-          dispatch(updateSelectedLanguage(Array.from(selectedLanguage)))
+          setSelectedLanguage(Array.from(selectedLanguage))
         }
       >
-        {Languages.map((item) => (
-          <Dropdown.Item key={item.id} textValue={item.name}>
-            <Link href={pathname} locale={item.id} style={{ color: theme.colors.accents9.value }}>
-              {item.name}
+        {Object.entries(Languages).map(([key, value]) => (
+          <Dropdown.Item key={key} textValue={value}>
+            <Link href={pathname} locale={key} style={{ color: theme.colors.accents9.value }}>
+              {value}
             </Link>
           </Dropdown.Item>
         ))}

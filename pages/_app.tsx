@@ -1,12 +1,10 @@
 import Layout from "@/layout/Layout";
-import store from "@/redux/store";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 import { appWithTranslation } from "next-i18next";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import Head from "next/head";
-import { Provider } from "react-redux";
 import "../styles/main.scss";
 config.autoAddCss = false;
 
@@ -30,22 +28,20 @@ function MyApp({ Component, pageProps }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Provider store={store}>
-        <NextThemesProvider
-          defaultTheme="system"
-          attribute="class"
-          value={{
-            light: lightTheme.className,
-            dark: darkTheme.className
-          }}
-        >
-          <NextUIProvider>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </NextUIProvider>
-        </NextThemesProvider>
-      </Provider>
+      <NextThemesProvider
+        defaultTheme="system"
+        attribute="class"
+        value={{
+          light: lightTheme.className,
+          dark: darkTheme.className
+        }}
+      >
+        <NextUIProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </NextUIProvider>
+      </NextThemesProvider>
     </>
   );
 }
