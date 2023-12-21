@@ -1,11 +1,11 @@
-import { DATABASE_PATH } from "@/common/constants";
-import { IEducationData, ILanguageData, IProjectData, IWorkExperienceData } from "@/common/models";
-import { sortDataCreateTime } from "@/common/utils";
 import Education from "@/components/Education/Education";
 import FeaturedProjects from "@/components/FeaturedProjects/FeaturedProjects";
 import Introduction from "@/components/Introduction/Introduction";
 import Languages from "@/components/Languages/Languages";
 import WorkExperience from "@/components/WorkExperience/WorkExperience";
+import { DATABASE_PATH } from "@/constants";
+import { IEducationData, ILanguageData, IProjectData, IWorkExperienceData } from "@/models";
+import { sortDataCreateTime } from "@/utils";
 import axios from "axios";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 

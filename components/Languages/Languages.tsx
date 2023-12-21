@@ -1,5 +1,5 @@
-import { ILanguageData } from "@/common/models";
 import SectionContent from "@/layout/Section/SectionContent";
+import { ILanguageData } from "@/models";
 import { useTranslation } from "next-i18next";
 
 interface ILanguagesProps {

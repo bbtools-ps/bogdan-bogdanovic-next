@@ -1,5 +1,5 @@
-import { IProjectData } from "@/common/models";
 import SectionContent from "@/layout/Section/SectionContent";
+import { IProjectData } from "@/models";
 import { Trans, useTranslation } from "next-i18next";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import Projects from "./Projects";

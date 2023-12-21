@@ -1,5 +1,5 @@
-import { IEducationData } from "@/common/models";
 import SectionContent from "@/layout/Section/SectionContent";
+import { IEducationData } from "@/models";
 import { Trans, useTranslation } from "next-i18next";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import EducationItem from "./EducationItem";

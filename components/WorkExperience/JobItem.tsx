@@ -1,6 +1,6 @@
-import { Locales } from "@/common/constants";
-import { IStringValue } from "@/common/models";
-import { formatDate } from "@/common/utils";
+import { Locales } from "@/constants";
+import { IStringValue } from "@/models";
+import { formatDate } from "@/utils";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import React, { Suspense } from "react";

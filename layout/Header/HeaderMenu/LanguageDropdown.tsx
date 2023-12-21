@@ -1,4 +1,4 @@
-import { Languages } from "@/common/constants";
+import { Languages } from "@/constants";
 import { Dropdown, theme } from "@nextui-org/react";
 import Link from "next/link";
 import { useRouter } from "next/router";

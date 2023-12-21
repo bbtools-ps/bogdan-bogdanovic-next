@@ -1,4 +1,4 @@
-import { IStringValue } from "@/common/models";
+import { IStringValue } from "@/models";
 import { useTranslation } from "next-i18next";
 import React from "react";
 import ButtonLink from "../UI/ButtonLink/ButtonLink";
