@@ -1,5 +1,5 @@
-import { Locales } from "@/common/constants";
-import { formatDate } from "@/common/utils";
+import { Locales } from "@/constants";
+import { formatDate } from "@/utils";
 import { render, screen } from "@testing-library/react";
 import { useRouter } from "next/router";
 import { Suspense } from "react";
