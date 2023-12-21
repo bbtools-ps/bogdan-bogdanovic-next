@@ -1,8 +1,8 @@
 import { IStringValue } from "@/common/models";
 import { useTranslation } from "next-i18next";
 import React from "react";
-import ButtonLink from "../ButtonLink/ButtonLink";
-import ExternalLink from "../ExternalLink/ExternalLink";
+import ButtonLink from "../UI/ButtonLink/ButtonLink";
+import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import ProjectImage from "./ProjectImage";
 import styles from "./ProjectItem.module.css";
 

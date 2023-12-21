@@ -1,7 +1,7 @@
 import { IWorkExperienceData } from "@/common/models";
 import SectionContent from "@/layout/Section/SectionContent";
 import { Trans, useTranslation } from "next-i18next";
-import ExternalLink from "../ExternalLink/ExternalLink";
+import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import JobItem from "./JobItem";
 
 interface IWorkExperienceProps {

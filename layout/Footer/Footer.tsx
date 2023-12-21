@@ -1,6 +1,6 @@
-import EmailLink from "@/components/EmailLink/EmailLink";
-import ExternalLink from "@/components/ExternalLink/ExternalLink";
-import SocialLink from "@/components/SocialLink/SocialLink";
+import EmailLink from "@/components/UI/EmailLink/EmailLink";
+import ExternalLink from "@/components/UI/ExternalLink/ExternalLink";
+import SocialLink from "@/components/UI/SocialLink/SocialLink";
 import { Trans, useTranslation } from "next-i18next";
 import React from "react";
 

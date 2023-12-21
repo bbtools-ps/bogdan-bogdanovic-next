@@ -1,5 +1,5 @@
 import { Trans, useTranslation } from "next-i18next";
-import EmailLink from "../EmailLink/EmailLink";
+import EmailLink from "../UI/EmailLink/EmailLink";
 import classes from "./Introduction.module.scss";
 
 const Introduction = () => {
