@@ -13,10 +13,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@/components": resolve(__dirname, "./components"),
-      "@/redux": resolve(__dirname, "./redux"),
-      "@/common": resolve(__dirname, "./common"),
-      "@/layout": resolve(__dirname, "./layout")
+      "@": resolve(__dirname, ".")
     }
   }
 });
