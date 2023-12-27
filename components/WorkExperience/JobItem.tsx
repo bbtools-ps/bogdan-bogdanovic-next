@@ -3,7 +3,7 @@ import { IStringValue } from "@/models";
 import { formatDate } from "@/utils";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import classes from "./JobItem.module.scss";
 
@@ -16,14 +16,14 @@ interface IJobItemProps {
   companyLink?: string;
 }
 
-const JobItem: React.FC<IJobItemProps> = ({
+export default function JobItem({
   jobTitle,
   companyName,
   companyLink,
   description,
   startDate,
   endDate
-}) => {
+}: IJobItemProps) {
   const { locale } = useRouter();
   const { t } = useTranslation();
 
@@ -52,6 +52,4 @@ const JobItem: React.FC<IJobItemProps> = ({
       </div>
     </section>
   );
-};
-
-export default JobItem;
+}

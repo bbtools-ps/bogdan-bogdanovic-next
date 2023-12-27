@@ -1,12 +1,10 @@
-import React from "react";
-
 interface IEducationItemProps {
   location: string;
   institution: string;
   certificate: string;
 }
 
-const EducationItem: React.FC<IEducationItemProps> = ({ location, institution, certificate }) => {
+export default function EducationItem({ location, institution, certificate }: IEducationItemProps) {
   return (
     <section>
       <h3>
@@ -15,6 +13,4 @@ const EducationItem: React.FC<IEducationItemProps> = ({ location, institution, c
       <p>{certificate}</p>
     </section>
   );
-};
-
-export default EducationItem;
+}

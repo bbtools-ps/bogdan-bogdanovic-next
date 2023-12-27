@@ -2,9 +2,8 @@ import EmailLink from "@/components/UI/EmailLink/EmailLink";
 import ExternalLink from "@/components/UI/ExternalLink/ExternalLink";
 import SocialLink from "@/components/UI/SocialLink/SocialLink";
 import { Trans, useTranslation } from "next-i18next";
-import React from "react";
 
-const Footer: React.FC = () => {
+export default function Footer() {
   const { t } = useTranslation();
 
   return (
@@ -48,6 +47,4 @@ const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

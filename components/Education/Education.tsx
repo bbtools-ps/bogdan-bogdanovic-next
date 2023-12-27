@@ -8,7 +8,7 @@ interface IEducationProps {
   data: IEducationData["documents"];
 }
 
-const Education: React.FC<IEducationProps> = ({ data: education }) => {
+export default function Education({ data: education }: IEducationProps) {
   const { t } = useTranslation();
 
   return (
@@ -40,6 +40,4 @@ const Education: React.FC<IEducationProps> = ({ data: education }) => {
       </div>
     </section>
   );
-};
-
-export default Education;
+}

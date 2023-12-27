@@ -16,7 +16,7 @@ interface IProjectsProps {
   initialPage?: number;
 }
 
-const Projects: React.FC<IProjectsProps> = ({ data, pageSize = 5, initialPage = 1 }) => {
+export default function Projects({ data, pageSize = 5, initialPage = 1 }: IProjectsProps) {
   const [currentPage, setCurrentPage] = useState(initialPage);
   const total = useMemo(
     () => (data && data.length ? Math.ceil(data.length / pageSize) : 0),
@@ -59,6 +59,4 @@ const Projects: React.FC<IProjectsProps> = ({ data, pageSize = 5, initialPage = 
       )}
     </>
   );
-};
-
-export default Projects;
+}

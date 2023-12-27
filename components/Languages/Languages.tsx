@@ -6,7 +6,7 @@ interface ILanguagesProps {
   data: ILanguageData["documents"];
 }
 
-const Languages: React.FC<ILanguagesProps> = ({ data: languages }) => {
+export default function Languages({ data: languages }: ILanguagesProps) {
   const { t } = useTranslation();
 
   return (
@@ -25,6 +25,4 @@ const Languages: React.FC<ILanguagesProps> = ({ data: languages }) => {
       </div>
     </section>
   );
-};
-
-export default Languages;
+}

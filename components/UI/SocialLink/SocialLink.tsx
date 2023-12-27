@@ -21,7 +21,7 @@ interface ISocialLinkProps extends IExternalLinkProps {
   icon: keyof typeof linkIcons;
 }
 
-const SocialLink: React.FC<ISocialLinkProps> = ({ children, href, icon }) => {
+export default function SocialLink({ children, href, icon }: ISocialLinkProps) {
   const linkIcon = linkIcons[icon];
 
   return (
@@ -34,6 +34,4 @@ const SocialLink: React.FC<ISocialLinkProps> = ({ children, href, icon }) => {
       {children}
     </ExternalLink>
   );
-};
-
-export default SocialLink;
+}

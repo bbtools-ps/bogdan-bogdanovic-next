@@ -41,7 +41,7 @@ interface IHomeProps {
   languages: ILanguageData["documents"];
 }
 
-const Home: React.FC<IHomeProps> = ({ projects, workExperience, education, languages }) => {
+export default function Home({ projects, workExperience, education, languages }: IHomeProps) {
   return (
     <>
       <Introduction />
@@ -51,6 +51,4 @@ const Home: React.FC<IHomeProps> = ({ projects, workExperience, education, langu
       <Languages data={languages} />
     </>
   );
-};
-
-export default Home;
+}

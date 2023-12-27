@@ -4,7 +4,7 @@ interface ISectionContentProps {
   children: React.ReactNode;
 }
 
-const SectionContent: React.FC<ISectionContentProps> = ({ data, noResultsMessage, children }) => {
+export default function SectionContent({ data, noResultsMessage, children }: ISectionContentProps) {
   return (
     <>
       {/* State: succeeded */}
@@ -13,6 +13,4 @@ const SectionContent: React.FC<ISectionContentProps> = ({ data, noResultsMessage
       {!data?.length && <p>{noResultsMessage}</p>}
     </>
   );
-};
-
-export default SectionContent;
+}

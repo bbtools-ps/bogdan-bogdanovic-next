@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Switch, useTheme } from "@nextui-org/react";
 import { useTheme as useNextTheme } from "next-themes";
 
-const ThemeSwitcher = () => {
+export default function ThemeSwitcher() {
   const { setTheme } = useNextTheme();
   const { isDark } = useTheme();
 
@@ -17,6 +17,4 @@ const ThemeSwitcher = () => {
       name="Theme switch"
     />
   );
-};
-
-export default ThemeSwitcher;
+}

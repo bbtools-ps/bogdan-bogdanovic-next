@@ -6,12 +6,10 @@ export interface IExternalLinkProps extends LinkProps {
   className?: string;
 }
 
-const ExternalLink: React.FC<IExternalLinkProps> = ({ href, children, className, ...rest }) => {
+export default function ExternalLink({ href, children, className, ...rest }: IExternalLinkProps) {
   return (
     <Link href={href} target="_blank" rel="noopener noreferrer" className={className} {...rest}>
       {children}
     </Link>
   );
-};
-
-export default ExternalLink;
+}

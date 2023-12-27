@@ -11,7 +11,7 @@ interface IButtonLinkProps {
   children: React.ReactNode;
 }
 
-const ButtonLink: React.FC<IButtonLinkProps> = ({ url, icon, children }) => {
+export default function ButtonLink({ url, icon, children }: IButtonLinkProps) {
   const buttonIcon = {
     source: faCode,
     live: faEye,
@@ -34,6 +34,4 @@ const ButtonLink: React.FC<IButtonLinkProps> = ({ url, icon, children }) => {
       {children}
     </Button>
   );
-};
-
-export default ButtonLink;
+}

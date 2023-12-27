@@ -8,7 +8,7 @@ interface IWorkExperienceProps {
   data: IWorkExperienceData["documents"];
 }
 
-const WorkExperience: React.FC<IWorkExperienceProps> = ({ data: jobs }) => {
+export default function WorkExperience({ data: jobs }: IWorkExperienceProps) {
   const { t } = useTranslation();
 
   return (
@@ -43,6 +43,4 @@ const WorkExperience: React.FC<IWorkExperienceProps> = ({ data: jobs }) => {
       </div>
     </section>
   );
-};
-
-export default WorkExperience;
+}

@@ -9,7 +9,7 @@ interface IEmailLinkProps {
   withIcon?: boolean;
 }
 
-const EmailLink: React.FC<IEmailLinkProps> = ({ email, children, withIcon = false }) => {
+export default function EmailLink({ email, children, withIcon = false }: IEmailLinkProps) {
   return (
     <Link
       href={`mailto:${email}`}
@@ -21,6 +21,4 @@ const EmailLink: React.FC<IEmailLinkProps> = ({ email, children, withIcon = fals
       {children}
     </Link>
   );
-};
-
-export default EmailLink;
+}

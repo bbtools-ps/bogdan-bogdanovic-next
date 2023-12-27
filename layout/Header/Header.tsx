@@ -1,11 +1,9 @@
 import HeaderMenu from "./HeaderMenu/HeaderMenu";
 
-const Header = () => {
+export default function Header() {
   return (
     <header>
       <HeaderMenu />
     </header>
   );
-};
-
-export default Header;
+}

@@ -8,7 +8,7 @@ interface IFeaturedProjectsProps {
   data: IProjectData["documents"];
 }
 
-const FeaturedProjects: React.FC<IFeaturedProjectsProps> = ({ data: projects }) => {
+export default function FeaturedProjects({ data: projects }: IFeaturedProjectsProps) {
   const { t } = useTranslation();
 
   return (
@@ -34,6 +34,4 @@ const FeaturedProjects: React.FC<IFeaturedProjectsProps> = ({ data: projects }) 
       </div>
     </section>
   );
-};
-
-export default FeaturedProjects;
+}

@@ -10,7 +10,7 @@ export async function getStaticProps({ locale }: { locale: string }) {
   };
 }
 
-const NotFoundPage = () => {
+export default function NotFoundPage() {
   return (
     <Container
       css={{
@@ -27,6 +27,4 @@ const NotFoundPage = () => {
       </div>
     </Container>
   );
-};
-
-export default NotFoundPage;
+}

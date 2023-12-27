@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-const LanguageDropdown = () => {
+export default function LanguageDropdown() {
   const { locale, pathname } = useRouter();
   const [selectedLanguage, setSelectedLanguage] = useState([locale]);
 
@@ -35,6 +35,4 @@ const LanguageDropdown = () => {
       </Dropdown.Menu>
     </Dropdown>
   );
-};
-
-export default LanguageDropdown;
+}

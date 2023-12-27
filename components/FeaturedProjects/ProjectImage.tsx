@@ -1,7 +1,6 @@
 import { theme } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 interface IProjectImageProps {
   url?: string;
@@ -9,7 +8,7 @@ interface IProjectImageProps {
   alt: string;
 }
 
-const ProjectImage: React.FC<IProjectImageProps> = ({ url, src, alt }) => {
+export default function ProjectImage({ url, src, alt }: IProjectImageProps) {
   return (
     <Link href={url || "#"} target="_blank" rel="noopener noreferrer" style={{ maxWidth: "350px" }}>
       <Image
@@ -24,6 +23,4 @@ const ProjectImage: React.FC<IProjectImageProps> = ({ url, src, alt }) => {
       />
     </Link>
   );
-};
-
-export default ProjectImage;
+}

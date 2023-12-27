@@ -3,7 +3,7 @@ import { PropsWithChildren } from "react";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 
-const Layout: React.FC<PropsWithChildren> = ({ children }) => {
+export default function Layout({ children }: PropsWithChildren) {
   const { isDark } = useTheme();
 
   return (
@@ -18,6 +18,4 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
       <Footer />
     </div>
   );
-};
-
-export default Layout;
+}

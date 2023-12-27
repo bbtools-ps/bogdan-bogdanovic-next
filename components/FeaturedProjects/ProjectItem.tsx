@@ -1,6 +1,5 @@
 import { IStringValue } from "@/models";
 import { useTranslation } from "next-i18next";
-import React from "react";
 import ButtonLink from "../UI/ButtonLink/ButtonLink";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import ProjectImage from "./ProjectImage";
@@ -17,7 +16,7 @@ interface IProjectItemProps {
   imageSrc: string;
 }
 
-const ProjectItem: React.FC<IProjectItemProps> = ({
+export default function ProjectItem({
   title,
   description,
   imageSrc,
@@ -26,7 +25,7 @@ const ProjectItem: React.FC<IProjectItemProps> = ({
   liveLink,
   sourceLink,
   technologies
-}) => {
+}: IProjectItemProps) {
   const { t } = useTranslation();
 
   return (
@@ -67,6 +66,4 @@ const ProjectItem: React.FC<IProjectItemProps> = ({
       </div>
     </section>
   );
-};
-
-export default ProjectItem;
+}

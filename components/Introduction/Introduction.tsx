@@ -2,7 +2,7 @@ import { Trans, useTranslation } from "next-i18next";
 import EmailLink from "../UI/EmailLink/EmailLink";
 import classes from "./Introduction.module.scss";
 
-const Introduction = () => {
+export default function Introduction() {
   const { t } = useTranslation();
 
   return (
@@ -19,6 +19,4 @@ const Introduction = () => {
       </p>
     </div>
   );
-};
-
-export default Introduction;
+}
