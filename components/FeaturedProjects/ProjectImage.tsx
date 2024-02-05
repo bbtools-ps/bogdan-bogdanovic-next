@@ -2,13 +2,13 @@ import { theme } from "@nextui-org/react";
 import Image from "next/image";
 import Link from "next/link";
 
-interface IProjectImageProps {
+interface IProps {
   url?: string;
   src: string;
   alt: string;
 }
 
-export default function ProjectImage({ url, src, alt }: IProjectImageProps) {
+export default function ProjectImage({ url, src, alt }: IProps) {
   return (
     <Link href={url || "#"} target="_blank" rel="noopener noreferrer" style={{ maxWidth: "350px" }}>
       <Image

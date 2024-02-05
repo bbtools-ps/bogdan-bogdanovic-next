@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "@nextui-org/react";
 import classes from "./EmailLink.module.scss";
 
-interface IEmailLinkProps {
+interface IProps {
   children?: React.ReactNode;
   email: string;
   withIcon?: boolean;
 }
 
-export default function EmailLink({ email, children, withIcon = false }: IEmailLinkProps) {
+export default function EmailLink({ email, children, withIcon = false }: IProps) {
   return (
     <Link
       href={`mailto:${email}`}

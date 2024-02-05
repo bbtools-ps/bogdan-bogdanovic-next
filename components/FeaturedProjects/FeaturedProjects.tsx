@@ -4,11 +4,11 @@ import { Trans, useTranslation } from "next-i18next";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import Projects from "./Projects";
 
-interface IFeaturedProjectsProps {
+interface IProps {
   data: IProjectData["documents"];
 }
 
-export default function FeaturedProjects({ data: projects }: IFeaturedProjectsProps) {
+export default function FeaturedProjects({ data: projects }: IProps) {
   const { t } = useTranslation();
 
   return (

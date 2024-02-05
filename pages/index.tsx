@@ -34,14 +34,14 @@ export async function getStaticProps({ locale }: { locale: string }) {
   };
 }
 
-interface IHomeProps {
+interface IProps {
   projects: IProjectData["documents"];
   workExperience: IWorkExperienceData["documents"];
   education: IEducationData["documents"];
   languages: ILanguageData["documents"];
 }
 
-export default function Home({ projects, workExperience, education, languages }: IHomeProps) {
+export default function Home({ projects, workExperience, education, languages }: IProps) {
   return (
     <>
       <Introduction />

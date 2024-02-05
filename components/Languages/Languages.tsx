@@ -2,11 +2,11 @@ import SectionContent from "@/layout/Section/SectionContent";
 import { ILanguageData } from "@/models";
 import { useTranslation } from "next-i18next";
 
-interface ILanguagesProps {
+interface IProps {
   data: ILanguageData["documents"];
 }
 
-export default function Languages({ data: languages }: ILanguagesProps) {
+export default function Languages({ data: languages }: IProps) {
   const { t } = useTranslation();
 
   return (

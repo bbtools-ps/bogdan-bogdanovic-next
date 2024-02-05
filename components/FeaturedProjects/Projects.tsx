@@ -3,7 +3,7 @@ import { Pagination, Row, Spacer } from "@nextui-org/react";
 import { useMemo, useState } from "react";
 import ProjectItem from "./ProjectItem";
 
-interface IProjectsProps {
+interface IProps {
   data:
     | {
         createTime: string;
@@ -16,7 +16,7 @@ interface IProjectsProps {
   initialPage?: number;
 }
 
-export default function Projects({ data, pageSize = 5, initialPage = 1 }: IProjectsProps) {
+export default function Projects({ data, pageSize = 5, initialPage = 1 }: IProps) {
   const [currentPage, setCurrentPage] = useState(initialPage);
   const total = useMemo(
     () => (data && data.length ? Math.ceil(data.length / pageSize) : 0),

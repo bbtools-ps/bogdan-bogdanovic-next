@@ -1,4 +1,4 @@
-import { Locales } from "@/constants";
+import { LOCALES } from "@/constants";
 import { IStringValue } from "@/models";
 import { formatDate } from "@/utils";
 import { useTranslation } from "next-i18next";
@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import classes from "./JobItem.module.scss";
 
-interface IJobItemProps {
+interface IProps {
   jobTitle: string;
   companyName: string;
   description: IStringValue[];
@@ -23,7 +23,7 @@ export default function JobItem({
   description,
   startDate,
   endDate
-}: IJobItemProps) {
+}: IProps) {
   const { locale } = useRouter();
   const { t } = useTranslation();
 
@@ -38,8 +38,8 @@ export default function JobItem({
         </p>
         <p className={classes.date}>
           <Suspense fallback={null}>
-            {formatDate(startDate, Locales[locale])} -{" "}
-            {endDate ? formatDate(endDate, Locales[locale]) : t("home:WorkExperiencePresent_Label")}
+            {formatDate(startDate, LOCALES[locale])} -{" "}
+            {endDate ? formatDate(endDate, LOCALES[locale]) : t("home:WorkExperiencePresent_Label")}
           </Suspense>
         </p>
       </div>

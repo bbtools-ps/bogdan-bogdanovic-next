@@ -4,11 +4,11 @@ import { Trans, useTranslation } from "next-i18next";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import EducationItem from "./EducationItem";
 
-interface IEducationProps {
+interface IProps {
   data: IEducationData["documents"];
 }
 
-export default function Education({ data: education }: IEducationProps) {
+export default function Education({ data: education }: IProps) {
   const { t } = useTranslation();
 
   return (

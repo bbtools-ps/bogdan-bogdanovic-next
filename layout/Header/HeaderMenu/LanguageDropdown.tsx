@@ -1,4 +1,4 @@
-import { Languages } from "@/constants";
+import { LANGUAGES } from "@/constants";
 import { Dropdown, theme } from "@nextui-org/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -25,7 +25,7 @@ export default function LanguageDropdown() {
           setSelectedLanguage(Array.from(selectedLanguage))
         }
       >
-        {Object.entries(Languages).map(([key, value]) => (
+        {Object.entries(LANGUAGES).map(([key, value]) => (
           <Dropdown.Item key={key} textValue={value}>
             <Link href={pathname} locale={key} style={{ color: theme.colors.accents9.value }}>
               {value}

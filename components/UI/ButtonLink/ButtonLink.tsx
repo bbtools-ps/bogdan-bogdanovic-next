@@ -5,13 +5,13 @@ import Link from "next/link";
 import React from "react";
 import styles from "./ButtonLink.module.scss";
 
-interface IButtonLinkProps {
+interface IProps {
   url: string;
   icon?: "info" | "source" | "live";
   children: React.ReactNode;
 }
 
-export default function ButtonLink({ url, icon, children }: IButtonLinkProps) {
+export default function ButtonLink({ url, icon, children }: IProps) {
   const buttonIcon = {
     source: faCode,
     live: faEye,

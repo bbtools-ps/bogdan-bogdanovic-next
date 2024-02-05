@@ -1,10 +1,10 @@
-interface ISectionContentProps {
+interface IProps {
   data: null | any[];
   noResultsMessage: string;
   children: React.ReactNode;
 }
 
-export default function SectionContent({ data, noResultsMessage, children }: ISectionContentProps) {
+export default function SectionContent({ data, noResultsMessage, children }: IProps) {
   return (
     <>
       {/* State: succeeded */}

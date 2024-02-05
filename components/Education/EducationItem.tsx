@@ -1,10 +1,10 @@
-interface IEducationItemProps {
+interface IProps {
   location: string;
   institution: string;
   certificate: string;
 }
 
-export default function EducationItem({ location, institution, certificate }: IEducationItemProps) {
+export default function EducationItem({ location, institution, certificate }: IProps) {
   return (
     <section>
       <h3>

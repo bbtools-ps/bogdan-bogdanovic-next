@@ -4,11 +4,11 @@ import { Trans, useTranslation } from "next-i18next";
 import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import JobItem from "./JobItem";
 
-interface IWorkExperienceProps {
+interface IProps {
   data: IWorkExperienceData["documents"];
 }
 
-export default function WorkExperience({ data: jobs }: IWorkExperienceProps) {
+export default function WorkExperience({ data: jobs }: IProps) {
   const { t } = useTranslation();
 
   return (

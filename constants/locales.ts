@@ -1,9 +1,9 @@
-export const Languages = {
+export const LANGUAGES = {
   en: "English",
   sr: "Srpski"
 };
 
-export const Locales = {
+export const LOCALES = {
   en: "en-US",
   sr: "sr-Latn-RS"
 };

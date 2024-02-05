@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ExternalLink, { IExternalLinkProps } from "../ExternalLink/ExternalLink";
 import classes from "./SociallLink.module.scss";
 
-const linkIcons = {
+const LINK_ICONS = {
   behance: faBehance,
   facebook: faFacebook,
   github: faGithub,
@@ -17,12 +17,12 @@ const linkIcons = {
   youtube: faYoutube
 };
 
-interface ISocialLinkProps extends IExternalLinkProps {
-  icon: keyof typeof linkIcons;
+interface IProps extends IExternalLinkProps {
+  icon: keyof typeof LINK_ICONS;
 }
 
-export default function SocialLink({ children, href, icon }: ISocialLinkProps) {
-  const linkIcon = linkIcons[icon];
+export default function SocialLink({ children, href, icon }: IProps) {
+  const linkIcon = LINK_ICONS[icon];
 
   return (
     <ExternalLink

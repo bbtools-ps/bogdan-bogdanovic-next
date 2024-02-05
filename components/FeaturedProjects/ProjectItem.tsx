@@ -5,7 +5,7 @@ import ExternalLink from "../UI/ExternalLink/ExternalLink";
 import ProjectImage from "./ProjectImage";
 import styles from "./ProjectItem.module.css";
 
-interface IProjectItemProps {
+interface IProps {
   title: string;
   description: string;
   technologies?: IStringValue[];
@@ -25,7 +25,7 @@ export default function ProjectItem({
   liveLink,
   sourceLink,
   technologies
-}: IProjectItemProps) {
+}: IProps) {
   const { t } = useTranslation();
 
   return (
