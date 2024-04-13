@@ -10,7 +10,12 @@ interface IProps {
 
 export default function ProjectImage({ url, src, alt }: IProps) {
   return (
-    <Link href={url || "#"} target="_blank" rel="noopener noreferrer" style={{ maxWidth: "350px" }}>
+    <Link
+      href={url || "#"}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ maxWidth: "21.875rem" }}
+    >
       <Image
         src={`https://firebasestorage.googleapis.com/v0/b/bogdan-bogdanovic.appspot.com/o/${src}`}
         alt={alt}
