@@ -17,15 +17,17 @@ export default function FooterHeader() {
   return (
     <section className="mb-0">
       <h2 className="text-4xl">{t("FooterTitle_Label")}</h2>
-      <Link
-        href={`mailto:${EMAIL}`}
-        rel="noopener noreferrer"
-        target="_top"
-        className="text-link flex justify-center gap-2"
-      >
-        <Icons icon="mail" />
-        <span>{EMAIL}</span>
-      </Link>
+      <div className="flex justify-center">
+        <Link
+          href={`mailto:${EMAIL}`}
+          rel="noopener noreferrer"
+          target="_top"
+          className="text-link flex gap-2"
+        >
+          <Icons icon="mail" />
+          <span>{EMAIL}</span>
+        </Link>
+      </div>
       <div className="my-7 flex flex-wrap justify-center gap-4">
         <Link
           href={GITHUB_LINK}
