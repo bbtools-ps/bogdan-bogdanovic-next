@@ -1,6 +1,5 @@
 "use client";
 
-import { LINKEDIN_LINK } from "@/constants";
 import Link from "next/link";
 import { Trans, useTranslation } from "react-i18next";
 
@@ -16,7 +15,7 @@ export default function FooterBottom() {
           components={{
             link1: (
               <Link
-                href={LINKEDIN_LINK}
+                href='https://github.com/bbtools-ps/bogdan-bogdanovic-website'
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-link"
