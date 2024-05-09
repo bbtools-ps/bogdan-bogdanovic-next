@@ -10,7 +10,7 @@ export default async function LanguageList({ locale }: { locale: string }) {
     },
   );
   const languages = (await data.json()) as ILanguageData;
-  const sortedLanguages = sortDataCreateTime(languages.documents);
+  const sortedLanguages = sortDataCreateTime(languages.documents, "ASC");
 
   return (
     <ul className="flex list-disc flex-col gap-4 px-4">
