@@ -1,7 +1,8 @@
 import { DATABASE_PATH, REVALIDATE_INTERVAL } from "@/constants";
-import { sortDataCreateTime } from "@/lib/utils";
+import { formatDate, sortDataCreateTime } from "@/lib/utils";
 import { IWorkExperienceData } from "@/models";
 import Link from "next/link";
+import PresentDate from "./PresentDate";
 
 export default async function WorkExperienceList({
   locale,
@@ -30,12 +31,25 @@ export default async function WorkExperienceList({
             <h3>{experience.fields.jobTitle.stringValue}</h3>
             <Link
               href={experience.fields.companyLink?.stringValue || "#"}
-              className="mb-4 inline-block text-xl font-bold text-blue-700 duration-100 hover:text-blue-400 dark:text-blue-200 dark:hover:text-blue-400 lg:mb-0"
+              className="mb-4 block text-xl font-bold text-blue-700 duration-100 hover:text-blue-400 dark:text-blue-200 dark:hover:text-blue-400 lg:mb-0"
               rel="noopener noreferrer"
               target="_blank"
             >
               {experience.fields.companyName.stringValue}
             </Link>
+            <p className="opacity-75">
+              <span>
+                {formatDate(experience.fields.startDate.timestampValue)}
+              </span>{" "}
+              -{" "}
+              {experience.fields.endDate?.timestampValue ? (
+                <span>
+                  {formatDate(experience.fields.endDate.timestampValue)}
+                </span>
+              ) : (
+                <PresentDate />
+              )}
+            </p>
           </div>
           <div>
             <ul className="list-disc px-4">
