@@ -23,6 +23,13 @@ export const metadata: Metadata = {
   title: "Bogdan Bogdanovic",
   description:
     "Skilled web developer using: HTML, CSS, Javascript, React.js, Vue.js and Node.js. Strong arts and design professional.",
+  openGraph: {
+    title: "Bogdan Bogdanovic",
+    description:
+      "Skilled web developer using: HTML, CSS, Javascript, React.js, Vue.js and Node.js. Strong arts and design professional.",
+    siteName: "Bogdan Bogdanovic",
+    url: "https://bogdan-bogdanovic.com/",
+  },
 };
 
 export async function generateStaticParams() {
