@@ -31,7 +31,7 @@ export default async function WorkExperienceList({
             <h3>{experience.fields.jobTitle.stringValue}</h3>
             <Link
               href={experience.fields.companyLink?.stringValue || "#"}
-              className="mb-4 block text-xl font-bold text-blue-700 duration-100 hover:text-blue-400 dark:text-blue-200 dark:hover:text-blue-400 lg:mb-0"
+              className="mb-4 inline-block text-xl font-bold text-blue-700 duration-100 hover:text-blue-400 dark:text-blue-200 dark:hover:text-blue-400 lg:mb-0"
               rel="noopener noreferrer"
               target="_blank"
             >
