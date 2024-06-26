@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export const sortDataCreateTime = <T extends { createTime: string }>(
   arr: T[] = [],
-  orderBy: "ASC" | "DESC" = "DESC",
+  orderBy: "ASC" | "DESC" = "DESC"
 ): T[] => {
   const sortedArr = [...arr]; // create a copy of the array to avoid mutation
   if (sortedArr.length === 0) {
@@ -34,7 +34,7 @@ export const sortDataCreateTime = <T extends { createTime: string }>(
 
 export const formatDate = (
   date: string,
-  locale: string | undefined = "en-US",
+  locale: string | undefined = "en-US"
 ) => {
   const timestamp = Date.parse(date);
 

@@ -7,7 +7,7 @@ export default async function EducationList({ locale }: { locale: string }) {
     `${DATABASE_PATH}/education${locale === "en" ? "" : "-" + locale}`,
     {
       next: { revalidate: REVALIDATE_INTERVAL },
-    },
+    }
   );
   const education = (await data.json()) as IEducationData;
   const sortedEducation = sortDataCreateTime(education.documents);

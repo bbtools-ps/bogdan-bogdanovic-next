@@ -98,7 +98,7 @@ export default function FeaturedProjectItem({ project }: IProps) {
                     >
                       {technology.stringValue}
                     </p>
-                  ),
+                  )
                 )}
               </div>
             </>
@@ -116,7 +116,7 @@ export default function FeaturedProjectItem({ project }: IProps) {
                     >
                       {equipment.stringValue}
                     </p>
-                  ),
+                  )
                 )}
               </div>
             </>

@@ -1,4 +1,9 @@
-import { IEducationFields, ILanguageFields, IProjectFields, IWorkExperienceFields } from "./Fields";
+import {
+  IEducationFields,
+  ILanguageFields,
+  IProjectFields,
+  IWorkExperienceFields,
+} from "./Fields";
 
 export interface IProjectData {
   documents: {

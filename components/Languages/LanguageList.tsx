@@ -7,7 +7,7 @@ export default async function LanguageList({ locale }: { locale: string }) {
     `${DATABASE_PATH}/languages${locale === "en" ? "" : "-" + locale}`,
     {
       next: { revalidate: REVALIDATE_INTERVAL },
-    },
+    }
   );
   const languages = (await data.json()) as ILanguageData;
   const sortedLanguages = sortDataCreateTime(languages.documents, "ASC");

@@ -13,7 +13,7 @@ export default async function WorkExperienceList({
     `${DATABASE_PATH}/work-experience${locale === "en" ? "" : "-" + locale}`,
     {
       next: { revalidate: REVALIDATE_INTERVAL },
-    },
+    }
   );
   const workExperience = (await data.json()) as IWorkExperienceData;
   const sortedWorkExperience = sortDataCreateTime(workExperience.documents);
@@ -58,7 +58,7 @@ export default async function WorkExperienceList({
                   <li key={index} className="py-2">
                     {value.stringValue}
                   </li>
-                ),
+                )
               )}
             </ul>
           </div>

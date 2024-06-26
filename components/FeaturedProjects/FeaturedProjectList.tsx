@@ -12,7 +12,7 @@ export default async function FeaturedProjectList({
     `${DATABASE_PATH}/projects${locale === "en" ? "" : "-" + locale}`,
     {
       next: { revalidate: REVALIDATE_INTERVAL },
-    },
+    }
   );
   const projects = (await data.json()) as IProjectData;
   const sortedProjects = sortDataCreateTime(projects.documents);

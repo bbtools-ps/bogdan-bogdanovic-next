@@ -34,7 +34,7 @@ export default function LanguageSwitcher() {
       router.push("/" + newLocale + currentPathname);
     } else {
       router.push(
-        currentPathname.replace(`/${currentLocale}`, `/${newLocale}`),
+        currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
       );
     }
 

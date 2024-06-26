@@ -15,7 +15,7 @@ export default function FooterBottom() {
           components={{
             link1: (
               <Link
-                href='https://github.com/bbtools-ps/bogdan-bogdanovic-website'
+                href="https://github.com/bbtools-ps/bogdan-bogdanovic-website"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-link"

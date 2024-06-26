@@ -23,7 +23,7 @@ export default function ThemeSwitcher() {
   if (!mounted) {
     return (
       <button
-        className="flex hover:opacity-75 bg-white dark:bg-black rounded-full full p-2 duration-100"
+        className="full flex rounded-full bg-white p-2 duration-100 hover:opacity-75 dark:bg-black"
         aria-label="Switch theme"
       >
         <Icons icon="sun" />
@@ -33,7 +33,7 @@ export default function ThemeSwitcher() {
 
   return (
     <button
-      className="flex hover:opacity-75 bg-white dark:bg-black rounded-full full p-2 duration-100"
+      className="full flex rounded-full bg-white p-2 duration-100 hover:opacity-75 dark:bg-black"
       aria-label="Switch theme"
       onClick={handleToggleTheme}
     >
