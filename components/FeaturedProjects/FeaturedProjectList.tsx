@@ -1,6 +1,6 @@
 import { DATABASE_PATH, REVALIDATE_INTERVAL } from "@/constants";
 import { sortDataCreateTime } from "@/lib/utils";
-import { IProjectData } from "@/models";
+import type { IProjectData } from "@/models";
 import FeaturedProjectItem from "./FeaturedProjectItem";
 
 export default async function FeaturedProjectList({

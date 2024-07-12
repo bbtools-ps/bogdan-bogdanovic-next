@@ -1,6 +1,6 @@
 import { DATABASE_PATH, REVALIDATE_INTERVAL } from "@/constants";
 import { sortDataCreateTime } from "@/lib/utils";
-import { ILanguageData } from "@/models";
+import type { ILanguageData } from "@/models";
 
 export default async function LanguageList({ locale }: { locale: string }) {
   const data = await fetch(

@@ -1,4 +1,4 @@
-import { IProjectData } from "@/models";
+import type { IProjectData } from "@/models";
 import Image from "next/image";
 import Link from "next/link";
 import Icons from "../UI/Icons";

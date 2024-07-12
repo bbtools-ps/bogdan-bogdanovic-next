@@ -1,6 +1,6 @@
 import { DATABASE_PATH, REVALIDATE_INTERVAL } from "@/constants";
 import { formatDate, sortDataCreateTime } from "@/lib/utils";
-import { IWorkExperienceData } from "@/models";
+import type { IWorkExperienceData } from "@/models";
 import Link from "next/link";
 import PresentDate from "./PresentDate";
 
