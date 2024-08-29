@@ -26,16 +26,7 @@ export default function FeaturedProjectItem({ project }: IProps) {
           <h3>{project.fields.title.stringValue}</h3>
         </Link>
       </div>
-      <Link
-        href={
-          project.fields.infoLink?.stringValue ||
-          project.fields.liveLink?.stringValue ||
-          "#"
-        }
-        rel="noopener noreferrer"
-        target="_blank"
-        className="group mx-auto max-h-[300px] max-w-[400px] overflow-hidden rounded border-2 border-slate-400"
-      >
+      <div className="group relative mx-auto max-h-[300px] max-w-[400px] overflow-hidden rounded border-2 border-slate-400">
         <Image
           src={`https://firebasestorage.googleapis.com/v0/b/bogdan-bogdanovic.appspot.com/o/${project.fields.imageSrc.stringValue}`}
           width={400}
@@ -43,7 +34,21 @@ export default function FeaturedProjectItem({ project }: IProps) {
           alt={project.fields.title.stringValue}
           className="duration-200 group-hover:scale-110"
         />
-      </Link>
+        <Link
+          href={
+            project.fields.infoLink?.stringValue ||
+            project.fields.liveLink?.stringValue ||
+            "#"
+          }
+          rel="noopener noreferrer"
+          target="_blank"
+          className="absolute inset-0"
+        >
+          <span className="sr-only">
+            Check out {project.fields.title.stringValue}
+          </span>
+        </Link>
+      </div>
       <div>
         <p className="mb-4">{project.fields.description.stringValue}</p>
         {(project.fields.infoLink ||
