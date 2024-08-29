@@ -1,15 +1,15 @@
 import type { IProjectData } from "@/models";
-import Image from "next/image";
 import Link from "next/link";
-import Icons from "../UI/Icons";
 import EquipmentUsedHeader from "./EquipmentUsedHeader";
+import FeaturedProjectButtonLink from "./FeaturedProjectButtonLink";
+import FeaturedProjectImage from "./FeaturedProjectImage";
 import TechnologiesUsedHeader from "./TechnologiesUsedHeader";
 
 interface IProps {
   project: IProjectData["documents"][number];
 }
 
-export default function FeaturedProjectItem({ project }: IProps) {
+export default function FeaturedProject({ project }: IProps) {
   return (
     <div className="mb-20 grid grid-cols-1 gap-4 lg:grid-cols-2">
       <div className="col-span-full mx-auto mb-5 flex">
@@ -26,29 +26,15 @@ export default function FeaturedProjectItem({ project }: IProps) {
           <h3>{project.fields.title.stringValue}</h3>
         </Link>
       </div>
-      <div className="group relative mx-auto max-h-[300px] max-w-[400px] overflow-hidden rounded border-2 border-slate-400">
-        <Image
-          src={`https://firebasestorage.googleapis.com/v0/b/bogdan-bogdanovic.appspot.com/o/${project.fields.imageSrc.stringValue}`}
-          width={400}
-          height={400}
-          alt={project.fields.title.stringValue}
-          className="duration-200 group-hover:scale-110"
-        />
-        <Link
-          href={
-            project.fields.infoLink?.stringValue ||
-            project.fields.liveLink?.stringValue ||
-            "#"
-          }
-          rel="noopener noreferrer"
-          target="_blank"
-          className="absolute inset-0"
-        >
-          <span className="sr-only">
-            Check out {project.fields.title.stringValue}
-          </span>
-        </Link>
-      </div>
+      <FeaturedProjectImage
+        title={project.fields.title.stringValue}
+        src={project.fields.imageSrc.stringValue}
+        href={
+          project.fields.infoLink?.stringValue ||
+          project.fields.liveLink?.stringValue ||
+          "#"
+        }
+      />
       <div>
         <p className="mb-4">{project.fields.description.stringValue}</p>
         {(project.fields.infoLink ||
@@ -56,37 +42,25 @@ export default function FeaturedProjectItem({ project }: IProps) {
           project.fields.sourceLink) && (
           <div className="mb-10 flex justify-center gap-4 lg:justify-start">
             {project.fields.infoLink && (
-              <Link
+              <FeaturedProjectButtonLink
+                type="info"
                 href={project.fields.infoLink.stringValue}
-                rel="noopener noreferrer"
-                target="_blank"
-                className="button-link"
-              >
-                <Icons icon="info" />
-                <span>Info</span>
-              </Link>
+                title={project.fields.title.stringValue}
+              />
             )}
             {project.fields.liveLink && (
-              <Link
+              <FeaturedProjectButtonLink
+                type="live"
                 href={project.fields.liveLink.stringValue}
-                rel="noopener noreferrer"
-                target="_blank"
-                className="button-link"
-              >
-                <Icons icon="eye" />
-                <span>Live</span>
-              </Link>
+                title={project.fields.title.stringValue}
+              />
             )}
             {project.fields.sourceLink && (
-              <Link
+              <FeaturedProjectButtonLink
+                type="source"
                 href={project.fields.sourceLink.stringValue}
-                rel="noopener noreferrer"
-                target="_blank"
-                className="button-link"
-              >
-                <Icons icon="code" />
-                <span>Source</span>
-              </Link>
+                title={project.fields.title.stringValue}
+              />
             )}
           </div>
         )}

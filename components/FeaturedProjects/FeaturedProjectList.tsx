@@ -1,7 +1,7 @@
 import { DATABASE_PATH, REVALIDATE_INTERVAL } from "@/constants";
 import { sortDataCreateTime } from "@/lib/utils";
 import type { IProjectData } from "@/models";
-import FeaturedProjectItem from "./FeaturedProjectItem";
+import FeaturedProject from "./FeaturedProject";
 
 export default async function FeaturedProjectList({
   locale,
@@ -20,7 +20,7 @@ export default async function FeaturedProjectList({
   return (
     <>
       {sortedProjects.map((project, index) => (
-        <FeaturedProjectItem key={index} project={project} />
+        <FeaturedProject key={index} project={project} />
       ))}
     </>
   );
