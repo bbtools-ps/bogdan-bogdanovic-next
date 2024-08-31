@@ -5,24 +5,33 @@ import { useTranslation } from "react-i18next";
 import Icons from "../UI/Icons";
 
 const PROJECT_TYPES = {
-  info: (
-    <>
-      <Icons icon="info" />
-      <span aria-hidden>Info</span>
-    </>
-  ),
-  live: (
-    <>
-      <Icons icon="eye" />
-      <span aria-hidden>Live</span>
-    </>
-  ),
-  source: (
-    <>
-      <Icons icon="code" />
-      <span aria-hidden>Source</span>
-    </>
-  ),
+  info: {
+    element: (
+      <>
+        <Icons icon="info" />
+        <span aria-hidden>Info</span>
+      </>
+    ),
+    altTextLabel: "InfoProject_Label",
+  },
+  live: {
+    element: (
+      <>
+        <Icons icon="eye" />
+        <span aria-hidden>Live</span>
+      </>
+    ),
+    altTextLabel: "LiveProject_Link",
+  },
+  source: {
+    element: (
+      <>
+        <Icons icon="code" />
+        <span aria-hidden>Source</span>
+      </>
+    ),
+    altTextLabel: "SourceProject_Label",
+  },
 } as const;
 
 interface IProps {
@@ -38,21 +47,7 @@ export default function FeaturedProjectButtonLink({
 }: IProps) {
   const { t } = useTranslation();
 
-  let altText;
-
-  if (type === "info") {
-    altText = t("InfoProject_Label", {
-      project: title,
-    });
-  } else if (type == "live") {
-    altText = t("LiveProject_Link", {
-      project: title,
-    });
-  } else {
-    altText = t("SourceProject_Label", {
-      project: title,
-    });
-  }
+  const selectedProject = PROJECT_TYPES[type];
 
   return (
     <Link
@@ -61,8 +56,12 @@ export default function FeaturedProjectButtonLink({
       target="_blank"
       className="button-link"
     >
-      {PROJECT_TYPES[type]}
-      <span className="sr-only">{altText}</span>
+      {selectedProject.element}
+      <span className="sr-only">
+        {t(selectedProject.altTextLabel, {
+          project: title,
+        })}
+      </span>
     </Link>
   );
 }
