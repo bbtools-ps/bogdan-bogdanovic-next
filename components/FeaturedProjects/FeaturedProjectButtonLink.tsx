@@ -21,7 +21,7 @@ const PROJECT_TYPES = {
         <span aria-hidden>Live</span>
       </>
     ),
-    altTextLabel: "LiveProject_Link",
+    altTextLabel: "LiveProject_Label",
   },
   source: {
     element: (

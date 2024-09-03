@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Icons from "./UI/Icons";
 
 export default function ThemeSwitcher() {
@@ -20,11 +21,13 @@ export default function ThemeSwitcher() {
     }
   };
 
+  const { t } = useTranslation("common");
+
   if (!mounted) {
     return (
       <button
         className="full flex rounded-full bg-white p-2 duration-100 hover:opacity-75 dark:bg-black"
-        aria-label="Switch theme"
+        aria-label={t("SwitchTheme_Label")}
       >
         <Icons icon="sun" />
       </button>
@@ -34,7 +37,7 @@ export default function ThemeSwitcher() {
   return (
     <button
       className="full flex rounded-full bg-white p-2 duration-100 hover:opacity-75 dark:bg-black"
-      aria-label="Switch theme"
+      aria-label={t("SwitchTheme_Label")}
       onClick={handleToggleTheme}
     >
       <Icons icon={icon} />

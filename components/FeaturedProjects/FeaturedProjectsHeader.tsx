@@ -9,7 +9,9 @@ export default function FeaturedProjectsHeader() {
 
   return (
     <>
-      <h2>{t("FeaturedProjectsTitle_Label")}</h2>
+      <h2 id="projects" tabIndex={-1}>
+        {t("FeaturedProjectsTitle_Label")}
+      </h2>
       <p className="mb-10 md:mb-20">
         <Trans
           i18nKey={t("FeaturedProjectsDescription_Label")}
