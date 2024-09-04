@@ -183,7 +183,7 @@ export default function Icons({ icon, className, ...rest }: IProps) {
       viewBox="0 0 512 512"
       className={cn("w-6", className)}
       {...rest}
-      aria-hidden
+      aria-hidden="true"
     >
       {ICONS[icon]}
     </svg>

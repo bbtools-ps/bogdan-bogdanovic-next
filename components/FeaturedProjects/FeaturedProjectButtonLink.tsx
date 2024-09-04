@@ -9,7 +9,7 @@ const PROJECT_TYPES = {
     element: (
       <>
         <Icons icon="info" />
-        <span aria-hidden>Info</span>
+        <span aria-hidden="true">Info</span>
       </>
     ),
     altTextLabel: "InfoProject_Label",
@@ -18,7 +18,7 @@ const PROJECT_TYPES = {
     element: (
       <>
         <Icons icon="eye" />
-        <span aria-hidden>Live</span>
+        <span aria-hidden="true">Live</span>
       </>
     ),
     altTextLabel: "LiveProject_Label",
@@ -27,7 +27,7 @@ const PROJECT_TYPES = {
     element: (
       <>
         <Icons icon="code" />
-        <span aria-hidden>Source</span>
+        <span aria-hidden="true">Source</span>
       </>
     ),
     altTextLabel: "SourceProject_Label",
