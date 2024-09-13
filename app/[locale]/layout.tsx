@@ -5,8 +5,6 @@ import { i18nConfig } from "@/i18nConfig";
 import { dir } from "i18next";
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
-import Image from "next/image";
-import bgImage from "../../public/images/bg.webp";
 import "../globals.css";
 
 const inter = Inter({
@@ -58,14 +56,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Image
-            src={bgImage}
-            alt="Background image"
-            fill
-            placeholder="blur"
-            className="object-cover"
-          />
-          <div className="absolute h-full w-full bg-slate-100 opacity-80 dark:bg-slate-800"></div>
           <div className="relative h-full overflow-auto bg-gradient-to-t from-slate-100/50 dark:from-slate-900/50">
             <Header locale={locale} />
             <main>{children}</main>
