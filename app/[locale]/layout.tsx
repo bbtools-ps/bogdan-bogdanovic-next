@@ -6,6 +6,7 @@ import { dir } from "i18next";
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
 import Image from "next/image";
+import bgImage from "../../public/images/bg.webp";
 import "../globals.css";
 
 const inter = Inter({
@@ -58,9 +59,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Image
-            src="/images/bg.webp"
+            src={bgImage}
             alt="Background image"
             fill
+            placeholder="blur"
             className="object-cover"
           />
           <div className="absolute h-full w-full bg-slate-100 opacity-80 dark:bg-slate-800"></div>
