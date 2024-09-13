@@ -49,18 +49,16 @@ export default function RootLayout({
       className={`${inter.variable} ${lora.variable} min-h-full`}
     >
       <head />
-      <body className="relative h-[100vh] overflow-hidden">
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="relative h-full overflow-auto bg-gradient-to-t from-slate-100/50 dark:from-slate-900/50">
-            <Header locale={locale} />
-            <main>{children}</main>
-            <Footer locale={locale} />
-          </div>
+          <Header locale={locale} />
+          <main>{children}</main>
+          <Footer locale={locale} />
         </ThemeProvider>
       </body>
     </html>
