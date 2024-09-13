@@ -27,7 +27,8 @@ export default async function Footer({ locale }: { locale: string }) {
             placeholder="blur"
             className="object-cover"
           />
-          <div className="h-full w-full bg-slate-100 opacity-80 dark:bg-slate-800"></div>
+          <div className="absolute h-full w-full bg-slate-100 opacity-80 dark:bg-slate-800" />
+          <div className="absolute h-full w-full overflow-auto bg-gradient-to-t from-slate-100/50 dark:from-slate-900/50" />
         </div>
       </footer>
     </TranslationsProvider>
