@@ -20,7 +20,7 @@ export default function WorkExperienceHeader() {
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-link"
-              ></Link>
+              />
             ),
           }}
         />

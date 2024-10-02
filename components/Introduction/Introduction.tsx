@@ -21,7 +21,7 @@ export default function Introduction() {
                 className="text-link"
                 rel="noopener noreferrer"
                 target="_top"
-              ></Link>
+              />
             ),
           }}
         />

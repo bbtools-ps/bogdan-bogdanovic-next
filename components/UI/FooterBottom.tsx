@@ -19,7 +19,7 @@ export default function FooterBottom() {
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-link"
-              ></Link>
+              />
             ),
           }}
         />

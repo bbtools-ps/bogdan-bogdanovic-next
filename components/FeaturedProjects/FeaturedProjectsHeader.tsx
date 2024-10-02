@@ -22,7 +22,7 @@ export default function FeaturedProjectsHeader() {
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-link"
-              ></Link>
+              />
             ),
             link2: (
               <Link
@@ -30,7 +30,7 @@ export default function FeaturedProjectsHeader() {
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-link"
-              ></Link>
+              />
             ),
           }}
         />
