@@ -5,6 +5,8 @@ import { i18nConfig } from "@/i18nConfig";
 import { dir } from "i18next";
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
+import Image from "next/image";
+import bgImage from "../../public/images/bg.webp";
 import "../globals.css";
 
 const inter = Inter({
@@ -49,13 +51,24 @@ export default function RootLayout({
       className={`${inter.variable} ${lora.variable} min-h-full`}
     >
       <head />
-      <body>
+      <body className="bg-slate-100 dark:bg-slate-800">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          <div className="fixed inset-0 -z-10 h-full w-full">
+            <Image
+              src={bgImage}
+              alt="Background image"
+              fill
+              placeholder="blur"
+              className="object-cover"
+            />
+            <div className="absolute h-full w-full bg-slate-100 opacity-80 dark:bg-slate-800" />
+            <div className="absolute h-full w-full overflow-auto bg-gradient-to-t from-slate-100/50 dark:from-slate-900/50" />
+          </div>
           <Header locale={locale} />
           <main>{children}</main>
           <Footer locale={locale} />
