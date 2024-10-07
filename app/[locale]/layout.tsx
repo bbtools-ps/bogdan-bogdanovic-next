@@ -5,7 +5,6 @@ import { i18nConfig } from "@/i18nConfig";
 import { dir } from "i18next";
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
-
 import "../globals.css";
 
 const inter = Inter({
