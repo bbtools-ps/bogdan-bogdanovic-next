@@ -16,7 +16,9 @@ export default function FeaturedProjectImage({ title, src, href }: IProps) {
   return (
     <Link
       href={href}
-      className="group mx-auto max-h-[300px] max-w-[400px] overflow-hidden rounded border-2 border-slate-400"
+      className="group mx-auto max-h-[18.75rem] max-w-[25rem] overflow-hidden rounded border-2 border-slate-400"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       <Image
         src={`https://firebasestorage.googleapis.com/v0/b/bogdan-bogdanovic.appspot.com/o/${src}`}

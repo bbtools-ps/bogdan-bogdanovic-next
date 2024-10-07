@@ -28,44 +28,52 @@ export default function FooterHeader() {
           <span>{EMAIL}</span>
         </Link>
       </div>
-      <div className="my-7 flex flex-wrap justify-center gap-4">
-        <Link
-          href={GITHUB_LINK}
-          className="text-link flex justify-center gap-2"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icons icon="github" />
-          <span>Github</span>
-        </Link>
-        <Link
-          href={BEHANCE_LINK}
-          className="text-link flex justify-center gap-2"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icons icon="behance" />
-          <span>Behance</span>
-        </Link>
-        <Link
-          href={LINKEDIN_LINK}
-          className="text-link flex justify-center gap-2"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icons icon="linkedin" />
-          <span>Linkedin</span>
-        </Link>
-        <Link
-          href={YOUTUBE_LINK}
-          className="text-link flex justify-center gap-2"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Icons icon="youtube" />
-          <span>Youtube</span>
-        </Link>
-      </div>
+      <ul className="my-7 flex flex-wrap justify-center gap-4">
+        <li>
+          <Link
+            href={GITHUB_LINK}
+            className="text-link flex justify-center gap-2"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Icons icon="github" />
+            <span>Github</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={BEHANCE_LINK}
+            className="text-link flex justify-center gap-2"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Icons icon="behance" />
+            <span>Behance</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={LINKEDIN_LINK}
+            className="text-link flex justify-center gap-2"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Icons icon="linkedin" />
+            <span>Linkedin</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href={YOUTUBE_LINK}
+            className="text-link flex justify-center gap-2"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Icons icon="youtube" />
+            <span>Youtube</span>
+          </Link>
+        </li>
+      </ul>
     </section>
   );
 }
