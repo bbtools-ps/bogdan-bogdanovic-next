@@ -31,7 +31,7 @@ export default async function Page({
       <div className="fixed inset-0 -z-10 h-full w-full">
         <Image
           src={bgImage}
-          alt="Background image"
+          alt=""
           fill
           placeholder="blur"
           className="object-cover"
