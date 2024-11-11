@@ -68,18 +68,18 @@ export default function FeaturedProject({ project }: IProps) {
           project.fields.technologies?.arrayValue.values.length > 0 && (
             <>
               <TechnologiesUsedHeader />
-              <div className="flex flex-wrap gap-2">
+              <ul className="flex flex-wrap gap-2">
                 {project.fields.technologies.arrayValue.values.map(
                   (technology, index) => (
-                    <p
+                    <li
                       key={index}
                       className="rounded border border-solid border-slate-400 px-2 py-1"
                     >
                       {technology.stringValue}
-                    </p>
+                    </li>
                   )
                 )}
-              </div>
+              </ul>
             </>
           )}
         {project.fields.equipment?.arrayValue.values &&
