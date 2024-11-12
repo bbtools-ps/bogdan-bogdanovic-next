@@ -6,7 +6,7 @@ import TranslationsProvider from "@/components/TranslationsProvider";
 import WorkExperience from "@/components/WorkExperience/WorkExperience";
 import initTranslations from "@/lib/i18n";
 import Image from "next/image";
-import bgImage from "../../public/images/bg.webp";
+import bgImage from "../../public/images/bg.jpg";
 
 const i18nNamespaces = ["home"];
 
